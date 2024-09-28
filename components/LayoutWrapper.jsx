@@ -10,19 +10,22 @@ const LayoutWrapper = ({ children }) => {
   const toggleDrawer = () => setIsOpen((prev) => !prev);
 
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-      const handleResize = () => {
-          setIsMobile(window.innerWidth < 768);
-      };
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+    };
 
-      window.addEventListener("resize", handleResize);
-      
-      // Cleanup listener on unmount
-      return () => {
-          window.removeEventListener("resize", handleResize);
-      };
+    // Set initial state only on client-side
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    
+    // Cleanup listener on unmount
+    return () => {
+        window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
