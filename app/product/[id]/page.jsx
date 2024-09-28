@@ -8,6 +8,7 @@ import { GoPlus } from "react-icons/go";
 import { HiMinusSmall } from "react-icons/hi2"
 import { useEffect, useState } from 'react';
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const ProductDetail = () => {
     const pathname = usePathname(); // Get the current pathname
@@ -17,10 +18,14 @@ const ProductDetail = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const result = await fetch(`https://dummyjson.com/products/${id}`);
-            const data = await result.json();
-            setProduct(data);
-            setImageClicked(data.thumbnail);
+            try {
+                const result = await fetch(`https://dummyjson.com/products/${id}`);
+                const data = await result.json();
+                setProduct(data);
+                setImageClicked(data.thumbnail);
+            } catch (error) {
+                console.log(`Error connecting to server: `,error);
+            }
         };
 
         if (id) {
@@ -41,7 +46,12 @@ const ProductDetail = () => {
         return date.toLocaleString('en-US', options).replace(',', ''); // Remove the comma before the time
     };
 
-    if (!product) return <p className='px-2 md:px-5 py-16 md:py-5 '>Loading...</p>;
+    if (!product) return (
+        <div className="flex fixed flex-col gap-2 px-10 py-4 top-0 w-full h-full bg-slate-50 opacity-70 justify-center items-center">
+            <p className="text-lg font-semibold">Loading</p>
+            <AiOutlineLoading3Quarters size={25} className="animate-spin" />
+        </div>
+    );
 
     return (
         <div className='flex flex-col px-2 md:px-5 py-16 md:py-5 md:gap-4 text-slate-700'>
@@ -93,8 +103,8 @@ const ProductDetail = () => {
                     <button className='bg-orange-500 text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Add to Cart <FaCartArrowDown /></button>
                 </div>
             </div>
-            <div className='mt-10'>
-                <div className='border p-2 md:p-5'>
+            <div className='mt-20'>
+                <div className='p-2 md:p-5'>
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
                         <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-sm w-[380px] h-[150px] p-4'></textarea>

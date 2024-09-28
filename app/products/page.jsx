@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import useProductStore from "../store/productStore";
 import StarRating from "@/components/StarRating";
 import Link from "next/link";
-import { IoPricetagsOutline } from "react-icons/io5";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 
 const Page = () => {
     const {
@@ -22,9 +23,13 @@ const Page = () => {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const result = await fetch('https://dummyjson.com/products/categories');
-            const data = await result.json();
-            setCategories(data);
+            try {
+                const result = await fetch('https://dummyjson.com/products/categories');
+                const data = await result.json();
+                setCategories(data);
+            } catch (error) {
+                console.log(`Error connecting to server: `,error);
+            }
         };
 
         const fetchProducts = async () => {
@@ -35,10 +40,14 @@ const Page = () => {
                 url = `https://dummyjson.com/products/category/${selectedCategory}`;
             }
             
-            const result = await fetch(`${url}?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`);
-            const data = await result.json();
-            setAllProducts(data.products);
-            setTotalProducts(data.total || 0); // Ensure total defaults to 0 if undefined
+            try {
+                const result = await fetch(`${url}?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`);
+                const data = await result.json();
+                setAllProducts(data.products);
+                setTotalProducts(data.total || 0); // Ensure total defaults to 0 if undefined
+            } catch (error) {
+                console.log(`Error connecting to server: `,error);
+            }
         };
 
         fetchCategories();
@@ -97,7 +106,10 @@ const Page = () => {
                         </Link>
                     </li>
                 )) : (
-                    <p>Loading...</p>
+                    <div className="flex fixed flex-col gap-2 px-10 py-4 top-0 w-full h-full bg-slate-50 opacity-70 justify-center items-center">
+                        <p className="text-lg font-semibold">Loading</p>
+                        <AiOutlineLoading3Quarters size={25} className="animate-spin" />
+                    </div>
                 )}
             </ul>
             <div className="flex justify-center my-20">
