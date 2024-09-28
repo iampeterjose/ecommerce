@@ -44,7 +44,7 @@ const ProductDetail = () => {
     if (!product) return <p className='px-2 md:px-5 py-16 md:py-5 '>Loading...</p>;
 
     return (
-        <div className='flex flex-col px-2 md:px-5 py-16 md:py-5 gap-0 md:gap-4 text-slate-700 group'>
+        <div className='flex flex-col px-2 md:px-5 py-16 md:py-5 md:gap-4 text-slate-700'>
             <div className='flex flex-col md:flex-row gap-4 border-b mb-4'>
                 <div className='w-full'>
                     <h1 className='text-3xl font-semibold'>{product.title}</h1>
@@ -97,7 +97,7 @@ const ProductDetail = () => {
                 <div className='border p-2 md:p-5'>
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
-                        <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-sm w-[400px] h-[150px] p-4'></textarea>
+                        <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-sm w-[380px] h-[150px] p-4'></textarea>
                         <button className='bg-blue-500 text-white rounded-sm px-2 py-1'>Submit</button>
                     </div>
                     {product.reviews.length > 0 && (
