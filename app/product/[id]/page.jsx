@@ -89,8 +89,8 @@ const ProductDetail = () => {
                         <input type="text" disabled className='border-b-2 border-customBlue px-2 py-1 text-base w-20 text-center' value="0" />
                         <span className='cursor-pointer'><GoPlus /></span>
                     </div>
-                    <button className='bg-blue-500 text-white px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Buy Now <MdPayments /></button>
-                    <button className='bg-orange-500 text-white px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Add to Cart <FaCartArrowDown /></button>
+                    <button className='bg-blue-500 text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Buy Now <MdPayments /></button>
+                    <button className='bg-orange-500 text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Add to Cart <FaCartArrowDown /></button>
                 </div>
             </div>
             <div className='mt-10'>
@@ -98,7 +98,7 @@ const ProductDetail = () => {
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
                         <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-sm w-[380px] h-[150px] p-4'></textarea>
-                        <button className='bg-blue-500 text-white rounded-sm px-2 py-1'>Submit</button>
+                        <button className='bg-blue-500 text-white h-14 md:h-auto rounded-sm px-5 py-1'>Submit</button>
                     </div>
                     {product.reviews.length > 0 && (
                         <>

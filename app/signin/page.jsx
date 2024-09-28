@@ -23,7 +23,7 @@ const page = () => {
                             placeholder="Enter your email..."
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="px-2 py-1 text-base w-full"
+                            className="px-2 py-1 text-base w-full h-14 md:h-auto"
                         />
                         <label className="text-sm mt-2">Password: </label>
                         <input 
@@ -31,10 +31,10 @@ const page = () => {
                             placeholder="Enter your password..."
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="px-2 py-1 text-base w-full"
+                            className="px-2 py-1 text-base w-full h-14 md:h-auto"
                         />
                         <button
-                            className="w-full mt-4 py-1 font-semibold bg-orange-500 text-white rounded-sm hover:bg-orange-600"
+                            className="w-full h-14 md:h-auto mt-4 py-1 font-semibold bg-orange-500 text-white rounded-sm hover:bg-orange-600"
                         >
                             Login
                         </button>

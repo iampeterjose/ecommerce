@@ -56,8 +56,8 @@ const Page = () => {
         <div className="flex flex-col px-2 md:px-5 py-16 md:py-5 gap-y-4">
             <h1 className="text-xl text-slate-700 font-semibold">Products</h1>
 
-            <form className="flex border w-full md:w-fit rounded-sm">
-                <div>
+            <form className="flex border w-full md:w-fit rounded-sm my-4">
+                <div className="h-14 md:h-auto">
                     <select
                         value={selectedCategory}
                         onChange={(e) => {
@@ -92,7 +92,7 @@ const Page = () => {
                                 <img src={product.thumbnail} alt={product.title} className="w-[180px] md:w-[200px] h-[180px] md:h-[250px]"/> 
                             </div>
                             <StarRating rating={product.rating} />
-                            <h2 className="mt-3 text-sm items-center">{product.title}</h2>
+                            <h2 className="text-sm items-center">{product.title}</h2>
                             <p className="text-sm text-red-500">${product.price}</p>
                         </Link>
                     </li>

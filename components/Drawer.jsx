@@ -39,9 +39,9 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
         
 
         {/* Mobile View */}
-        <div className="flex z-50 fixed md:hidden bg-customBlue text-white border-b-2 border-customBlue2 shadow-customBlue2 shadow-sm w-full p-2">
+        <div className="flex z-50 fixed md:hidden bg-customBlue text-white border-b-2 border-customBlue2 shadow-customBlue2 shadow-sm w-full px-2 py-3">
             <div className="flex justify-start gap-4">
-                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> eCommerce
+                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <h1 className="text-lg">eCommerce</h1>
             </div>
 
             <div className={`fixed inset-y-0 left-0 w-72 bg-customBlue shadow-customBlue2 shadow-md border-customBlue2 border-r-2 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -55,6 +55,8 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
                                 <Link
                                     href={nav.href}
                                     className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customBlue2 hover:rounded-sm ${pathname === nav.href ? "bg-customBlue2 border-white border rounded-sm" : ""}`}
+                                    
+                                    onClick={toggleDrawer}
                                 >
                                     <div>{nav.icon}</div>
                                     <h2>{nav.title}</h2>
