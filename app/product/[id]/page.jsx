@@ -9,6 +9,13 @@ import { HiMinusSmall } from "react-icons/hi2"
 import { useEffect, useState } from 'react';
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FaShippingFast } from "react-icons/fa";
+import { TbTruckReturn } from "react-icons/tb";
+import { SiAdguard } from "react-icons/si";
+import { TbDimensions } from "react-icons/tb";
+import { FaWeight } from "react-icons/fa";
+import { BiSolidCategory } from "react-icons/bi";
+import { FaTag } from "react-icons/fa6";
 
 const ProductDetail = () => {
     const pathname = usePathname(); // Get the current pathname
@@ -58,13 +65,15 @@ const ProductDetail = () => {
             <div className='flex flex-col md:flex-row gap-4 border-b mb-4'>
                 <div className='w-full'>
                     <h1 className='text-3xl font-semibold'>{product.title}</h1>
-                    <StarRating rating={product.rating} />
-                    <div className="mb-4 bg-slate-50 flex justify-center border-2 rounded-sm">
-                        <img src={imageClicked} alt={product.title} className='w-[400px] h-[400px] rounded-sm'/>
+                    <span className='flex items-center gap-4'>
+                        <StarRating rating={product.rating} /><span className='text-sm'>({product.reviews.length} Reviews)</span>
+                    </span>
+                    <div className="mb-4 bg-white flex justify-center border-2 border-slate-200 rounded-md">
+                        <img src={imageClicked} alt={product.title} className='w-[400px] h-[400px]'/>
                     </div>
                     <div className='flex flex-wrap gap-2'>
                         {product.images.map((image, i) => (
-                            <img src={image} alt={i} className={`w-[100px] h-[100px] border ${imageClicked === image && "bg-slate-100"} rounded-sm hover:cursor-pointer hover:bg-slate-100`} onClick={() => setImageClicked(image)} />
+                            <img src={image} alt={i} className={`w-[100px] h-[100px] border-2 ${imageClicked === image && "bg-white"} rounded-sm hover:cursor-pointer hover:bg-white`} onClick={() => setImageClicked(image)} />
                         ))}
                     </div>
                     <p className='text-sm my-4'>Status: {product.availabilityStatus}</p>
@@ -78,18 +87,18 @@ const ProductDetail = () => {
                         Description: 
                         <span className='font-normal pl-2'>{product.description}</span>
                     </p>
-                    <p>Weight: {product.weight}</p>
-                    <p>Dimensions: &nbsp;
+                    <p className='flex items-center gap-2'><FaWeight size={22} />Weight: {product.weight}</p>
+                    <p className='flex items-center gap-2'><TbDimensions size={22} />Dimensions: &nbsp;
                         <span>width: {product.dimensions.width} x </span>
                         <span>height: {product.dimensions.height} x </span>
                         <span>depth: {product.dimensions.depth}</span>
                     </p>
-                    <p>Warranty: {product.warrantyInformation}</p>
-                    <p>Return Policy: {product.returnPolicy}</p>
-                    <p>Shipping: {product.shippingInformation}</p>
+                    <p className='flex items-center gap-2'><SiAdguard size={22} />Warranty: {product.warrantyInformation}</p>
+                    <p className='flex items-center gap-2'><TbTruckReturn size={22} />Return Policy: {product.returnPolicy}</p>
+                    <p className='flex items-center gap-2'><FaShippingFast size={22} />Shipping: {product.shippingInformation}</p>
                     <div>
-                        <p>Category: {product.category}</p>
-                        <p>Tags: {product.tags.map((tag) => (
+                        <p className='flex items-center gap-2'><BiSolidCategory size={22} />Category: {product.category}</p>
+                        <p className='flex items-center gap-2'><FaTag size={22} />Tags: {product.tags.map((tag) => (
                             <span>{tag}, </span>
                         ))}</p>
                     </div>
@@ -107,15 +116,15 @@ const ProductDetail = () => {
                 <div className='p-2 md:p-5'>
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
-                        <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-sm w-[380px] h-[150px] p-4'></textarea>
+                        <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-md w-[380px] h-[150px] p-4'></textarea>
                         <button className='bg-blue-500 text-white h-14 md:h-auto rounded-sm px-5 py-1'>Submit</button>
                     </div>
                     {product.reviews.length > 0 && (
                         <>
-                        <h1 className='text-xl my-8 py-2'>Reviews</h1>
+                        <h1 className='text-xl font-semibold mt-14 px-2'>Reviews</h1>
                         <ul className='my-4 flex flex-col flex-wrap md:flex-row justify-evenly gap-4 md:gap-6'>
                             {product.reviews.map((review, i) => (
-                                <li key={i} className='border border-slate-100 p-2 md:p-5 bg-slate-50 w-full'>
+                                <li key={i} className='border-2 border-slate-200 rounded-md p-2 md:p-5 bg-slate-50 w-full'>
                                     <IoPersonCircleOutline size={75} />
                                     <p className='text-md'>{review.reviewerName}</p>
                                     <p className='text-xs'><StarRating rating={product.rating} /></p>

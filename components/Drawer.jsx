@@ -27,7 +27,7 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
                                 <h2 style={{ transitionDelay: `${i + 3}00ms` }} className={`whitespace-pre duration-300 ${!isOpen && "opacity-0 translate-x-28 overflow-hidden"}`}>
                                     {nav.title}
                                 </h2>
-                                <span className={`${!isOpen ? 'opacity-0 group-hover:opacity-100 bg-white border-slate-300 border-2 text-slate-700 px-2 py-1 rounded-sm left-12 absolute' : 'hidden'}`}>
+                                <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-slate-300 border-2 text-slate-700 px-2 py-1 rounded-md left-12 absolute' : 'hidden'}`}>
                                     <p className="font-semibold">{nav.title}</p>
                                 </span>
                             </Link>
