@@ -62,7 +62,7 @@ const ProductDetail = () => {
     );
 
     return (
-        <div className='flex flex-col px-2 md:px-5 py-16 md:py-5 md:gap-4 text-slate-700'>
+        <div className='flex flex-col py-16 md:py-5 md:gap-4 text-slate-700'>
             <div className='flex flex-col md:flex-row gap-4 border-b border-customBlue pb-10'>
             <span className='absolute right-0 mr-3 text-3xl font-extrabold cursor-pointer' onClick={()=>router.back()}>&times;</span>
                 <div className='w-full'>
@@ -115,7 +115,7 @@ const ProductDetail = () => {
                 </div>
             </div>
             <div className='mt-20'>
-                <div className='p-2 md:p-5'>
+                <div className='py-2'>
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
                         <textarea placeholder='Write your feedback...' className='border-2 border-customBlue rounded-md w-[380px] h-[150px] p-4'></textarea>

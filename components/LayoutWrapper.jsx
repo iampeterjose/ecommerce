@@ -33,7 +33,7 @@ const LayoutWrapper = ({ children }) => {
     <div className="flex min-h-screen font-sans">
       <Drawer toggleDrawer={toggleDrawer} isOpen={isOpen} />
       <main
-        className={`flex-grow bg-slate-100 transition-all duration-500 ease-in-out ${isOpen ? 'md:ml-72' : 'md:ml-16'}`}
+        className={`flex-grow bg-slate-100 transition-all duration-500 ease-in-out ${isOpen ? 'md:ml-72' : 'md:ml-16'} p-3 md:p-7`}
         onClick={()=>{isMobile && setIsOpen(false)}}
       >
         {children}

@@ -65,7 +65,7 @@ const Page = () => {
     };
 
     return (
-        <section className="flex flex-col px-3 md:px-5 py-16 md:py-5 gap-y-4 text-slate-700 scroll-smooth">
+        <section className="flex flex-col py-16 md:py-5 gap-y-4 text-slate-700 scroll-smooth">
             {/* Anchor at the top for smooth scrolling */}
             <a id="top" className="absolute top-0"></a>
 
@@ -112,17 +112,19 @@ const Page = () => {
             </span>
             <ul className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
                 {allProducts.length > 0 ? allProducts.map((product) => (
-                    <li key={product.id} className="flex flex-col bg-white justify-center items-center p-3 border-2 rounded-lg hover:cursor-pointer">
-                        <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center">
-                            <img src={product.thumbnail} alt={product.title} className="w-[125px] h-[125px] md:h-[175px]"/> 
-                            <div className="border-t border-dashed w-full py-2">
+                    <li key={product.id} className="flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer">
+                        <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
+                            <div className="flex justify-center w-full py-2">
+                                <img src={product.thumbnail} alt={product.title} className="w-[175px] h-[125px] md:h-[175px]"/>
+                            </div> 
+                            <div className="border-t-2 border-dashed w-full py-1">
                                 <h2 className="text-md font-semibold">{product.title}</h2>
-                                <span className="flex justify-between">
-                                    <p className="text-sm font-semibold text-slate-500">${product.price}</p>
-                                    <FaStar size={22} className="hover:text-yellow-400 text-slate-300" />
-                                </span>
                             </div>
                         </Link>
+                        <span className="flex justify-between mb-2">
+                            <p className="text-sm font-semibold text-slate-500">${product.price}</p>
+                            <FaStar size={22} className="hover:text-yellow-400 text-slate-300" />
+                        </span>
                     </li>
                 )) : (
                     <div className="flex fixed flex-col gap-2 px-10 py-4 top-0 w-full h-full bg-slate-50 opacity-70 justify-center items-center">
