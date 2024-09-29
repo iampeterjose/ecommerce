@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { FaArrowUpLong } from "react-icons/fa6";
+import { FaChevronCircleUp } from "react-icons/fa";
 
 
 const Page = () => {
@@ -64,21 +65,29 @@ const Page = () => {
     };
 
     return (
-        <div className="flex flex-col px-3 md:px-5 py-16 md:py-5 gap-y-4 text-slate-700 ">
+        <section className="flex flex-col px-3 md:px-5 py-16 md:py-5 gap-y-4 text-slate-700 scroll-smooth">
+            {/* Anchor at the top for smooth scrolling */}
+            <a id="top" className="absolute top-0"></a>
+
             <h1 className="text-xl font-semibold">Products</h1>
 
-            <div className="flex flex-col md:flex-row items-center gap-4 border-b border-t border-customBlue py-2">
-                <div className="flex gap-4 w-full">
-                    <p className="flex items-center gap-2 text-sm font-semibold">Search Option <GiSettingsKnobs size={22} /></p>
+            <div className="flex flex-col md:flex-row gap-y-2 items-center border-b border-t border-customBlue py-2">
+                <div className="flex w-full gap-4 md:gap-10">
+                    <span className="flex items-center gap-2">
+                        <p className="font-semibold">Search Option </p>
+                        <GiSettingsKnobs size={22} />
+                    </span>
                     <p className='flex items-center cursor-pointer'>Name<FaArrowUpLong /></p>
                     <p className='flex items-center cursor-pointer'>Price<FaArrowUpLong /></p>
+                </div>
+                <div className="flex w-full">
                     <select
                         value={selectedCategory}
                         onChange={(e) => {
                             setSelectedCategory(e.target.value);
                             setCurrentPage(1); // Reset to page 1 when category changes
                         }}
-                        className="border rounded-md p-2 h-14 md:h-fit"
+                        className="border rounded-md px-2 py-1"
                     >
                         <option value="">All Categories</option>
                         {categories.map((category, index) => (
@@ -90,7 +99,7 @@ const Page = () => {
                 </div>
                 <div className="flex relative w-full">
                     <input type="search" placeholder="Search products..." 
-                        className="block px-2 py-2 pr-[60px] w-full text-base text-slate-700 bg-gray-50 rounded-md border"
+                        className="block px-2 py-1 pr-[60px] w-full text-base text-slate-700 bg-gray-50 rounded-md border"
                     />
                     <button className="absolute top-0 end-0 px-2 py-1 text-sm font-medium h-full border-l-2 rounded-e-sm">
                         <span>Search</span>
@@ -105,7 +114,7 @@ const Page = () => {
                 {allProducts.length > 0 ? allProducts.map((product) => (
                     <li key={product.id} className="flex flex-col bg-white justify-center items-center p-3 border-2 rounded-lg hover:cursor-pointer">
                         <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center">
-                            <img src={product.thumbnail} alt={product.title} className="w-[125px] h-[125px] md:h-[150px]"/> 
+                            <img src={product.thumbnail} alt={product.title} className="w-[125px] h-[125px] md:h-[175px]"/> 
                             <div className="border-t border-dashed w-full py-2">
                                 <h2 className="text-md font-semibold">{product.title}</h2>
                                 <span className="flex justify-between">
@@ -122,6 +131,12 @@ const Page = () => {
                     </div>
                 )}
             </ul>
+            <div className="fixed right-0 mr-3 bottom-10">
+                {/* Updated link to point to the anchor */}
+                <a href="#top" className="cursor-pointer">
+                    <FaChevronCircleUp size={20} />
+                </a>
+            </div>
             <div className="flex justify-center mt-4 py-10 border-t border-customBlue">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button
@@ -133,7 +148,7 @@ const Page = () => {
                     </button>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

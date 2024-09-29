@@ -1,7 +1,7 @@
 "use client";
 import StarRating from '@/components/StarRating';
 // app/products/[id]/page.jsx
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { MdPayments } from "react-icons/md";
 import { FaCartArrowDown } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
@@ -22,6 +22,7 @@ const ProductDetail = () => {
     const id = pathname.split('/').pop(); // Get the product ID from the URL
     const [product, setProduct] = useState(null);
     const [imageClicked, setImageClicked] = useState("");
+    const router = useRouter();
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -63,6 +64,7 @@ const ProductDetail = () => {
     return (
         <div className='flex flex-col px-2 md:px-5 py-16 md:py-5 md:gap-4 text-slate-700'>
             <div className='flex flex-col md:flex-row gap-4 border-b mb-4'>
+            <span className='absolute right-0 mr-3 text-3xl font-extrabold cursor-pointer' onClick={()=>router.back()}>&times;</span>
                 <div className='w-full'>
                     <h1 className='text-3xl font-semibold'>{product.title}</h1>
                     <span className='flex items-center gap-4'>
