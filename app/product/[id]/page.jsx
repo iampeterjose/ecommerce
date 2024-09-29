@@ -63,23 +63,23 @@ const ProductDetail = () => {
 
     return (
         <div className='flex flex-col px-2 md:px-5 py-16 md:py-5 md:gap-4 text-slate-700'>
-            <div className='flex flex-col md:flex-row gap-4 border-b mb-4'>
+            <div className='flex flex-col md:flex-row gap-4 border-b border-customBlue pb-10'>
             <span className='absolute right-0 mr-3 text-3xl font-extrabold cursor-pointer' onClick={()=>router.back()}>&times;</span>
                 <div className='w-full'>
                     <h1 className='text-3xl font-semibold'>{product.title}</h1>
                     <span className='flex items-center gap-4'>
                         <StarRating rating={product.rating} /><span className='text-sm'>({product.reviews.length} Reviews)</span>
                     </span>
-                    <div className="mb-4 bg-white flex justify-center border-2 border-slate-200 rounded-md">
+                    <div className="mb-4 bg-white flex justify-center border-2 border-customBlue rounded-md">
                         <img src={imageClicked} alt={product.title} className='w-[400px] h-[400px]'/>
                     </div>
                     <div className='flex flex-wrap gap-2'>
                         {product.images.map((image, i) => (
-                            <img src={image} alt={i} className={`w-[100px] h-[100px] border-2 ${imageClicked === image && "bg-white"} rounded-sm hover:cursor-pointer hover:bg-white`} onClick={() => setImageClicked(image)} />
+                            <img src={image} alt={i} className={`w-[100px] h-[100px] border border-customBlue ${imageClicked === image && "bg-slate-300 border-2"} rounded-sm hover:cursor-pointer hover:bg-slate-300`} onClick={() => setImageClicked(image)} />
                         ))}
                     </div>
-                    <p className='text-sm my-4'>Status: {product.availabilityStatus}</p>
-                    <p className='text-sm my-4'>Stock: {product.stock}</p>
+                    <p className='text-sm font-semibold my-2'>Status: {product.availabilityStatus}</p>
+                    <p className='text-sm font-semibold my-2'>Stock: {product.stock}</p>
                 </div>
                 <div className="py-4 md:py-20 gap-4 flex flex-col w-full">
                     <h1 className='text-xl'>Product Details</h1>
@@ -90,15 +90,15 @@ const ProductDetail = () => {
                         <span className='font-normal pl-2'>{product.description}</span>
                     </p>
                     <p className='flex items-center gap-2'><FaWeight size={22} />Weight: {product.weight}</p>
-                    <p className='flex items-center gap-2'><TbDimensions size={22} />Dimensions: &nbsp;
-                        <span>width: {product.dimensions.width} x </span>
-                        <span>height: {product.dimensions.height} x </span>
-                        <span>depth: {product.dimensions.depth}</span>
+                    <p className='flex items-start gap-2'><TbDimensions size={22} />Dimensions: <br/>
+                        width: {product.dimensions.width} x
+                        height: {product.dimensions.height} x
+                        depth: {product.dimensions.depth}
                     </p>
                     <p className='flex items-center gap-2'><SiAdguard size={22} />Warranty: {product.warrantyInformation}</p>
                     <p className='flex items-center gap-2'><TbTruckReturn size={22} />Return Policy: {product.returnPolicy}</p>
                     <p className='flex items-center gap-2'><FaShippingFast size={22} />Shipping: {product.shippingInformation}</p>
-                    <div>
+                    <div className='py-4 gap-4 flex flex-col w-full border-t border-dashed border-customBlue'>
                         <p className='flex items-center gap-2'><BiSolidCategory size={22} />Category: {product.category}</p>
                         <p className='flex items-center gap-2'><FaTag size={22} />Tags: {product.tags.map((tag) => (
                             <span>{tag}, </span>
@@ -118,7 +118,7 @@ const ProductDetail = () => {
                 <div className='p-2 md:p-5'>
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
-                        <textarea placeholder='Write your feedback...' className='border-2 border-slate-200 rounded-md w-[380px] h-[150px] p-4'></textarea>
+                        <textarea placeholder='Write your feedback...' className='border-2 border-customBlue rounded-md w-[380px] h-[150px] p-4'></textarea>
                         <button className='bg-blue-500 text-white h-14 md:h-auto rounded-sm px-5 py-1'>Submit</button>
                     </div>
                     {product.reviews.length > 0 && (
@@ -126,7 +126,7 @@ const ProductDetail = () => {
                         <h1 className='text-xl font-semibold mt-14 px-2'>Reviews</h1>
                         <ul className='my-4 flex flex-col flex-wrap md:flex-row justify-evenly gap-4 md:gap-6'>
                             {product.reviews.map((review, i) => (
-                                <li key={i} className='border-2 border-slate-200 rounded-md p-2 md:p-5 bg-slate-50 w-full'>
+                                <li key={i} className='border border-customBlue rounded-md p-2 md:p-5 bg-slate-50 w-full'>
                                     <IoPersonCircleOutline size={75} />
                                     <p className='text-md'>{review.reviewerName}</p>
                                     <p className='text-xs'><StarRating rating={product.rating} /></p>
