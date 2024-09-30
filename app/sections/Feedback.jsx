@@ -1,7 +1,7 @@
 const Feedback = () => {
     return (
         <section className="">
-            Hero
+            Feedback
         </section>
     )
 }

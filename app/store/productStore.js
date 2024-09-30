@@ -7,11 +7,17 @@ const useProductStore = create((set) => ({
     itemsPerPage: 28, // Change this to 28
     selectedCategory: '',
     totalProducts: 0,
+    product: null,
+    imageClicked: '',
+    relatedProducts: [],
     setAllProducts: (products) => set({ allProducts: products }),
     setCategories: (categories) => set({ categories }),
     setCurrentPage: (page) => set({ currentPage: page }),
     setSelectedCategory: (category) => set({ selectedCategory: category }),
     setTotalProducts: (total) => set({ totalProducts: total }),
+    setProduct: (selectedProduct) => set({product: selectedProduct}),
+    setImageClicked: (image) => set({imageClicked: image}),
+    setRelatedProducts: (selectedRelatedProducts) => set({relatedProducts: selectedRelatedProducts}),
 }));
 
 export default useProductStore;
