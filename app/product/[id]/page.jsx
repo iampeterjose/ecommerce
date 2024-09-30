@@ -45,7 +45,7 @@ const ProductDetail = () => {
 
             </div>
             <RelatedProducts />
-            <div className='mt-20'>
+            <div className='mt-80'>
                 <Reviews />
             </div>
         </div>
