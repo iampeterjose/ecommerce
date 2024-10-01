@@ -10,8 +10,10 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        customBlue: "#32527b",
-        customBlue2: "#284262",
+        customBlue: "#003366",
+        customBlue2: "#002147",
+        softgreen: "#3cb371",
+        softgreenl: "#a8d5ba",
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite', // Example for slower spin

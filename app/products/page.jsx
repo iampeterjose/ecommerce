@@ -78,7 +78,7 @@ const Page = () => {
                     <button
                         key={index + 1}
                         onClick={() => handlePageChange(index + 1)}
-                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
+                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-softgreen text-white' : 'bg-white text-slate-700'}`}
                     >
                         {index + 1}
                     </button>

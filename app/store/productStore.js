@@ -10,6 +10,7 @@ const useProductStore = create((set) => ({
     product: null,
     imageClicked: '',
     relatedProducts: [],
+    newArrivals: [],
     setAllProducts: (products) => set({ allProducts: products }),
     setCategories: (categories) => set({ categories }),
     setCurrentPage: (page) => set({ currentPage: page }),
@@ -18,6 +19,7 @@ const useProductStore = create((set) => ({
     setProduct: (selectedProduct) => set({product: selectedProduct}),
     setImageClicked: (image) => set({imageClicked: image}),
     setRelatedProducts: (selectedRelatedProducts) => set({relatedProducts: selectedRelatedProducts}),
+    setNewArrivals: (newArrival) => set({newArrivals: newArrival}),
 }));
 
 export default useProductStore;

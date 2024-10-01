@@ -45,7 +45,8 @@ const ProductDetail = () => {
 
             </div>
             <RelatedProducts />
-            <div className='mt-80'>
+            <span className='w-full border-t border-customBlue mt-56 md:mt-60'></span>
+            <div className='mt-44'>
                 <Reviews />
             </div>
         </div>

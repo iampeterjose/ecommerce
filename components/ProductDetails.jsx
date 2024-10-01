@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
     return (
         <div className="py-4 md:py-20 gap-4 flex flex-col w-full">
-            <h1 className='text-xl'>Product Details</h1>
+            <h1 className='text-xl font-semibold'>Product Details</h1>
             <p>Price: ${product.price}</p>
             <p>Brand: {!product.brand ? "N/A" : product.brand}</p>
             <p className='font-semibold'>
@@ -44,7 +44,7 @@ const ProductDetails = () => {
                 <input type="text" disabled className='border-b-2 border-customBlue px-2 py-1 text-base w-20 text-center' value="0" />
                 <span className='cursor-pointer bg-customBlue px-2 py-1 text-white'><GoPlus /></span>
             </div>
-            <button className='bg-blue-500 text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Buy Now <MdPayments /></button>
+            <button className='bg-softgreen text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Buy Now <MdPayments /></button>
             <button className='bg-orange-500 text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Add to Cart <FaCartArrowDown /></button>
         </div>
     )

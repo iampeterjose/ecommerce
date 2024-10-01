@@ -21,13 +21,13 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
                         <li key={i} className="group">
                             <Link
                                 href={nav.href}
-                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customBlue2 hover:rounded-sm ${pathname === nav.href ? "bg-customBlue2 border border-white rounded-sm" : ""}`}
+                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customBlue2 hover:rounded-sm ${pathname === nav.href ? "bg-customBlue2 border border-softgreen rounded-sm" : ""}`}
                             >
                                 <div>{nav.icon}</div>
                                 <h2 style={{ transitionDelay: `${i + 3}00ms` }} className={`whitespace-pre duration-300 ${!isOpen && "opacity-0 translate-x-28 overflow-hidden"}`}>
                                     {nav.title}
                                 </h2>
-                                <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-slate-300 border-2 text-slate-700 px-2 py-1 rounded-md left-12 absolute' : 'hidden'}`}>
+                                <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-softgreen border-2 text-slate-700 px-2 py-1 rounded-md left-12 absolute' : 'hidden'}`}>
                                     <p className="font-semibold">{nav.title}</p>
                                 </span>
                             </Link>

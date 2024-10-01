@@ -12,14 +12,20 @@ export const navLinks = [
     {href: "/signin", title: "SignIn", icon: <PiSignOutFill size={22}/>},
 ];
 
+export const productAndServices = [
+    {title: "Seamless Shopping Experience", desc: "Experience the Perfect Blend of Quality, Unmatched Convenience, and Rapid Delivery Right at Your Fingertips! Enjoy a seamless shopping experience where exceptional products are just a click away, delivered swiftly to your doorstep!"},
+    {title: "Unmatched Variety", desc: "Discover Our Vast Selection of High-Quality Products Tailored Just for You! From everyday essentials to unique finds, we offer an extensive range designed to meet all your needs and preferences."},
+    {title: "Shop with Confidence", desc: "Experience Exceptional Products Supported by Our Dedicated and Reliable Customer Service!"},
+];
+
 export const footerHeaders = [
     {title: "About Us", item: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quod tempora voluptates veritatis sunt dolor voluptas in at fugit ratione doloremque animi. Quasi, nisi vitae. Quam tempora eligendi rerum minima."]},
     {title: "Links" , item: ["Account", "Home", "Products"]},
     {title: "Services", item: ["Brand New Product", "Delivery", "Deals & Offers"]},
-]
+];
 
 export const footerItems = [
     {title: "Danao City, Cebu - 6004, Philippines", icon: <ImLocation />},
     {title: "+63111 111 1111", icon: <FaPhone />},
     {title: "peterjose098@gmail.com", icon: <MdEmail />},
-]
+];

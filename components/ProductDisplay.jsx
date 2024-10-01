@@ -15,7 +15,7 @@ const ProductDisplay = () => {
             </div>
             <div className='flex flex-wrap gap-2'>
                 {product.images.map((image, i) => (
-                    <img src={image} alt={i} className={`w-[100px] h-[100px] border border-customBlue ${imageClicked === image && "bg-slate-300 border-2"} rounded-sm hover:cursor-pointer hover:bg-slate-300`} onClick={() => setImageClicked(image)} />
+                    <img src={image} alt={i} className={`w-[100px] h-[100px] border border-customBlue ${imageClicked === image && "bg-slate-200 border-2"} rounded-sm hover:cursor-pointer hover:bg-slate-200`} onClick={() => setImageClicked(image)} />
                 ))}
             </div>
             <span className='flex items-center my-2 font-semibold gap-2'>
