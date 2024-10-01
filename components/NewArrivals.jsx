@@ -6,8 +6,8 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa6";
 
 const NewArrivals = () => {
-    const { newArrivals, setNewArrivals } = useProductStore();
-    const [displayCount, setDisplayCount] = useState(5);
+    const { newArrivals, setNewArrivals, isOpen } = useProductStore();
+    const [displayCount, setDisplayCount] = useState(12);
     
     useEffect(() => {
         const fetchAllProducts =async()=> {
@@ -36,16 +36,16 @@ const NewArrivals = () => {
                 <h1 className="text-lg text-softgreen font-semibold mb-2">
                     New Arrivals
                 </h1>
-                {newArrivals.total > 6 && (
+                {newArrivals.total > 12 && (
                     <span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer" onClick={()=>setDisplayCount(newArrivals.total)}>Show all</span>
                 )}
             </div>
-            <ul className="flex w-full overflow-x-auto whitespace-nowrap flex-row justify-between items-center absolute left-0 s px-2 py-4 md:px-24 gap-2 md:gap-6 text-md md:font-xl font-semibold text-slate-700 bg-white">
+            <ul className={`grid lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
                 {newArrivals.total > 0 ? newArrivals.products.slice(0,displayCount).map((product) => (
-                    <li key={product.id} className="flex flex-col min-w-36 md:min-w-64 bg-white px-3 border-2 rounded-sm hover:cursor-pointer">
+                    <li key={product.id} className={`flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer`}>
                         <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
                             <div className="flex justify-center w-full py-2">
-                                <img src={product.thumbnail} alt={product.title} className="w-[100px] md:w-[125px] h-[100px] md:h-[125px]"/>
+                                <img src={product.thumbnail} alt={product.title} className={`w-[100px] h-[100px] ${isOpen ? "w-[100px] h-[100px]" : "md:w-[125px] md:h-[125px]"} `}/>
                             </div> 
                             <span className="border-t-2 border-dashed w-full py-1"></span>
                             <div>
@@ -58,7 +58,7 @@ const NewArrivals = () => {
                         </span>
                     </li>
                 )) : (
-                    <Loading />
+                    ''
                 )}
             </ul>
         </div>

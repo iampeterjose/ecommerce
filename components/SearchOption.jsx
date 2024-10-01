@@ -3,10 +3,10 @@ import { FaArrowUpLong } from "react-icons/fa6";
 import useProductStore from "@/app/store/productStore";
 
 const SearchOption = () => {
-    const { categories, selectedCategory, setSelectedCategory, setCurrentPage } = useProductStore();
+    const { categories, selectedCategory, setSelectedCategory, setCurrentPage, isOpen } = useProductStore();
 
     return (
-        <div className="flex flex-col md:flex-row gap-y-2 items-center border-b border-t border-customBlue py-2">
+        <div className={`flex flex-col ${isOpen ? "md:flex-col lg:flex-row" : "md:flex-row"} gap-y-2 items-center border-b border-t border-customBlue py-2`}>
             <div className="flex w-full gap-4 md:gap-10">
                 <span className="flex items-center gap-2">
                     <p className="font-semibold">Search Option </p>

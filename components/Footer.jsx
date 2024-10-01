@@ -1,13 +1,12 @@
-import { ImLocation } from "react-icons/im";
-import { FaPhone } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
 import { footerHeaders, footerItems } from "@/app/constants";
+import useProductStore from "@/app/store/productStore";
 
 const Footer = () => {
+    const { isOpen } = useProductStore();
     return (
-        <footer id="contact-us" className="px-3 md:px-28 py-10 font-sans text-white bg-customBlue w-full z-10 absolute">
+        <footer id="contact-us" className={`${isOpen ? "md:px-0" : "md:px-28"} py-10 font-sans text-slate-700 w-full `}>
             <div className="flex flex-wrap">
-                <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-6 mb-6">
+                <div className={`flex flex-col ${isOpen ? "flex-col lg:flex-row" : "md:flex-row"} justify-between gap-4 md:gap-6 mb-6`}>
                     {footerHeaders.map((header, i) => (
                         <div key={i} className="w-full">
                             <h2 className="text-lg font-semibold mb-3">
@@ -34,7 +33,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row justify-between border-t border-slate-100 w-full text-xs my-2 py-4 gap-y-4">
+                <div className={`flex flex-col ${isOpen ? "md:flex-col lg:flex-row" : "md:flex-row"} justify-between border-t border-slate-100 w-full text-xs my-2 py-4 gap-y-4`}>
                     <span>Copyright &copy; {new Date().getFullYear()} Peter Ellias Jose</span>
                     {footerItems.map((item, i) => (
                         <span key={i} className="flex gap-1 items-center">{item.icon}{item.title}</span>

@@ -4,10 +4,10 @@
 import { useState, useEffect } from "react";
 import Drawer from "@/components/Drawer"; // Adjust the path as necessary
 import Footer from "./Footer";
+import useProductStore from "@/app/store/productStore";
 
 const LayoutWrapper = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDrawer = () => setIsOpen((prev) => !prev);
+  const{ isOpen, setIsOpen } = useProductStore();
 
 
   const [isMobile, setIsMobile] = useState(false);
@@ -30,16 +30,16 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <>
-    <div className="flex min-h-screen font-sans max-w-[1550px]">
-      <Drawer toggleDrawer={toggleDrawer} isOpen={isOpen} />
+    <div className="flex min-h-screen font-sans w-full">
+      <Drawer />
       <main
-        className={`flex-grow bg-[#f5f5f5] transition-all duration-500 ease-in-out ${isOpen ? 'md:ml-72' : 'md:ml-16'} p-3 md:px-10`}
+        className={`flex-grow transition-all duration-500 ease-in-out ${isOpen ? 'md:ml-72' : 'md:ml-16'} p-3 md:px-10`}
         onClick={()=>{isMobile && setIsOpen(false)}}
       >
         {children}
+        <Footer />
       </main>
     </div>
-    <Footer />
     </>
   );
 };

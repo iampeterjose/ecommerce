@@ -1,19 +1,26 @@
 "use client";
 import { navLinks } from "@/app/constants";
+import useProductStore from "@/app/store/productStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCallback } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
-const Drawer = ({ toggleDrawer, isOpen }) => {
+const Drawer = () => {
     const pathname = usePathname();
+    const { isOpen, setIsOpen } = useProductStore();
+
+    const toggleDrawer = () => {
+        setIsOpen(); // This should be fine as long as it's called in response to an event
+    };
 
     return (
         <>
         {/* Desktop View */}
-        <div className={`hidden md:block ${isOpen ? 'w-72' : 'w-16'} fixed text-white px-3 duration-500 min-h-screen bg-customBlue  shadow-customBlue2 shadow-md border-r-2 border-customBlue2 z-10`}>
+        <div className={`hidden md:block ${isOpen ? 'w-72' : 'w-16'} fixed text-slate-700 px-3 duration-500 min-h-screen border-r border-slate-300 bg-white z-10`}>
             <div className="py-3 flex justify-end">
-                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} />
+                <HiMenuAlt3 size={26} color="black" className="cursor-pointer" onClick={toggleDrawer} />
             </div>
             <div className="mt-4 relative">
                 <ul className="flex flex-col gap-3">
@@ -21,13 +28,13 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
                         <li key={i} className="group">
                             <Link
                                 href={nav.href}
-                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customBlue2 hover:rounded-sm ${pathname === nav.href ? "bg-customBlue2 border border-softgreen rounded-sm" : ""}`}
+                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-slate-100 hover:rounded-sm ${pathname === nav.href ? "text-softgreen border-b-2 border-softgreen rounded-sm" : ""}`}
                             >
                                 <div>{nav.icon}</div>
                                 <h2 style={{ transitionDelay: `${i + 3}00ms` }} className={`whitespace-pre duration-300 ${!isOpen && "opacity-0 translate-x-28 overflow-hidden"}`}>
                                     {nav.title}
                                 </h2>
-                                <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-softgreen border-2 text-slate-700 px-2 py-1 rounded-md left-12 absolute' : 'hidden'}`}>
+                                <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-softgreen border text-slate-700 px-2 py-1 rounded-md left-12 absolute' : 'hidden'}`}>
                                     <p className="font-semibold">{nav.title}</p>
                                 </span>
                             </Link>
@@ -39,12 +46,12 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
         
 
         {/* Mobile View */}
-        <div className="flex z-50 fixed md:hidden bg-customBlue text-white border-b-2 border-customBlue2 shadow-customBlue2 shadow-sm w-full px-2 py-3">
+        <div className="flex z-50 fixed md:hidden bg-white text-slate-700 border-b border-slate-300 w-full px-2 py-3">
             <div className="flex justify-start gap-4">
-                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <h1 className="text-lg">eCommerce</h1>
+                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <h1 className="text-lg font-semibold">eCommerce</h1>
             </div>
 
-            <div className={`fixed inset-y-0 left-0 w-72 bg-customBlue shadow-customBlue2 shadow-md border-customBlue2 border-r-2 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`fixed inset-y-0 left-0 top-10 w-full bg-white transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="absolute top-4 right-4 flex items-center">
                     <IoCloseCircleOutline size={20} className="cursor-pointer" onClick={toggleDrawer} />
                 </div>
@@ -54,7 +61,7 @@ const Drawer = ({ toggleDrawer, isOpen }) => {
                             <li key={i}>
                                 <Link
                                     href={nav.href}
-                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customBlue2 hover:rounded-sm ${pathname === nav.href ? "bg-customBlue2 border-white border rounded-sm" : ""}`}
+                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-slate-100 hover:rounded-sm ${pathname === nav.href ? "text-softgreen border-b border-softgreen" : ""}`}
                                     
                                     onClick={toggleDrawer}
                                 >

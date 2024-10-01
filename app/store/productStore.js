@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 const useProductStore = create((set) => ({
+    isOpen: true,
     allProducts: [],
     categories: [],
     currentPage: 1,
@@ -11,6 +12,7 @@ const useProductStore = create((set) => ({
     imageClicked: '',
     relatedProducts: [],
     newArrivals: [],
+    setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
     setAllProducts: (products) => set({ allProducts: products }),
     setCategories: (categories) => set({ categories }),
     setCurrentPage: (page) => set({ currentPage: page }),
