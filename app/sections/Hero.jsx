@@ -2,6 +2,7 @@ import { FaShippingFast } from "react-icons/fa";
 import { MdBookOnline } from "react-icons/md";
 import { RiDiscountPercentFill } from "react-icons/ri";
 import ProductAndServices from "./ProductAndServices";
+import Link from "next/link";
 
 const Hero = () => {
     return (
@@ -12,7 +13,7 @@ const Hero = () => {
                     <h1 className="text-xl md:text-3xl">
                         Quality Products, <br/><span className="md:text-5xl">Unbeatable Prices!</span>
                     </h1>
-                    <p className="bg-softgreen px-2 py-2 text-white w-fit">Find More</p>
+                    <Link href="#featured"><p className="bg-softgreen px-2 py-2 text-white w-fit">Find More</p></Link>
                 </div>
                 <div className="flex w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-2xl overflow-x-auto whitespace-nowrap flex-row justify-between items-center absolute md:relative left-0 md:left-auto top-96 md:top-auto px-2 py-6 md:py-4 my-8 md:my-auto gap-2 text-md md:font-xl font-semibold text-customBlue bg-softgreenl">
                     <h2>Brand New</h2>
