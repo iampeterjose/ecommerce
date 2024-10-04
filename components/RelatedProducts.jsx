@@ -5,7 +5,7 @@ import Link from "next/link";
 import Loading from "./Loading";
 
 const RelatedProducts = () => {
-    const { product, relatedProducts, setRelatedProducts } = useProductStore();
+    const { product, relatedProducts, setRelatedProducts, isOpen } = useProductStore();
     const [displayCount, setDisplayCount] = useState(5);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const RelatedProducts = () => {
     };
 
     return (
-        <div className="border-t border-customBlue py-2 w-full">
+        <div className="border-t border-b border-customBlue py-2 w-full">
             <div className="flex justify-between items-center">
                 <h1 className="text-xl font-semibold mb-2">
                     Related Products
@@ -36,12 +36,12 @@ const RelatedProducts = () => {
                     <span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer" onClick={()=>setDisplayCount(relatedProducts.total)}>Show all</span>
                 )}
             </div>
-            <ul className="flex w-full overflow-x-auto whitespace-nowrap flex-row justify-between items-center absolute left-0 s px-2 py-4 md:px-24 gap-2 md:gap-6 text-md md:font-xl font-semibold text-slate-700 bg-white">
+            <ul className={`grid lg:grid-cols-5 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
                 {relatedProducts.total > 0 ? relatedProducts.products.slice(0,displayCount).map((product) => (
-                    <li key={product.id} className="flex flex-col min-w-36 md:min-w-64 bg-white px-3 border-2 rounded-sm hover:cursor-pointer">
+                    <li key={product.id} className={`flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer`}>
                         <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
                             <div className="flex justify-center w-full py-2">
-                                <img src={product.thumbnail} alt={product.title} className="w-[100px] md:w-[125px] h-[100px] md:h-[125px]"/>
+                                <img src={product.thumbnail} alt={product.title} className={`w-[100px] h-[100px] ${isOpen ? "w-[100px] h-[100px]" : "md:w-[125px] md:h-[125px]"} `}/>
                             </div> 
                             <span className="border-t-2 border-dashed w-full py-1"></span>
                             <div>
@@ -54,7 +54,7 @@ const RelatedProducts = () => {
                         </span>
                     </li>
                 )) : (
-                    <Loading />
+                    <p className="text-slate-700 font-semibold">No related products found.</p>
                 )}
             </ul>
         </div>

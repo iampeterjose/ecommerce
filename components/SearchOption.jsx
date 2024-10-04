@@ -22,7 +22,7 @@ const SearchOption = () => {
                         setSelectedCategory(e.target.value);
                         setCurrentPage(1); // Reset to page 1 when category changes
                     }}
-                    className="border rounded-md px-2 py-1"
+                    className="border w-full md:w-fit rounded-md px-2 py-1"
                 >
                     <option value="">All Categories</option>
                     {categories.map((category, index) => (

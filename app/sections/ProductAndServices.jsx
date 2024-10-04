@@ -7,7 +7,7 @@ const ProductAndServices = () => {
     const { isOpen } = useProductStore();
 
     return (
-        <section className="md:p-4 mt-[450px] md:mt-10">
+        <section className="md:p-4 mt-10">
             <div className={`flex flex-col items-center gap-4 py-6`}>
                 <h1 className="text-2xl font-semibold text-slate-700">Our product and services</h1>
                 <p className={`text-base text-slate-500 text-start ${isOpen ? "text-start lg:text-center" : "md:text-center"}`}>

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useProductStore = create((set) => ({
-    isOpen: true,
+    isOpen: false,
     allProducts: [],
     categories: [],
     currentPage: 1,
@@ -12,6 +12,11 @@ const useProductStore = create((set) => ({
     imageClicked: '',
     relatedProducts: [],
     newArrivals: [],
+    bestSellers: [],
+    exclusiveOffers: [],
+    essentials: [],
+    error: '',
+    loading: true,
     setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
     setAllProducts: (products) => set({ allProducts: products }),
     setCategories: (categories) => set({ categories }),
@@ -22,6 +27,11 @@ const useProductStore = create((set) => ({
     setImageClicked: (image) => set({imageClicked: image}),
     setRelatedProducts: (selectedRelatedProducts) => set({relatedProducts: selectedRelatedProducts}),
     setNewArrivals: (newArrival) => set({newArrivals: newArrival}),
+    setBestSellers: (bestSeller) => set({bestSellers: bestSeller}),
+    setExclusiveOffers: (exclusive) => set({exclusiveOffers: exclusive}),
+    setEssentials: (ess) => set({essentials: ess}),
+    setError: (isError) => set({error: isError}),
+    setLoading: (isLoading) => set({loading: isLoading}),
 }));
 
 export default useProductStore;

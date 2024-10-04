@@ -31,10 +31,9 @@ const LayoutWrapper = ({ children }) => {
   return (
     <>
     <div className="flex min-h-screen font-sans w-full">
-      <Drawer />
+      <Drawer/>
       <main
         className={`flex-grow transition-all duration-500 ease-in-out ${isOpen ? 'md:ml-72' : 'md:ml-16'} p-3 md:px-10`}
-        onClick={()=>{isMobile && setIsOpen(false)}}
       >
         {children}
         <Footer />

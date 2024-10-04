@@ -15,6 +15,7 @@ const ProductList = () => {
         <span>
             <p className="text-sm text-slate-500 font-semibold">Result: {allProducts.length} products</p>
         </span>
+        
         <ul className={`grid lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
             {allProducts.length > 0 ? allProducts.map((product) => (
             <li key={product.id} className={`flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer`}>
@@ -33,7 +34,7 @@ const ProductList = () => {
                     </span>
                 </li>
             )) : (
-                <Loading />
+                <p className="text-slate-700 font-semibold">No products found.</p>
             )}
         </ul>
         </>

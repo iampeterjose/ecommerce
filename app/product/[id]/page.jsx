@@ -45,7 +45,6 @@ const ProductDetail = () => {
 
             </div>
             <RelatedProducts />
-            <span className='w-full border-t border-customBlue mt-56 md:mt-60'></span>
             <div className='mt-44'>
                 <Reviews />
             </div>

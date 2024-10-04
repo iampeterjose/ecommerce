@@ -4,6 +4,7 @@ import useProductStore from "../store/productStore";
 import { FaChevronCircleUp } from "react-icons/fa";
 import SearchOption from "@/components/SearchOption";
 import ProductList from "@/components/ProductList";
+import Loading from "@/components/Loading";
 
 
 const Page = () => {
@@ -15,7 +16,11 @@ const Page = () => {
         setAllProducts,
         setCategories,
         setCurrentPage,
-        setTotalProducts
+        setTotalProducts,
+        loading,
+        setLoading,
+        error,
+        setError,
     } = useProductStore();
 
     useEffect(() => {
@@ -26,6 +31,9 @@ const Page = () => {
                 setCategories(data);
             } catch (error) {
                 console.log(`Error connecting to server: `,error);
+                setError("Failed to load products.");
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -44,12 +52,15 @@ const Page = () => {
                 setTotalProducts(data.total || 0); // Ensure total defaults to 0 if undefined
             } catch (error) {
                 console.log(`Error connecting to server: `,error);
+                setError(`Failed to load ${selectedCategory} products.`);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchCategories();
         fetchProducts();
-    }, [currentPage, itemsPerPage, selectedCategory, setAllProducts, setCategories, setTotalProducts]);
+    }, [currentPage, itemsPerPage, selectedCategory, setAllProducts, setCategories, setTotalProducts, setLoading, setError]);
 
     const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
@@ -65,7 +76,13 @@ const Page = () => {
             <h1 className="text-xl font-semibold">Products</h1>
 
             <SearchOption />
-            <ProductList />
+            {loading ? (
+                <Loading />
+            ) : error ? (
+                <p>{error}</p>
+            ) : (
+                <ProductList />
+            )}
 
             <div className="fixed right-0 mr-3 bottom-10">
                 {/* Updated link to point to the anchor */}
