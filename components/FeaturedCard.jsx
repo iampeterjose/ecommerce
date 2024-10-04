@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-const FeaturedCard = ({products, isOpen, title, error}) => {
+const FeaturedCard = ({products, isOpen, title, error, link}) => {
 
     const truncateText = (text, limit) => {
         return text.length > limit ? text.substring(0, limit) + '...' : text;
@@ -15,7 +15,7 @@ const FeaturedCard = ({products, isOpen, title, error}) => {
                 <h1 className="text-xl md:text-3xl text-softgreen font-bold mb-2">
                     {title}
                 </h1>
-                <Link href="/products/bestsellers"><span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer">Show all</span></Link>
+                <Link href={`/products/${link}`}><span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer">Show all</span></Link>
             </div>
             <ul className={`grid lg:grid-cols-5 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
             {products.length > 0 ? products.slice(0,5).map((product) => (

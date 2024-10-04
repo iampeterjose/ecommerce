@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const Drawer = () => {
     const pathname = usePathname();
@@ -25,7 +26,13 @@ const Drawer = () => {
             <div className="mt-4 relative">
                 <ul className="flex flex-col gap-3">
                     {navLinks.map((nav, i) => (
-                        <li key={i} className="group">
+                        <motion.li 
+                            key={i} 
+                            className="group"
+                            whileHover={{ scale: 1.2 }}
+                            onHoverStart={e => {}}
+                            onHoverEnd={e => {}}
+                        >
                             <Link
                                 href={nav.href}
                                 className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-slate-100 hover:rounded-sm ${pathname === nav.href ? "text-softgreen border-b-2 border-softgreen rounded-sm" : ""}`}
@@ -38,7 +45,7 @@ const Drawer = () => {
                                     <p className="font-semibold">{nav.title}</p>
                                 </span>
                             </Link>
-                        </li>
+                        </motion.li>
                     ))}
                 </ul>
             </div>
@@ -58,7 +65,12 @@ const Drawer = () => {
                 <div className="mt-16">
                     <ul className="flex flex-col gap-3 p-4">
                         {navLinks.map((nav, i) => (
-                            <li key={i}>
+                            <motion.li 
+                                key={i}
+                                whileHover={{ scale: 1.1 }}
+                                onHoverStart={e => {}}
+                                onHoverEnd={e => {}}
+                            >
                                 <Link
                                     href={nav.href}
                                     className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-slate-100 hover:rounded-sm ${pathname === nav.href ? "text-softgreen border-b border-softgreen" : ""}`}
@@ -68,7 +80,7 @@ const Drawer = () => {
                                     <div>{nav.icon}</div>
                                     <h2>{nav.title}</h2>
                                 </Link>
-                            </li>
+                            </motion.li>
                         ))}
                     </ul>
                 </div>

@@ -15,7 +15,7 @@ const ProductAndServices = () => {
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
-            transition={{ duration: 1, delay: 2 }} // Staggered entrance
+            transition={{ duration: 1, delay: 1.5 }} // Staggered entrance
         >
             <div className={`flex flex-col items-center gap-4 py-6`}>
                 <h1 className="text-2xl font-semibold text-slate-700">Our product and services</h1>
@@ -47,11 +47,32 @@ const ProductAndServices = () => {
                 </div>
                 <div className="grid gap-4 w-full">
                     <div>
-                        <img src="/assets/onlineshopping.jpg" alt="Online Shopping" className="w-full h-60 rounded-md shadow-lg shadow-slate-500" />
+                        <motion.img 
+                            src="/assets/onlineshopping.jpg" 
+                            alt="Online Shopping" 
+                            className="w-full h-60 rounded-md shadow-lg shadow-slate-500" 
+                            whileHover={{ scale: 1.1 }}
+                            onHoverStart={e => {}}
+                            onHoverEnd={e => {}}
+                        />
                     </div>
                     <div className="grid grid-cols-2 gap-5">
-                        <img src="assets/pic2.jpg" alt="Pic2" className="h-52 max-w-full rounded-md shadow-lg shadow-slate-500" />
-                        <img src="assets/pic3.png" alt="Pic3" className="h-52 max-w-full bg-customBlue2 px-2 rounded-md shadow-lg shadow-slate-500" />
+                        <motion.img 
+                            src="assets/pic2.jpg" 
+                            alt="Pic2" 
+                            className="h-52 max-w-full rounded-md shadow-lg shadow-slate-500" 
+                            whileHover={{ scale: 1.1 }}
+                            onHoverStart={e => {}}
+                            onHoverEnd={e => {}}
+                        />
+                        <motion.img 
+                            src="assets/pic3.png" 
+                            alt="Pic3" 
+                            className="h-52 max-w-full bg-customBlue2 px-2 rounded-md shadow-lg shadow-slate-500" 
+                            whileHover={{ scale: 1.1 }}
+                            onHoverStart={e => {}}
+                            onHoverEnd={e => {}}
+                        />
                     </div>
                 </div>
             </div>

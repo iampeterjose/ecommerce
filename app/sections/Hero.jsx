@@ -22,7 +22,13 @@ const Hero = () => {
                     <h1 className="text-xl md:text-3xl">
                         Quality Products, <br/><span className="md:text-5xl">Unbeatable Prices!</span>
                     </h1>
-                    <Link href="#featured"><p className="bg-softgreen px-2 py-2 text-white w-fit">Find More</p></Link>
+                    <Link href="#featured">
+                        <motion.p 
+                            className="bg-softgreen px-2 py-2 text-white w-fit"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >Find More</motion.p>
+                    </Link>
                 </div>
                 <div className={`grid grid-cols-2 ${isOpen ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-4"} justify-start items-center bg-softgreenl p-3 text-sm md:text-md lg:text-xl text-customBlue font-semibold`}>
                     <h2>Brand New</h2>

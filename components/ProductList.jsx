@@ -27,7 +27,7 @@ const ProductList = ({ products }) => {
                             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
                             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
                             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
-                            transition={{ duration: 0.3, delay: index * 0.05 }} // Staggered entrance
+                            transition={{ duration: 1, delay: index * 0.10 }} // Staggered entrance
                         >
                             <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
                                 <div className="flex justify-center w-full py-2">

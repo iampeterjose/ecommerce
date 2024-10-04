@@ -2,7 +2,7 @@ import useProductStore from "@/app/store/productStore";
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import Link from "next/link";
-import Loading from "./Loading";
+import { motion } from "framer-motion";
 
 const RelatedProducts = () => {
     const { product, relatedProducts, setRelatedProducts, isOpen } = useProductStore();
@@ -38,7 +38,12 @@ const RelatedProducts = () => {
             </div>
             <ul className={`grid lg:grid-cols-5 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
                 {relatedProducts.total > 0 ? relatedProducts.products.slice(0,displayCount).map((product) => (
-                    <li key={product.id} className={`flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer`}>
+                    <motion.li 
+                        key={product.id} 
+                        className={`flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer`}
+                        whileHover={{ scale: 1.1, backgroundColor:"#f0f0f0" }}
+                        whileTap={{ scale: 0.9 }}
+                    >
                         <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
                             <div className="flex justify-center w-full py-2">
                                 <img src={product.thumbnail} alt={product.title} className={`w-[100px] h-[100px] ${isOpen ? "w-[100px] h-[100px]" : "md:w-[125px] md:h-[125px]"} `}/>
@@ -52,7 +57,7 @@ const RelatedProducts = () => {
                             <p className="text-xs md:text-sm font-semibold text-slate-500">${product.price}</p>
                             <FaStar size={20} className="hover:text-yellow-400 text-slate-300" />
                         </span>
-                    </li>
+                    </motion.li>
                 )) : (
                     <p className="text-slate-700 font-semibold">No related products found.</p>
                 )}

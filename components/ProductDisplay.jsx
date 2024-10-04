@@ -19,8 +19,8 @@ const ProductDisplay = () => {
                 ))}
             </div>
             <span className='flex items-center my-2 font-semibold gap-2'>
-                <p className={`${product.availabilityStatus === "In Stock" ? "bg-green-300 text-green-700" : "bg-red-300 text-red-700"} px-2 py-1 w-fit rounded-md`}>
-                    {product.availabilityStatus === "In Stock" ? "Available" : "Not Available"}
+                <p className={`${product.stock > 0 ? "bg-green-300 text-green-700" : "bg-red-300 text-red-700"} px-2 py-1 w-fit rounded-md`}>
+                    {product.stock > 0 ? "Available" : "Not Available"}
                 </p>
                 <p className='text-slate-500'>
                     {product.stock} Stocks

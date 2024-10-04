@@ -55,7 +55,7 @@ const FeaturedCategories = () => {
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
-            transition={{ duration: 1, delay: 3 }} // Staggered entrance
+            transition={{ duration: 2, delay: 2 }} // Staggered entrance
         >
             <div className="flex flex-col items-center gap-4 py-10">
                 <h1 className="text-3xl md:text-5xl font-bold text-customBlue">Featured Categories</h1>
@@ -67,10 +67,10 @@ const FeaturedCategories = () => {
                 <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
             ) : (
                 <>
-                    <FeaturedCard products={bestSellers} isOpen={isOpen} title="Best Sellers" error="No products found." />
-                    <FeaturedCard products={newArrivals} isOpen={isOpen} title="New Arrivals" error="No new arrival products found." />
-                    <FeaturedCard products={exclusiveOffers} isOpen={isOpen} title="Exclusive Offers" error="No exclusive products found." />
-                    <FeaturedCard products={essentials} isOpen={isOpen} title="Essentials" error="No products found." />
+                    <FeaturedCard products={bestSellers} isOpen={isOpen} title="Best Sellers" error="No products found." link="/bestsellers" />
+                    <FeaturedCard products={newArrivals} isOpen={isOpen} title="New Arrivals" error="No new arrival products found." link="newarrivals" />
+                    <FeaturedCard products={exclusiveOffers} isOpen={isOpen} title="Exclusive Offers" error="No exclusive products found." link="exclusiveoffers" />
+                    <FeaturedCard products={essentials} isOpen={isOpen} title="Essentials" error="No products found." link="essentials" />
                 </>
             )}
             </div>
