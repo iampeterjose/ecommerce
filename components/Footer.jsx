@@ -4,7 +4,7 @@ import useProductStore from "@/app/store/productStore";
 const Footer = () => {
     const { isOpen } = useProductStore();
     return (
-        <footer id="contact-us" className={`${isOpen ? "md:px-0" : "md:px-28"} py-10 font-sans text-slate-700 w-full `}>
+        <footer id="contact-us" className={`${isOpen ? "md:px-0" : "md:px-28"} py-10 font-sans text-slate-700 w-full border-t`}>
             <div className="flex flex-wrap">
                 <div className={`flex flex-col ${isOpen ? "flex-col lg:flex-row" : "md:flex-row"} justify-between gap-4 md:gap-6 mb-6`}>
                     {footerHeaders.map((header, i) => (

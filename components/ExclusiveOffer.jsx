@@ -10,15 +10,13 @@ const ExclusiveOffer = () => {
         return text.length > limit ? text.substring(0, limit) + '...' : text;
     };
 
-    console.log(`Exclusive Offers: `, exclusiveOffers)
-
     return (
         <div className="border-t border-customBlue py-2 w-full">
             <div className="flex justify-between items-center">
-                <h1 className="text-lg text-softgreen font-semibold mb-2">
-                    Best Sellers
+                <h1 className="text-xl md:text-3xl text-softgreen font-bold mb-2">
+                    Exclusive Offers
                 </h1>
-                <Link href="/products/exclusiveoffer"><span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer">Show all</span></Link>
+                <Link href="/products/exclusiveoffers"><span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer">Show all</span></Link>
             </div>
             <ul className={`grid lg:grid-cols-5 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
             {exclusiveOffers.length > 0 ? exclusiveOffers.slice(0,5).map((product) => (

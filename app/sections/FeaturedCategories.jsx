@@ -6,14 +6,18 @@ import NewArrivals from "@/components/NewArrivals";
 import useProductStore from "../store/productStore";
 import { useEffect } from "react";
 import Loading from "@/components/Loading";
+import { CgDanger } from "react-icons/cg";
+import FeaturedCard from "@/components/FeaturedCard";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const FeaturedCategories = () => {
-    const { setNewArrivals, error, setError, loading, setLoading, setBestSellers, setExclusiveOffers, setEssentials } = useProductStore();
+    const { setNewArrivals, isOpen, error, setError, loading, setLoading, setBestSellers, setExclusiveOffers, setEssentials, bestSellers, newArrivals, exclusiveOffers, essentials } = useProductStore();
 
     useEffect(() => {
         const fetchAllProducts = async () => {
             try {
-                const result = await fetch(`https://dummyjson.com/products?limit=0`);
+                const result = await fetch(`https://dummyjson.com/products?limit=28`);
                 const data = await result.json();
 
                 const startDate = new Date("2024-05-23");
@@ -45,25 +49,33 @@ const FeaturedCategories = () => {
     }, [setNewArrivals, setError, setLoading, setBestSellers, setExclusiveOffers, setEssentials]);
 
     return (
-        <section id="featured" className="md:p-4 mt-20 md:mt-10">
-            <div className="flex flex-col items-center gap-4 py-6">
-                <h1 className="text-3xl font-bold text-customBlue">Featured Categories</h1>
+        <AnimatePresence>
+        <motion.section id="featured" 
+            className="md:p-4 mt-20 md:mt-10"
+            initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
+            animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
+            exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
+            transition={{ duration: 1, delay: 3 }} // Staggered entrance
+        >
+            <div className="flex flex-col items-center gap-4 py-10">
+                <h1 className="text-3xl md:text-5xl font-bold text-customBlue">Featured Categories</h1>
             </div>
-            <div>
+            <div className="flex flex-col gap-20">
             {loading ? (
                 <Loading />
             ) : error ? (
-                <p>{error}</p>
+                <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
             ) : (
                 <>
-                    <BestSellers />
-                    <NewArrivals />
-                    <ExclusiveOffer />
-                    <Essentials />
+                    <FeaturedCard products={bestSellers} isOpen={isOpen} title="Best Sellers" error="No products found." />
+                    <FeaturedCard products={newArrivals} isOpen={isOpen} title="New Arrivals" error="No new arrival products found." />
+                    <FeaturedCard products={exclusiveOffers} isOpen={isOpen} title="Exclusive Offers" error="No exclusive products found." />
+                    <FeaturedCard products={essentials} isOpen={isOpen} title="Essentials" error="No products found." />
                 </>
             )}
             </div>
-        </section>
+        </motion.section>
+        </AnimatePresence>
     );
 };
 

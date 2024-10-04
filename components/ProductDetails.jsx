@@ -14,10 +14,13 @@ import useProductStore from "@/app/store/productStore";
 const ProductDetails = () => {
     const { product } = useProductStore();
 
+    const discount = ((product.discountPercentage * product.price) / 100).toFixed(2);
+    const discountedPrice = (product.price-discount).toFixed(2);
+
     return (
         <div className="py-4 md:py-20 gap-4 flex flex-col w-full">
             <h1 className='text-xl font-semibold'>Product Details</h1>
-            <p>Price: ${product.price}</p>
+            <p className="text-red-700 font-semibold text-lg flex flex-row gap-4">${discountedPrice}<span className="text-base line-through text-slate-500 font-semibold ">${product.price}</span><span className=" bg-slate-50 text-sm px-1 shadow-md shadow-slate-400 rounded h-fit">{product.discountPercentage}% off</span></p>
             <p>Brand: {!product.brand ? "N/A" : product.brand}</p>
             <p className='font-semibold'>
                 Description: 
@@ -41,7 +44,7 @@ const ProductDetails = () => {
             <div className='flex items-center gap-2'>
                 <p>Quantity: </p>
                 <span className='cursor-pointer bg-customBlue px-2 py-1 text-white'><HiMinusSmall /></span>
-                <input type="text" disabled className='border-b-2 border-customBlue px-2 py-1 text-base w-20 text-center' value="0" />
+                <p disabled className='border-b-2 border-customBlue px-2 py-1 text-base w-20 text-center'>0</p>
                 <span className='cursor-pointer bg-customBlue px-2 py-1 text-white'><GoPlus /></span>
             </div>
             <button className='bg-softgreen text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Buy Now <MdPayments /></button>

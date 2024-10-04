@@ -7,7 +7,7 @@ const page = () => {
 
     return (
         <div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center min-h-screen">
                 <form className="flex flex-col w-[375px] h-[500px] bg-slate-100 mt-20 md:mt-10 p-4 gap-y-4 text-slate-700 shadow-lg shadow-slate-300 border-2 rounded-sm">
                     <h1 className="text-xl font-semibold">
                         Sign In

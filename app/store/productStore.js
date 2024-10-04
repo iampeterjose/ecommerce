@@ -17,6 +17,8 @@ const useProductStore = create((set) => ({
     essentials: [],
     error: '',
     loading: true,
+    searchTerm: '',
+    setSearchTerm: (term) => set({ searchTerm: term }),
     setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
     setAllProducts: (products) => set({ allProducts: products }),
     setCategories: (categories) => set({ categories }),

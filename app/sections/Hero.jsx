@@ -5,12 +5,18 @@ import { RiDiscountPercentFill } from "react-icons/ri";
 import ProductAndServices from "./ProductAndServices";
 import Link from "next/link";
 import useProductStore from "../store/productStore";
+import { motion } from "framer-motion";
 
 const Hero = () => {
     const { isOpen } = useProductStore();
     return (
         <section className="flex flex-col min-h-screen" id="/">
-            <div className="w-full">
+            <motion.div 
+                className="w-full"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+            >
                 <img src="/assets/shopping1.png" alt="HeroBg" className={`w-full h-[400px] md:h-[600px] left-0`} />
                 <div className="absolute top-60 md:top-60 text-[#333333] font-bold px-3 md:px-7 py-2 md:py-10 bg-white opacity-90 left-0 md:left-auto">
                     <h1 className="text-xl md:text-3xl">
@@ -24,7 +30,7 @@ const Hero = () => {
                     <h2 className="flex items-center gap-1"><MdBookOnline size={30} />Online Payment</h2>
                     <h2 className="flex items-center gap-1"><RiDiscountPercentFill size={30} />Special Discount</h2>
                 </div>
-            </div>
+            </motion.div>
             <ProductAndServices />  
         </section>
     )

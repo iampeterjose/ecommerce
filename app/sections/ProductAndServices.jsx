@@ -2,12 +2,21 @@
 import { BsHandThumbsUp } from "react-icons/bs";
 import { productAndServices } from "../constants";
 import useProductStore from "../store/productStore";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ProductAndServices = () => {
     const { isOpen } = useProductStore();
 
     return (
-        <section className="md:p-4 mt-10">
+        <AnimatePresence>
+        <motion.section 
+            className="md:p-4 mt-10"
+            initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
+            animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
+            exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
+            transition={{ duration: 1, delay: 2 }} // Staggered entrance
+        >
             <div className={`flex flex-col items-center gap-4 py-6`}>
                 <h1 className="text-2xl font-semibold text-slate-700">Our product and services</h1>
                 <p className={`text-base text-slate-500 text-start ${isOpen ? "text-start lg:text-center" : "md:text-center"}`}>
@@ -46,7 +55,8 @@ const ProductAndServices = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
+        </AnimatePresence>
     )
 }
 
