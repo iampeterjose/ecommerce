@@ -29,7 +29,7 @@ const FeaturedCategories = () => {
                     return createdAt >= startDate && createdAt <= currentDate;
                 });
 
-                const bestSellers = data.products.filter(product => product.rating >= 4.50);
+                const bestSellers = data.products.filter(product => product.rating >= 4);
                 const exclusiveOffers = data.products.filter(product => product.discountPercentage >= 18);
                 const essentials = data.products.filter(product => product.category ==="groceries");
 

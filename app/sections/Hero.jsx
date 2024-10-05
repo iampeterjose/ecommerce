@@ -24,7 +24,7 @@ const Hero = () => {
                     </h1>
                     <Link href="#featured">
                         <motion.p 
-                            className="bg-softgreen px-2 py-2 text-white w-fit mt-2 rounded-full"
+                            className="bg-red-600 px-2 py-1 text-white w-fit mt-2 rounded-md"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >Find More</motion.p>

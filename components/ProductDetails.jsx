@@ -5,11 +5,10 @@ import { TbDimensions } from "react-icons/tb";
 import { FaWeight } from "react-icons/fa";
 import { BiSolidCategory } from "react-icons/bi";
 import { FaTag } from "react-icons/fa6";
-import { MdPayments } from "react-icons/md";
-import { FaCartArrowDown } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { HiMinusSmall } from "react-icons/hi2"
 import useProductStore from "@/app/store/productStore";
+import { motion } from "framer-motion";
 
 const ProductDetails = () => {
     const { product } = useProductStore();
@@ -19,9 +18,9 @@ const ProductDetails = () => {
 
     return (
         <div className="py-4 md:py-20 gap-4 flex flex-col w-full text-customDark2">
-            <h1 className='text-xl font-semibold text-customDark'>Product Details</h1>
-            <p className="text-red-700 font-semibold text-lg flex flex-row gap-4">${discountedPrice}<span className="text-base line-through text-customDark2 font-semibold ">${product.price}</span><span className=" bg-slate-50 text-sm px-1 shadow-md shadow-slate-400 rounded h-fit">{product.discountPercentage}% off</span></p>
-            <p>By: {!product.brand ? "N/A" : product.brand}</p>
+            <h1 className='text-2xl font-semibold text-customDark'>Product Details</h1>
+            <p className="text-red-700 font-semibold text-lg flex flex-row gap-4">${discountedPrice}<span className="text-base line-through text-customDark2 font-semibold ">${product.price}</span><span className=" bg-slate-50 text-sm px-1 shadow-md shadow-slate-400 rounded h-fit">{(product.discountPercentage).toFixed(0)}% off</span></p>
+            <p className="text-lg font-semibold">{product.brand}</p>
             <p className='font-semibold'>
                 Description: 
                 <span className='font-normal pl-2'>{product.description}</span>
@@ -41,14 +40,19 @@ const ProductDetails = () => {
                     <span>{tag}, </span>
                 ))}</p>
             </div>
-            <div className='flex items-center gap-2'>
-                <p>Quantity: </p>
-                <span className='cursor-pointer bg-customDark2 px-2 py-1 text-white'><HiMinusSmall /></span>
-                <p disabled className='border-b-2 border-customDark px-2 py-1 text-base w-20 text-center'>0</p>
-                <span className='cursor-pointer bg-customDark2 px-2 py-1 text-white'><GoPlus /></span>
+            <p>Quantity: </p>
+            <div className='flex items-center gap-2 border border-customDark2 w-fit rounded-md'>
+                <span className='cursor-pointer bg-customDark2 h-full px-2 py-2 text-white'><HiMinusSmall size={20} /></span>
+                <p disabled className='px-2 py-1 text-base w-14 text-center'>0</p>
+                <span className='cursor-pointer bg-customDark2 h-full px-2 py-2 text-white'><GoPlus size={20} /></span>
             </div>
-            <button className='bg-softgreen text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Buy Now <MdPayments /></button>
-            <button className='bg-orange-500 text-white h-14 md:h-auto px-5 py-1 w-40 rounded-sm flex items-center justify-center gap-2'>Add to Cart <FaCartArrowDown /></button>
+            <motion.button 
+                className='text-customDark border-2 border-customDark2 h-14 md:h-10 px-5 py-1 w-36 rounded-md flex items-center justify-center gap-2 font-semibold'
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >
+                    Add to Cart
+            </motion.button>
         </div>
     )
 }

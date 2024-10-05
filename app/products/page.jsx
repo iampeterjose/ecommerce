@@ -114,10 +114,10 @@ const Page = () => {
     }, [allProducts, searchTerm, selectedCategory, nameClick, priceClick]);
 
     return (
-        <section className="flex flex-col py-16 md:py-5 gap-y-4 text-customDark scroll-smooth min-h-screen">
+        <section className="flex flex-col py-16 md:py-5 gap-y-4 scroll-smooth min-h-screen">
             {/* Anchor at the top for smooth scrolling */}
             <a id="top" className="absolute top-0"></a>
-            <h1 className="text-xl font-semibold">Products</h1>
+            <h1 className="text-2xl text-customDark font-semibold">Products</h1>
 
             <SearchOption onSort={handleSortChange} />
             {loading ? (

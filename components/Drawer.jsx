@@ -55,7 +55,7 @@ const Drawer = () => {
         {/* Mobile View */}
         <div className="flex z-50 fixed md:hidden bg-customDark text-white border-b border-slate-300 w-full px-2 py-3">
             <div className="flex justify-start gap-4">
-                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <h1 className="text-lg font-semibold">eCommerce</h1>
+                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <Link href="/"><h1 className="text-lg font-semibold">eCommerce</h1></Link>
             </div>
 
             <div className={`fixed inset-y-0 left-0 top-10 w-full bg-customDark transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
