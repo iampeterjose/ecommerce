@@ -17,8 +17,8 @@ export const navLinks = [
 ];
 
 export const productAndServices = [
-    {title: "Seamless Shopping Experience", desc: "Experience the Perfect Blend of Quality, Unmatched Convenience, and Rapid Delivery Right at Your Fingertips! Enjoy a seamless shopping experience where exceptional products are just a click away, delivered swiftly to your doorstep!"},
-    {title: "Unmatched Variety", desc: "Discover Our Vast Selection of High-Quality Products Tailored Just for You! From everyday essentials to unique finds, we offer an extensive range designed to meet all your needs and preferences."},
+    {title: "Seamless Shopping Experience", desc: "Enjoy a great mix of quality, convenience, and fast delivery! Shop easily for amazing products that will be quickly delivered to your door!"},
+    {title: "Unmatched Variety", desc: "Explore our wide range of high-quality products just for you! From everyday essentials to unique items, we have everything to meet your needs and preferences."},
     {title: "Shop with Confidence", desc: "Experience Exceptional Products Supported by Our Dedicated and Reliable Customer Service!"},
 ];
 

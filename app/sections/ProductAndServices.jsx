@@ -11,15 +11,15 @@ const ProductAndServices = () => {
     return (
         <AnimatePresence>
         <motion.section 
-            className="md:p-4 mt-10"
+            className="md:p-4 mt-10 px-2 bg-white shadow-md shadow-customDark2"
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
             transition={{ duration: 1, delay: 1.5 }} // Staggered entrance
         >
             <div className={`flex flex-col items-center gap-4 py-6`}>
-                <h1 className="text-2xl font-semibold text-slate-700">Our product and services</h1>
-                <p className={`text-base text-slate-500 text-start ${isOpen ? "text-start lg:text-center" : "md:text-center"}`}>
+                <h1 className="text-2xl font-semibold text-customDark">Our product and services</h1>
+                <p className={`text-base text-customDark2 text-start ${isOpen ? "text-start lg:text-center" : "md:text-center"}`}>
                 Experience Lightning-Fast Delivery on a Wide Range of Products—<br/>
                 From Beauty and Fragrances to Furniture and Electronics!<br/>
                 Shop Now and Enjoy Quick Access to Quality Items,<br/>
@@ -37,8 +37,8 @@ const ProductAndServices = () => {
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <h2 className="font-semibold text-softgreen">{item.title}</h2>
-                                    <p className="text-sm text-slate-700">{item.desc}</p>
-                                    <span className="border-b border-slate-400 mt-4"></span>
+                                    <p className="text-sm text-customDark">{item.desc}</p>
+                                    <span className="border-b border-customDark2 mt-4"></span>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@ const ProductAndServices = () => {
                         <motion.img 
                             src="/assets/onlineshopping.jpg" 
                             alt="Online Shopping" 
-                            className="w-full h-60 rounded-md shadow-lg shadow-slate-500" 
+                            className="w-full h-60 rounded-md shadow-lg shadow-customDark2" 
                             whileHover={{ scale: 1.1 }}
                             onHoverStart={e => {}}
                             onHoverEnd={e => {}}
@@ -60,7 +60,7 @@ const ProductAndServices = () => {
                         <motion.img 
                             src="assets/pic2.jpg" 
                             alt="Pic2" 
-                            className="h-52 max-w-full rounded-md shadow-lg shadow-slate-500" 
+                            className="h-52 max-w-full rounded-md shadow-lg shadow-customDark2" 
                             whileHover={{ scale: 1.1 }}
                             onHoverStart={e => {}}
                             onHoverEnd={e => {}}

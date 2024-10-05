@@ -114,7 +114,7 @@ const Page = () => {
     }, [allProducts, searchTerm, selectedCategory, nameClick, priceClick]);
 
     return (
-        <section className="flex flex-col py-16 md:py-5 gap-y-4 text-slate-700 scroll-smooth min-h-screen">
+        <section className="flex flex-col py-16 md:py-5 gap-y-4 text-customDark scroll-smooth min-h-screen">
             {/* Anchor at the top for smooth scrolling */}
             <a id="top" className="absolute top-0"></a>
             <h1 className="text-xl font-semibold">Products</h1>
@@ -133,12 +133,12 @@ const Page = () => {
                     <FaChevronCircleUp size={20} />
                 </a>
             </div>
-            <div className="flex justify-center mt-4 py-10 border-customBlue">
+            <div className="flex justify-center mt-4 py-10 border-customDark2">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button
                         key={index + 1}
                         onClick={() => handlePageChange(index + 1)}
-                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-softgreen text-white' : 'bg-white text-slate-700'}`}
+                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-softgreen text-white' : 'bg-white text-customDark'}`}
                     >
                         {index + 1}
                     </button>

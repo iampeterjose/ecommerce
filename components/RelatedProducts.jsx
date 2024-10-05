@@ -27,7 +27,7 @@ const RelatedProducts = () => {
     };
 
     return (
-        <div className="border-t border-b border-customBlue py-2 w-full">
+        <div className="border-t border-b border-customDark2 py-2 w-full">
             <div className="flex justify-between items-center">
                 <h1 className="text-xl font-semibold mb-2">
                     Related Products
@@ -41,20 +41,20 @@ const RelatedProducts = () => {
                     <motion.li 
                         key={product.id} 
                         className={`flex flex-col bg-white px-3 border-2 rounded-lg hover:cursor-pointer`}
-                        whileHover={{ scale: 1.1, backgroundColor:"#f0f0f0" }}
+                        whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
                         <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
                             <div className="flex justify-center w-full py-2">
                                 <img src={product.thumbnail} alt={product.title} className={`w-[100px] h-[100px] ${isOpen ? "w-[100px] h-[100px]" : "md:w-[125px] md:h-[125px]"} `}/>
                             </div> 
-                            <span className="border-t-2 border-dashed w-full py-1"></span>
+                            <span className="border-t border-customDark2 border-dashed w-full py-1"></span>
                             <div>
                                 <h2 className="text-sm md:text-md font-semibold">{truncateText(product.title, 10)}</h2>
                             </div>
                         </Link>
                         <span className="flex justify-between mb-2">
-                            <p className="text-xs md:text-sm font-semibold text-slate-500">${product.price}</p>
+                        <p className="text-xs md:text-sm font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customDark2 line-through">{product.price}</span></p>
                             <FaStar size={20} className="hover:text-yellow-400 text-slate-300" />
                         </span>
                     </motion.li>
