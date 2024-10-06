@@ -30,6 +30,6 @@ export const footerHeaders = [
 
 export const footerItems = [
     {title: "Danao City, Cebu - 6004, Philippines", icon: <ImLocation />},
-    {title: "+63111 111 1111", icon: <FaPhone />},
+    {title: "+63 998 305 4632", icon: <FaPhone />},
     {title: "peterjose098@gmail.com", icon: <MdEmail />},
 ];

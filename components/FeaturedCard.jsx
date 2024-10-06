@@ -21,7 +21,7 @@ const FeaturedCard = ({products, isOpen, title, error, link}) => {
             {products.length > 0 ? products.slice(0,6).map((product) => (
                 <motion.li 
                     key={product.id} 
-                    className={`flex flex-col bg-[#eeeeee] px-3 border-2 rounded-sm hover:cursor-pointer`}
+                    className={`flex flex-col bg-[#eeeeee] px-3 rounded-sm hover:cursor-pointer`}
                 >
                 <p className={`absolute z-10 text-sm font-semibold bg-red-600 w-fit my-2 px-1 text-white ${product.discountPercentage < 10 ? "opacity-0" : ""}`}>Sale {(product.discountPercentage).toFixed(0)}%</p>
                     <Link href={`/product/${product.id}`} className="w-full flex flex-col  hover:text-blue-500">
@@ -40,7 +40,7 @@ const FeaturedCard = ({products, isOpen, title, error, link}) => {
                         </div>
                     </Link>
                     <span className="flex justify-between mb-6 gap-2">
-                        <p className="text-xs md:text-sm font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customDark2 line-through">{product.price}</span></p>
+                        <p className="text-base font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customDark2 line-through">{product.price}</span></p>
                         <FaStar size={20} className="hover:text-yellow-400 text-slate-300" />
                     </span>
                 </motion.li>

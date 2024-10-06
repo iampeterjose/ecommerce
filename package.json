@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/dm-sans": "^5.1.0",
+    "@fontsource/lato": "^5.1.0",
+    "@fontsource/montserrat": "^5.1.0",
+    "@fontsource/oswald": "^5.1.0",
     "framer-motion": "^11.11.0",
     "mongodb": "^6.9.0",
     "mongoose": "^8.6.3",

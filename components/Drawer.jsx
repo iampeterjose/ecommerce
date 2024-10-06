@@ -3,14 +3,22 @@ import { navLinks } from "@/app/constants";
 import useProductStore from "@/app/store/productStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const Drawer = () => {
     const pathname = usePathname();
-    const { isOpen, setIsOpen } = useProductStore();
+    const { isOpen, setIsOpen, totalQuantity } = useProductStore();
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null; // Prevent rendering until mounted
 
     const toggleDrawer = () => {
         setIsOpen(); // This should be fine as long as it's called in response to an event
@@ -37,10 +45,13 @@ const Drawer = () => {
                                 href={nav.href}
                                 className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customDark2 hover:rounded-sm ${pathname === nav.href ? "bg-customDark2 shadow-md shadow-softgreen rounded-sm" : ""}`}
                             >
-                                <div>{nav.icon}</div>
+                                <span>{nav.icon}</span>
                                 <h2 style={{ transitionDelay: `${i + 3}00ms` }} className={`whitespace-pre duration-300 ${!isOpen && "opacity-0 translate-x-28 overflow-hidden"}`}>
                                     {nav.title}
                                 </h2>
+                                {nav.title === "Cart" && totalQuantity > 0 && (
+                                    <p style={{ transitionDelay: `150ms` }} className={`whitespace-pre duration-300 ${!isOpen && "-translate-x-6"} px-1.5 text-sm bg-red-600 text-white rounded-full`}>{totalQuantity}</p>
+                                )}
                                 <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-customDark border text-customDark px-2 py-1 rounded-md left-14 absolute' : 'hidden'}`}>
                                     <p className="font-semibold">{nav.title}</p>
                                 </span>
@@ -77,8 +88,11 @@ const Drawer = () => {
                                     
                                     onClick={toggleDrawer}
                                 >
-                                    <div>{nav.icon}</div>
+                                    <span>{nav.icon}</span>
                                     <h2>{nav.title}</h2>
+                                    {nav.title === "Cart" && totalQuantity > 0 && (
+                                        <p className={`px-1.5 text-sm bg-red-600 text-white rounded-full`}>{totalQuantity}</p>
+                                    )}
                                 </Link>
                             </motion.li>
                         ))}

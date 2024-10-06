@@ -11,7 +11,7 @@ const ProductAndServices = () => {
     return (
         <AnimatePresence>
         <motion.section 
-            className="md:p-4 mt-10 px-2 bg-white shadow-md shadow-customDark2"
+            className="md:p-4 mt-10 px-2 bg-white shadow-md shadow-customDark2 rounded-sm"
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
@@ -48,30 +48,27 @@ const ProductAndServices = () => {
                 <div className="grid gap-4 w-full">
                     <div>
                         <motion.img 
-                            src="/assets/onlineshopping.jpg" 
+                            src="/assets/onlineshopping2.jpg" 
                             alt="Online Shopping" 
                             className="w-full h-60 rounded-md shadow-lg shadow-customDark2" 
-                            whileHover={{ scale: 1.1 }}
-                            onHoverStart={e => {}}
-                            onHoverEnd={e => {}}
+                            whileHover={{ scale: 0.9 }}
+                            whileTap={{ scale: 0.9 }}
                         />
                     </div>
                     <div className="grid grid-cols-2 gap-5">
                         <motion.img 
-                            src="assets/pic2.jpg" 
+                            src="assets/products.jpeg" 
                             alt="Pic2" 
                             className="h-52 max-w-full rounded-md shadow-lg shadow-customDark2" 
                             whileHover={{ scale: 1.1 }}
-                            onHoverStart={e => {}}
-                            onHoverEnd={e => {}}
+                            whileTap={{ scale: 0.9 }}
                         />
                         <motion.img 
-                            src="assets/pic3.png" 
+                            src="assets/addtocart.jpg" 
                             alt="Pic3" 
                             className="h-52 max-w-full bg-customBlue2 px-2 rounded-md shadow-lg shadow-slate-500" 
                             whileHover={{ scale: 1.1 }}
-                            onHoverStart={e => {}}
-                            onHoverEnd={e => {}}
+                            whileTap={{ scale: 0.9 }}
                         />
                     </div>
                 </div>

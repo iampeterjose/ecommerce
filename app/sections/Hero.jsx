@@ -30,11 +30,11 @@ const Hero = () => {
                         >Find More</motion.p>
                     </Link>
                 </div>
-                <div className={`grid grid-cols-2 ${isOpen ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-4"} justify-start items-center bg-customDark p-3 text-sm md:text-sm lg:text-xl text-white font-semibold`}>
+                <div className={`grid grid-cols-2 ${isOpen ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-4"} justify-start items-center bg-customDark p-3 text-sm md:text-sm lg:text-lg text-white font-semibold rounded-b-md`}>
                     <h2>Brand New</h2>
-                    <h2 className="flex items-center gap-1"><FaShippingFast size={25} />Fast Delivery</h2>
-                    <h2 className="flex items-center gap-1"><MdBookOnline size={25} />Online Payment</h2>
-                    <h2 className="flex items-center gap-1"><RiDiscountPercentFill size={25} />Special Discount</h2>
+                    <h2 className="flex items-center gap-1"><FaShippingFast size={20} />Fast Delivery</h2>
+                    <h2 className="flex items-center gap-1"><MdBookOnline size={20} />Online Payment</h2>
+                    <h2 className="flex items-center gap-1"><RiDiscountPercentFill size={20} />Special Discount</h2>
                 </div>
             </motion.div>
             <ProductAndServices />  

@@ -29,6 +29,12 @@ module.exports = {
       scrollBehavior: {
         smooth: 'smooth',
       },
+      fontFamily: {
+        oswald: ['Oswald', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+        dmsans: ['DM Sans', 'sans-serif'],
+      },
     },
   },
   plugins: [],
