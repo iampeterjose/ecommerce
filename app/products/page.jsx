@@ -128,9 +128,9 @@ const Page = () => {
                 <ProductList products={paginatedProducts} />
             )}
 
-            <div className="fixed right-0 mr-3 bottom-10">
-                <a href="#top" className="cursor-pointer">
-                    <FaChevronCircleUp size={20} />
+            <div className="fixed right-0 mr-4 bottom-10">
+                <a href="#top" className="cursor-pointer p-2 opacity-70">
+                    <FaChevronCircleUp size={22} />
                 </a>
             </div>
             <div className="flex justify-center mt-4 py-10 border-customDark2">

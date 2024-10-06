@@ -19,6 +19,9 @@ const Button = ({ quantity, itemId, isInCart }) => {
         if (isInCart) {
             if (quantity > 1) {
                 updateQuantity(itemId, quantity - 1);
+            } else {
+                // If the quantity is 1, we want to remove the item from the cart
+                updateQuantity(itemId, 0);
             }
         } else {
             if (count > 0) {

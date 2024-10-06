@@ -35,28 +35,52 @@ const useProductStore = create((set, get) => {
         cart: savedCart, // Initialize cart with savedCart
         totalQuantity: savedCart.reduce((total, item) => total + (item.quantity || 0), 0),
         
-        // Set cart and handle adding/updating items
         setCart: (itemToAdd) => {
             set(state => {
                 const existingItem = state.cart.find(item => item.id === itemToAdd.id);
+                let updatedCart;
+        
                 if (existingItem) {
-                    existingItem.quantity += itemToAdd.quantity;
+                    // If the item already exists, increase its quantity
+                    updatedCart = state.cart.map(item =>
+                        item.id === itemToAdd.id ? { ...item, quantity: item.quantity + itemToAdd.quantity } : item
+                    );
                 } else {
-                    state.cart.push(itemToAdd);
+                    // If the item does not exist, add it to the cart
+                    updatedCart = [...state.cart, itemToAdd];
                 }
-                localStorage.setItem('cart', JSON.stringify(state.cart));
-                return { cart: [...state.cart] };
+        
+                // Update local storage
+                localStorage.setItem('cart', JSON.stringify(updatedCart));
+                
+                // Calculate new total quantity
+                const newTotalQuantity = updatedCart.reduce((total, item) => total + (item.quantity || 0), 0);
+        
+                return { cart: updatedCart, totalQuantity: newTotalQuantity };
             });
         },
 
         // New method to update the quantity of a specific item
         updateQuantity: (id, quantity) => {
             set(state => {
-                const updatedCart = state.cart.map(item =>
-                    item.id === id ? { ...item, quantity } : item
-                );
+                const updatedCart = state.cart
+                    .map(item =>
+                        item.id === id ? { ...item, quantity } : item
+                    )
+                    .filter(item => item.quantity > 0); // Remove items with zero quantity
                 localStorage.setItem('cart', JSON.stringify(updatedCart));
-                return { cart: updatedCart };
+
+                // Update total quantity
+                const newTotalQuantity = updatedCart.reduce((total, item) => total + item.quantity, 0);
+                return { cart: updatedCart, totalQuantity: newTotalQuantity };
+            });
+        },
+
+        removeFromCart: (id) => {
+            set(state => {
+                const updatedCart = state.cart.filter(item => item.id !== id);
+                localStorage.setItem('cart', JSON.stringify(updatedCart));
+                return { cart: updatedCart, totalQuantity: updatedCart.reduce((total, item) => total + (item.quantity || 0), 0) };
             });
         },
 

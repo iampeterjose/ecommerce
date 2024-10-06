@@ -66,7 +66,7 @@ const ProductDetails = () => {
             <Button quantity={0} isInCart={false} />
             <motion.button 
                 onClick={addToCart}
-                className='text-customDark border-2 border-customDark2 h-14 md:h-10 px-5 py-1 w-36 rounded-md flex items-center justify-center gap-2 font-semibold'
+                className='text-customDark border-2 border-customDark2 md:h-10 px-5 py-2 w-36 rounded-md flex items-center justify-center gap-2 font-semibold'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
             >

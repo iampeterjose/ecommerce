@@ -39,7 +39,7 @@ const ProductDetail = () => {
     return (
         <div className='flex flex-col py-16 md:py-5 md:gap-4 text-customDark'>
             <div className='flex flex-col md:flex-row gap-4 pb-10'>
-                <span className='absolute right-0 mr-3 text-3xl font-extrabold cursor-pointer' onClick={()=>router.back()}>&times;</span>
+                <span className='absolute top-28 md:top-auto right-0 mr-3 text-3xl font-extrabold cursor-pointer' onClick={()=>router.back()}>&times;</span>
                 <ProductDisplay />
                 <ProductDetails />
 
