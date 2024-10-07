@@ -38,8 +38,6 @@ const Drawer = () => {
                             key={i} 
                             className="group"
                             whileHover={{ scale: 1.1 }}
-                            onHoverStart={e => {}}
-                            onHoverEnd={e => {}}
                         >
                             <Link
                                 href={nav.href}

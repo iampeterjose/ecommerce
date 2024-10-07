@@ -33,3 +33,10 @@ export const footerItems = [
     {title: "+63 998 305 4632", icon: <FaPhone />},
     {title: "peterjose098@gmail.com", icon: <MdEmail />},
 ];
+
+export const carouselPics = [
+    {title: "h1", image: "/assets/h1.png"},
+    {title: "h2", image: "/assets/h2.png"},
+    {title: "h3", image: "/assets/h3.png"},
+    {title: "h4", image: "/assets/h4.png"},
+];

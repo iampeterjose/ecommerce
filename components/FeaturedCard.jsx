@@ -3,22 +3,27 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-const FeaturedCard = ({products, isOpen, title, error, link}) => {
+const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
 
     const truncateText = (text, limit) => {
         return text.length > limit ? text.substring(0, limit) + '...' : text;
     };
 
     return (
-        <div className="border-t border-customDark2 py-5 w-full px-2">
-            <div className="flex justify-between items-center">
-                <h1 className="text-xl md:text-3xl text-customDark2 font-bold my-5">
-                    {title}
-                </h1>
-                <Link href={`/products/${link}`}><span className="text-xs md:text-sm font-semibold text-blue-500 cursor-pointer">Show all</span></Link>
+        <div className="flex flex-col md:flex-row border-t border-customDark2 py-5 w-full px-2 gap-2">
+            <div className=" w-full md:w-fit relative">
+                <img src={pic} alt="link" className="w-full md:w-[300px] h-[300px] rounded-md" />
+                <div className="absolute inset-0 flex flex-col justify-start p-4 hover:bg-opacity-0 bg-black bg-opacity-20 gap-4 rounded-md">
+                    <h1 className="text-xl md:text-3xl text-white font-bold">
+                        {title}
+                    </h1>
+                    <Link href={`/products/${link}`}>
+                        <span className="text-xs md:text-sm font-semibold text-customDark2 bg-white px-5 py-2 rounded-md cursor-pointer">Show all</span>
+                    </Link>
+                </div>
             </div>
-            <ul className={`grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2`}>
-            {products.length > 0 ? products.slice(0,6).map((product) => (
+            <ul className={`grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2 w-full`}>
+            {products.length > 0 ? products.slice(0,5).map((product) => (
                 <motion.li 
                     key={product.id} 
                     className={`flex flex-col bg-[#eeeeee] px-3 rounded-sm hover:cursor-pointer`}

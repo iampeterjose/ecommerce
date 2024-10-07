@@ -18,7 +18,7 @@ const useProductStore = create((set, get) => {
         allProducts: [],
         categories: [],
         currentPage: 1,
-        itemsPerPage: 28,
+        itemsPerPage: 30,
         selectedCategory: '',
         totalProducts: 0,
         product: null,

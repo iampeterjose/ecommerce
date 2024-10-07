@@ -8,6 +8,6 @@ export default function Home() {
       <Hero />
       <FeaturedCategories />
       <ContactUs />
-  </div>
+    </div>
   );
 }

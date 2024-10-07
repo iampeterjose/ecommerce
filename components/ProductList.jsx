@@ -34,7 +34,7 @@ const ProductList = ({ products }) => {
                                 <div className="flex justify-center w-full py-2">
                                     <motion.img 
                                     src={product.thumbnail} alt={product.title} 
-                                    className={`w-[125px] h-[125px] ${isOpen ? "w-[125px] h-[125px]" : "md:w-[150px] md:h-[150px]"} `}
+                                    className={`w-[125px] h-[125px] ${isOpen ? "w-[125px] h-[125px]" : "md:w-[175px] md:h-[200px]"} `}
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     />

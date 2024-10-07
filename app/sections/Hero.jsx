@@ -6,6 +6,7 @@ import ProductAndServices from "./ProductAndServices";
 import Link from "next/link";
 import useProductStore from "../store/productStore";
 import { motion } from "framer-motion";
+import Carousel from "@/components/Carousel";
 
 const Hero = () => {
     const { isOpen } = useProductStore();
@@ -17,8 +18,8 @@ const Hero = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
             >
-                <img src="/assets/shopping1.png" alt="HeroBg" className={`w-full h-[300px] md:h-[600px] left-0`} />
-                <div className="absolute top-40 md:top-60 text-customDark font-bold px-3 md:px-7 py-2 md:py-10 bg-white shadow-lg shadow-customDark2 rounded-e-lg opacity-90 left-0 md:left-auto">
+                <Carousel />
+                <div className="absolute top-52 md:top-80 text-customDark font-bold px-3 md:px-7 py-2 md:py-10 bg-white shadow-lg shadow-customDark2 rounded-e-lg opacity-90 left-0 md:left-auto">
                     <h1 className="text-md md:text-3xl">
                         Quality Products, <br/><span className="text-xl md:text-5xl">Unbeatable Prices!</span>
                     </h1>

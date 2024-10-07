@@ -13,7 +13,6 @@ const Page = () => {
         currentPage,
         itemsPerPage,
         selectedCategory,
-        totalProducts,
         setAllProducts,
         setCategories,
         setCurrentPage,

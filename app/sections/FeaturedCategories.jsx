@@ -67,10 +67,10 @@ const FeaturedCategories = () => {
                 <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
             ) : (
                 <>
-                    <FeaturedCard products={bestSellers} isOpen={isOpen} title="Best Sellers" error="No products found." link="/bestsellers" />
-                    <FeaturedCard products={newArrivals} isOpen={isOpen} title="New Arrivals" error="No new arrival products found." link="newarrivals" />
-                    <FeaturedCard products={exclusiveOffers} isOpen={isOpen} title="Exclusive Offers" error="No exclusive products found." link="exclusiveoffers" />
-                    <FeaturedCard products={essentials} isOpen={isOpen} title="Essentials" error="No products found." link="essentials" />
+                    <FeaturedCard products={bestSellers} isOpen={isOpen} title="Best Sellers" error="No products found." link="/bestsellers" pic="/assets/bestsellers.png" />
+                    <FeaturedCard products={newArrivals} isOpen={isOpen} title="New Arrivals" error="No new arrival products found." link="newarrivals" pic="/assets/newarrivals.png" />
+                    <FeaturedCard products={exclusiveOffers} isOpen={isOpen} title="Exclusive Offers" error="No exclusive products found." link="exclusiveoffers" pic="/assets/exclusiveoffers.png" />
+                    <FeaturedCard products={essentials} isOpen={isOpen} title="Essentials" error="No products found." link="essentials" pic="/assets/essentials.png" />
                 </>
             )}
             </div>
