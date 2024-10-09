@@ -58,7 +58,7 @@ const FeaturedCategories = () => {
             transition={{ duration: 2, delay: 2 }} // Staggered entrance
         >
             <div className="flex flex-col items-center gap-4 py-10">
-                <h1 className="text-3xl md:text-5xl font-bold text-customDark">Featured Categories</h1>
+                <h1 className="text-3xl md:text-5xl font-bold text-customBlue2">Featured Categories</h1>
             </div>
             <div className="flex flex-col gap-20">
             {loading ? (

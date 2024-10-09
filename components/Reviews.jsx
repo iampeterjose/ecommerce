@@ -8,8 +8,8 @@ const Reviews = () => {
         <div className='py-2'>
             <div className='flex flex-col justify-center items-center gap-2'>
                 <h1 className='text-xl font-bold'>Give Your Feedback Here</h1>
-                <textarea placeholder='Write your feedback...' className='border-2 border-customDark rounded-md w-[380px] h-[150px] p-4'></textarea>
-                <button className='text-customDark border-2 border-customDark2 font-semibold md:h-auto rounded-md px-5 py-2'>Submit</button>
+                <textarea placeholder='Write your feedback...' className='border-2 border-customBlue2 rounded-md w-[380px] h-[150px] p-4'></textarea>
+                <button className='text-customBlue2 border-2 border-customBlue2 font-semibold md:h-auto rounded-md px-5 py-2'>Submit</button>
             </div>
             {product.reviews.length > 0 ? (
                 <ReviewCard />

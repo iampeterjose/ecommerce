@@ -31,7 +31,7 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <>
-    <div className="flex min-h-screen font-montserrat w-full bg-[#EEEEEE]">
+    <div className="flex min-h-screen font-montserrat w-full bg-white">
       <Drawer/>
       <Cart />
       <main

@@ -10,12 +10,19 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        customBlue: "#003366",
-        customBlue2: "#002147",
+        customBlue: "#180161",
+        customBlue2: "#112D4E",
         softgreen: "#00ADB5",
         softgreenl: "#a8d5ba",
         customDark: "#222831",
         customDark2: "#393E46",
+        lightBg: "#F4F6FF",
+        lightBg2: "#F5F5F7",
+        lightpink: "#E7CCCC",
+        avocado: "#A5B68D",
+        lightavocado: "#C1CFA1",
+        customOrange: "#F3C623",
+        customOrange2: "#EB8317",
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite', // Example for slower spin

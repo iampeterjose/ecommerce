@@ -33,11 +33,11 @@ const ProductDetails = () => {
     };
 
     return (
-        <div className="py-4 md:py-20 gap-4 flex flex-col w-full text-customDark2">
-            <h1 className='text-2xl font-semibold text-customDark'>Product Details</h1>
+        <div className="py-4 md:py-20 gap-4 flex flex-col w-full text-customBlue2">
+            <h1 className='text-2xl font-semibold text-customBlue2'>Product Details</h1>
             <p className="text-red-700 font-semibold text-lg flex flex-row gap-4">
                 ${discountedPrice}
-                <span className="text-base line-through text-customDark2 font-semibold">${product?.price}</span>
+                <span className="text-base line-through text-customBlue2 font-semibold">${product?.price}</span>
                 <span className="bg-slate-50 text-sm px-1 shadow-md shadow-slate-400 rounded h-fit">
                     {product?.discountPercentage.toFixed(0)}% off
                 </span>
@@ -56,17 +56,19 @@ const ProductDetails = () => {
             <p className='flex items-center gap-2'><SiAdguard size={22} />Warranty: {product?.warrantyInformation}</p>
             <p className='flex items-center gap-2'><TbTruckReturn size={22} />Return Policy: {product?.returnPolicy}</p>
             <p className='flex items-center gap-2'><FaShippingFast size={22} />Shipping: {product?.shippingInformation}</p>
-            <div className='py-4 gap-4 flex flex-col w-full border-t border-dashed border-customDark2'>
+            <div className='py-4 gap-4 flex flex-col w-full border-t border-dashed border-customBlue2'>
                 <p className='flex items-center gap-2'><BiSolidCategory size={22} />Category: {product?.category}</p>
                 <p className='flex items-center gap-2'><FaTag size={22} />Tags: {product?.tags?.map((tag, index) => (
                     <span key={index}>{tag}{index < product.tags.length - 1 ? ', ' : ''}</span>
                 ))}</p>
             </div>
             <p>Quantity: </p>
-            <Button quantity={0} isInCart={false} />
+            <span className="w-[144px]">
+                <Button quantity={0} isInCart={false} />
+            </span>
             <motion.button 
                 onClick={addToCart}
-                className='text-customDark border-2 border-customDark2 md:h-10 px-5 py-2 w-36 rounded-md flex items-center justify-center gap-2 font-semibold'
+                className='text-customBlue2 border-2 border-customBlue2 md:h-10 px-5 py-2 w-36 rounded-md flex items-center justify-center gap-2 font-semibold'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
             >

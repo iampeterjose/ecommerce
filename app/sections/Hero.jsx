@@ -19,19 +19,19 @@ const Hero = () => {
                 transition={{ duration: 0.8 }}
             >
                 <Carousel />
-                <div className="absolute top-52 md:top-80 text-customDark font-bold px-3 md:px-7 py-2 md:py-10 bg-white shadow-lg shadow-customDark2 rounded-e-lg opacity-90 left-0 md:left-auto">
+                <div className="absolute top-52 md:top-80 text-customBlue2 font-bold px-3 md:px-7 py-2 md:py-10 bg-white shadow-lg shadow-customDark2 rounded-e-lg opacity-90 left-0 md:left-auto">
                     <h1 className="text-md md:text-3xl">
                         Quality Products, <br/><span className="text-xl md:text-5xl">Unbeatable Prices!</span>
                     </h1>
                     <Link href="#featured">
                         <motion.p 
-                            className="bg-red-600 px-2 py-1 text-white w-fit mt-2 rounded-md"
+                            className="bg-customOrange2 px-2 py-1 text-white w-fit mt-2 rounded-md"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >Find More</motion.p>
                     </Link>
                 </div>
-                <div className={`grid grid-cols-2 ${isOpen ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-4"} justify-start items-center bg-customDark p-3 text-sm md:text-sm lg:text-lg text-white font-semibold rounded-b-md`}>
+                <div className={`grid grid-cols-2 ${isOpen ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-4"} justify-start items-center bg-customOrange2 p-3 text-sm md:text-sm lg:text-lg text-white font-semibold rounded-b-md`}>
                     <h2>Brand New</h2>
                     <h2 className="flex items-center gap-1"><FaShippingFast size={20} />Fast Delivery</h2>
                     <h2 className="flex items-center gap-1"><MdBookOnline size={20} />Online Payment</h2>

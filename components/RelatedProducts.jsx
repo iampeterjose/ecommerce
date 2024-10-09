@@ -27,7 +27,7 @@ const RelatedProducts = () => {
     };
 
     return (
-        <div className="border-t border-b border-customDark2 py-2 w-full">
+        <div className="border-t border-b border-customBlue2 py-2 w-full">
             <div className="flex justify-between items-center">
                 <h1 className="text-xl font-semibold mb-2">
                     Related Products
@@ -40,7 +40,7 @@ const RelatedProducts = () => {
                 {relatedProducts.total > 0 ? relatedProducts.products.slice(0,displayCount).map((product) => (
                     <motion.li 
                         key={product.id} 
-                        className={`flex flex-col bg-white px-3 rounded-sm hover:cursor-pointer`}
+                        className={`flex flex-col bg-lightBg px-3 rounded-sm hover:cursor-pointer`}
                     >
                         <p className={`absolute z-10 text-sm font-semibold bg-red-600 w-fit my-2 px-1 text-white ${product.discountPercentage < 10 ? "opacity-0" : ""}`}>Sale {(product.discountPercentage).toFixed(0)}%</p>
                         <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">
@@ -52,19 +52,19 @@ const RelatedProducts = () => {
                                     whileTap={{ scale: 0.9 }}
                                 />
                             </div> 
-                            <span className="border-t border-customDark2 border-dashed w-full py-1"></span>
+                            <span className="border-t border-customBlue2 border-dashed w-full py-1"></span>
                             <div>
-                            <p className="text-xs font-semibold text-customDark2">{product.brand}</p>
+                            <p className="text-xs font-semibold text-customBlue2">{product.brand}</p>
                                 <h2 className="text-sm md:text-md font-semibold">{truncateText(product.title, 10)}</h2>
                             </div>
                         </Link>
                         <span className="flex justify-between mb-6">
-                        <p className="text-base font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customDark2 line-through">{product.price}</span></p>
+                        <p className="text-base font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customBlue2 line-through">{product.price}</span></p>
                             <FaStar size={20} className="hover:text-yellow-400 text-slate-300" />
                         </span>
                     </motion.li>
                 )) : (
-                    <p className="text-slate-700 font-semibold">No related products found.</p>
+                    <p className="text-customBlue2 font-semibold">No related products found.</p>
                 )}
             </ul>
         </div>

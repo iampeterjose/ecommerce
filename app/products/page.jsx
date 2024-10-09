@@ -4,8 +4,8 @@ import useProductStore from "../store/productStore";
 import { FaChevronCircleUp } from "react-icons/fa";
 import SearchOption from "@/components/SearchOption";
 import ProductList from "@/components/ProductList";
-import Loading from "@/components/Loading";
 import { CgDanger } from "react-icons/cg";
+import ProductListSkeleton from "@/components/ProductListSkeleton";
 
 const Page = () => {
     const {
@@ -116,11 +116,11 @@ const Page = () => {
         <section className="flex flex-col py-16 md:py-5 gap-y-4 scroll-smooth min-h-screen">
             {/* Anchor at the top for smooth scrolling */}
             <a id="top" className="absolute top-0"></a>
-            <h1 className="text-2xl text-customDark font-semibold">Products</h1>
+            <h1 className="text-2xl text-customBlue2 font-semibold">Products</h1>
 
             <SearchOption onSort={handleSortChange} />
             {loading ? (
-                <Loading />
+                <ProductListSkeleton productsCount={itemsPerPage} />
             ) : error ? (
                 <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
             ) : (
@@ -137,7 +137,7 @@ const Page = () => {
                     <button
                         key={index + 1}
                         onClick={() => handlePageChange(index + 1)}
-                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-softgreen text-white' : 'bg-white text-customDark'}`}
+                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-lightBg text-customBlue2' : 'bg-white text-customBlue2'}`}
                     >
                         {index + 1}
                     </button>

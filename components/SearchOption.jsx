@@ -22,7 +22,7 @@ const SearchOption = ({ onSort }) => {
     };
 
     return (
-        <div className={`flex flex-col ${isOpen ? "md:flex-col lg:flex-row" : "md:flex-row"} gap-y-2 items-center bg-customDark text-white p-2 rounded-t-md`}>
+        <div className={`flex flex-col ${isOpen ? "md:flex-col lg:flex-row" : "md:flex-row"} gap-y-2 items-center bg-lightBg text-customBlue2 border p-2 rounded-t-md`}>
             <div className="flex w-full gap-4 md:gap-10">
                 <span className="flex items-center gap-2">
                     <p className="font-semibold">Search Option </p>
@@ -38,7 +38,7 @@ const SearchOption = ({ onSort }) => {
                         setSelectedCategory(e.target.value);
                         setCurrentPage(1); // Reset to page 1 when category changes
                     }}
-                    className="border w-full md:w-fit rounded-md px-2 py-1 text-customDark"
+                    className="border w-full md:w-fit rounded-md p-2 text-customBlue2"
                 >
                     <option value="">All Categories</option>
                     {categories.map((category, index) => (
@@ -55,10 +55,10 @@ const SearchOption = ({ onSort }) => {
                     onChange={(e) => {
                         setSearchTerm(e.target.value); // Update search term in Zustand
                     }}
-                    className="block px-2 py-1 pr-[60px] w-full text-base text-customDark bg-gray-50 rounded-md border"
+                    className="block p-2 pr-[60px] w-full text-base text-customBlue2 bg-gray-50 rounded-md border"
                     value={searchTerm}
                 />
-                <button className="absolute top-0 end-0 px-2 py-1 text-sm font-medium text-customDark h-full border-l-2 rounded-e-sm">
+                <button className="absolute top-0 end-0 px-2 py-1 text-sm font-medium text-customBlue2 h-full border-l-2 rounded-e-sm">
                     <span>Search</span>
                 </button>
             </div>

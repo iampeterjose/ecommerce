@@ -18,8 +18,8 @@ const ProductAndServices = () => {
             transition={{ duration: 1, delay: 1.5 }} // Staggered entrance
         >
             <div className={`flex flex-col items-center gap-4 py-6`}>
-                <h1 className="text-2xl font-semibold text-customDark">Our product and services</h1>
-                <p className={`text-base text-customDark2 text-start ${isOpen ? "text-start lg:text-center" : "md:text-center"}`}>
+                <h1 className="text-2xl font-semibold text-customBlue2">Our product and services</h1>
+                <p className={`text-base text-customBlue2 text-start ${isOpen ? "text-start lg:text-center" : "md:text-center"}`}>
                 Experience Lightning-Fast Delivery on a Wide Range of Products—<br/>
                 From Beauty and Fragrances to Furniture and Electronics!<br/>
                 Shop Now and Enjoy Quick Access to Quality Items,<br/>
@@ -33,12 +33,12 @@ const ProductAndServices = () => {
                         <div key={i} className="flex flex-col gap-2">
                             <div className="flex flex-row gap-2">
                                 <div>
-                                    <BsHandThumbsUp size={36} className="border border-softgreen rounded-full bg-white p-2 text-softgreen" />
+                                    <BsHandThumbsUp size={36} className="border border-customOrange rounded-full p-2 text-customOrange" />
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <h2 className="font-semibold text-softgreen">{item.title}</h2>
-                                    <p className="text-sm text-customDark">{item.desc}</p>
-                                    <span className="border-b border-customDark2 mt-4"></span>
+                                    <h2 className="font-semibold text-customOrange">{item.title}</h2>
+                                    <p className="text-sm text-customBlue2">{item.desc}</p>
+                                    <span className="border border-lightBg2 mt-4"></span>
                                 </div>
                             </div>
                         </div>

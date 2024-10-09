@@ -35,18 +35,18 @@ const Button = ({ quantity, itemId, isInCart }) => {
     }, [count]);
 
     return (
-        <div className='flex items-center gap-2 border border-customDark2 w-fit rounded-md'>
+        <div className='flex justify-between items-center gap-2 border-2 border-customBlue2 min-w-full rounded-md'>
             <span 
-                className='cursor-pointer h-full px-2 py-2 text-customDark2'
+                className='cursor-pointer h-full px-2 py-2 text-customBlue2'
                 onClick={minusCount}
             >
                 <HiMinusSmall size={20} />
             </span>
-            <p className='px-2 py-1 text-base w-14 text-center text-customDark2'>
+            <p className='px-2 py-1 text-base w-14 text-center text-customBlue2'>
                 {isInCart ? quantity : count}
             </p>
             <span 
-                className='cursor-pointer h-full px-2 py-2 text-customDark2'
+                className='cursor-pointer h-full px-2 py-2 text-customBlue2'
                 onClick={addCount}
             >
                 <GoPlus size={20} />

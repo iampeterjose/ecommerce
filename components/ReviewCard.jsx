@@ -23,7 +23,7 @@ const ReviewCard = () => {
         <h1 className='text-xl font-semibold mt-14 px-2'>Reviews</h1>
         <ul className='my-4 flex flex-col flex-wrap md:flex-row justify-evenly gap-4 md:gap-6'>
             {product.reviews.map((review, i) => (
-                <li key={i} className='border border-customDark2 rounded-md p-2 md:p-5 bg-white w-full'>
+                <li key={i} className='border border-customBlue2 rounded-md p-2 md:p-5 bg-white w-full'>
                     <IoPersonCircleOutline size={75} />
                     <p className='text-md'>{review.reviewerName}</p>
                     <p className='text-xs'><StarRating rating={product.rating} /></p>

@@ -8,6 +8,7 @@ import ProductDisplay from '@/components/ProductDisplay';
 import ProductDetails from '@/components/ProductDetails';
 import Reviews from '@/components/Reviews';
 import RelatedProducts from '@/components/RelatedProducts';
+import ProductDetailsSkeleton from '@/components/ProductDetailsSkeleton';
 
 const ProductDetail = () => {
     const pathname = usePathname(); // Get the current pathname
@@ -33,11 +34,11 @@ const ProductDetail = () => {
     }, [id]);
 
     if (!product) return (
-        <Loading />
+        <ProductDetailsSkeleton />
     );
 
     return (
-        <div className='flex flex-col py-16 md:py-5 md:gap-4 text-customDark'>
+        <div className='flex flex-col py-16 md:py-5 md:gap-4 text-customBlue2'>
             <div className='flex flex-col md:flex-row gap-4 pb-10'>
                 <span className='absolute top-28 md:top-auto right-0 mr-3 text-3xl font-extrabold cursor-pointer' onClick={()=>router.back()}>&times;</span>
                 <ProductDisplay />

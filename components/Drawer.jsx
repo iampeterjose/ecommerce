@@ -27,9 +27,9 @@ const Drawer = () => {
     return (
         <>
         {/* Desktop View */}
-        <div className={`hidden md:block ${isOpen ? 'w-72' : 'w-16'} fixed text-white px-3 duration-500 min-h-screen border-r border-slate-300 bg-customDark z-10`}>
+        <div className={`hidden md:block ${isOpen ? 'w-72' : 'w-16'} fixed text-customBlue2 px-3 duration-500 min-h-screen border-r-2 border-slate-300 shadow-lg bg-lightBg z-10`}>
             <div className="py-3 flex justify-end">
-                <HiMenuAlt3 size={26} color="white" className="cursor-pointer" onClick={toggleDrawer} />
+                <HiMenuAlt3 size={26} color="black" className="cursor-pointer" onClick={toggleDrawer} />
             </div>
             <div className="mt-4 relative">
                 <ul className="flex flex-col gap-3">
@@ -41,7 +41,7 @@ const Drawer = () => {
                         >
                             <Link
                                 href={nav.href}
-                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customDark2 hover:rounded-sm ${pathname === nav.href ? "bg-customDark2 shadow-md shadow-softgreen rounded-sm" : ""}`}
+                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-lightBg2 hover:shadow-slate-400 hover:shadow-md hover:rounded-md ${pathname === nav.href ? "bg-lightBg2 shadow-md shadow-slate-400 rounded-md" : ""}`}
                             >
                                 <span>{nav.icon}</span>
                                 <h2 style={{ transitionDelay: `${i + 3}00ms` }} className={`whitespace-pre duration-300 ${!isOpen && "opacity-0 translate-x-28 overflow-hidden"}`}>
@@ -50,7 +50,7 @@ const Drawer = () => {
                                 {nav.title === "Cart" && totalQuantity > 0 && (
                                     <p style={{ transitionDelay: `150ms` }} className={`whitespace-pre duration-300 ${!isOpen && "-translate-x-6"} px-1.5 text-sm bg-red-600 text-white rounded-full`}>{totalQuantity}</p>
                                 )}
-                                <span className={`${!isOpen ? 'hidden group-hover:block bg-white border-customDark border text-customDark px-2 py-1 rounded-md left-14 absolute' : 'hidden'}`}>
+                                <span className={`${!isOpen ? 'hidden group-hover:block bg-lightBg2 border-customBlue2 border text-customDark px-2 py-1 rounded-md left-14 absolute' : 'hidden'}`}>
                                     <p className="font-semibold">{nav.title}</p>
                                 </span>
                             </Link>
@@ -62,12 +62,12 @@ const Drawer = () => {
         
 
         {/* Mobile View */}
-        <div className="flex z-50 fixed md:hidden bg-customDark text-white border-b border-slate-300 w-full px-2 py-3">
+        <div className="flex z-50 fixed md:hidden bg-lightBg text-customBlue2 border-b-2 border-slate-300 w-full px-2 py-3">
             <div className="flex justify-start gap-4">
-                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <Link href="/"><h1 className="text-lg font-semibold">eCommerce</h1></Link>
+                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <Link href="/"><h1 className="text-lg font-semibold">myStore</h1></Link>
             </div>
 
-            <div className={`fixed inset-y-0 left-0 top-10 w-full bg-customDark transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`fixed inset-y-0 left-0 top-10 w-full bg-lightBg transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="absolute top-4 right-4 flex items-center">
                     <IoCloseCircleOutline size={30} className="cursor-pointer" onClick={toggleDrawer} />
                 </div>
@@ -82,7 +82,7 @@ const Drawer = () => {
                             >
                                 <Link
                                     href={nav.href}
-                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-customDark2 hover:rounded-sm ${pathname === nav.href ? " bg-customDark2 shadow-md shadow-softgreen rounded-sm" : ""}`}
+                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-lightBg2 hover:shadow-slate-400 hover:shadow-md hover:rounded-md ${pathname === nav.href ? " bg-lightBg2 shadow-md shadow-slate-400 rounded-md" : ""}`}
                                     
                                     onClick={toggleDrawer}
                                 >
