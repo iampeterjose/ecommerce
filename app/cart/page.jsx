@@ -96,7 +96,7 @@ const Page = () => {
                     </table>
                 </div>
                 <div className="flex justify-center">
-                    <Link href="/cart/checkout">
+                <Link href="/cart/checkout">
                         <motion.button 
                             className="bg-customOrange2 text-white font-base font-semibold px-5 py-2 w-fit rounded-md"
                             whileHover={{ scale: 1.1 }}

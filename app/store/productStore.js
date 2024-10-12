@@ -34,6 +34,10 @@ const useProductStore = create((set, get) => {
         count: 0,
         cart: savedCart, // Initialize cart with savedCart
         totalQuantity: savedCart.reduce((total, item) => total + (item.quantity || 0), 0),
+        address: {},
+        setAddress: (newAddress) => set((state) => ({
+            address: { ...state.address, ...newAddress }
+        })),
         
         setCart: (itemToAdd) => {
             set(state => {
@@ -57,6 +61,14 @@ const useProductStore = create((set, get) => {
                 const newTotalQuantity = updatedCart.reduce((total, item) => total + (item.quantity || 0), 0);
         
                 return { cart: updatedCart, totalQuantity: newTotalQuantity };
+            });
+        },
+
+        clearCart: () => {
+            console.log(`Cart cleared`);
+            set(() => {
+                localStorage.setItem('cart', JSON.stringify([])); // Clear local storage
+                return { cart: [], totalQuantity: 0 }; // Clear cart state
             });
         },
 

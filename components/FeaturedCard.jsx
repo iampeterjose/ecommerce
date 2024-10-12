@@ -10,7 +10,9 @@ const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row border-t border-customBlue2 py-5 w-full px-2 gap-2">
+        <>
+        <span className="border border-lightBg my-10"></span>
+        <div className="flex flex-col md:flex-row py-5 w-full px-2 gap-2">
             <div className=" w-full md:w-fit relative">
                 <img src={pic} alt="link" className="w-full md:w-[300px] h-[300px] rounded-md" />
                 <div className="absolute inset-0 flex flex-col justify-start p-4 hover:bg-opacity-0 bg-black bg-opacity-20 gap-4 rounded-md">
@@ -26,7 +28,7 @@ const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
             {products.length > 0 ? products.slice(0,5).map((product) => (
                 <motion.li 
                     key={product.id} 
-                    className={`flex flex-col bg-lightBg px-3 rounded-sm hover:cursor-pointer`}
+                    className={`flex flex-col bg-lightBg px-3 rounded-md hover:cursor-pointer`}
                 >
                 <p className={`absolute z-10 text-sm font-semibold bg-red-600 w-fit my-2 px-1 text-white ${product.discountPercentage < 10 ? "opacity-0" : ""}`}>Sale {(product.discountPercentage).toFixed(0)}%</p>
                     <Link href={`/product/${product.id}`} className="w-full flex flex-col  hover:text-blue-500">
@@ -50,10 +52,11 @@ const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
                     </span>
                 </motion.li>
             )) : (
-                <p className="text-customDark font-semibold">{error}</p>
+                <p className="text-customBlue2 font-semibold">{error}</p>
             )}
             </ul>
         </div>
+        </>
     )
 }
 

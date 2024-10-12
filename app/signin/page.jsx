@@ -8,7 +8,8 @@ const page = () => {
     return (
         <div>
             <div className="flex justify-center items-center min-h-screen">
-                <form className="flex flex-col w-[375px] h-[500px] bg-lightBg p-4 gap-y-4 text-customBlue2 shadow-lg shadow-lightBg2 border-2 rounded-md">
+                <img src="/assets/shopping1.png" alt="Background" className="absolute w-[1200px]"/>
+                <form className="flex flex-col absolute w-[375px] h-[500px] bg-lightBg opacity-90 p-4 gap-y-4 text-customBlue2 shadow-md shadow-lightBg2 border border-slate-300 rounded-md">
                     <h1 className="text-xl font-semibold">
                         Sign In
                     </h1>

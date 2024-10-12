@@ -27,7 +27,7 @@ const Drawer = () => {
     return (
         <>
         {/* Desktop View */}
-        <div className={`hidden md:block ${isOpen ? 'w-72' : 'w-16'} fixed text-customBlue2 px-3 duration-500 min-h-screen border-r-2 border-slate-300 shadow-lg bg-lightBg z-10`}>
+        <div className={`hidden md:block ${isOpen ? 'w-72' : 'w-16'} fixed text-customBlue2 px-3 duration-500 min-h-screen border-r border-slate-300 shadow-lg bg-lightBg z-10`}>
             <div className="py-3 flex justify-end">
                 <HiMenuAlt3 size={26} color="black" className="cursor-pointer" onClick={toggleDrawer} />
             </div>
@@ -41,7 +41,7 @@ const Drawer = () => {
                         >
                             <Link
                                 href={nav.href}
-                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-lightBg2 hover:shadow-slate-400 hover:shadow-md hover:rounded-md ${pathname === nav.href ? "bg-lightBg2 shadow-md shadow-slate-400 rounded-md" : ""}`}
+                                className={`flex items-center text-sm gap-3 font-medium p-2 hover:shadow-slate-400 hover:shadow-sm hover:rounded-md ${pathname === nav.href ? "border shadow-sm shadow-slate-400 rounded-md" : ""}`}
                             >
                                 <span>{nav.icon}</span>
                                 <h2 style={{ transitionDelay: `${i + 3}00ms` }} className={`whitespace-pre duration-300 ${!isOpen && "opacity-0 translate-x-28 overflow-hidden"}`}>
@@ -82,7 +82,7 @@ const Drawer = () => {
                             >
                                 <Link
                                     href={nav.href}
-                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:bg-lightBg2 hover:shadow-slate-400 hover:shadow-md hover:rounded-md ${pathname === nav.href ? " bg-lightBg2 shadow-md shadow-slate-400 rounded-md" : ""}`}
+                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:shadow-slate-400 hover:shadow-sm hover:rounded-md ${pathname === nav.href ? "border shadow-sm shadow-slate-400 rounded-md" : ""}`}
                                     
                                     onClick={toggleDrawer}
                                 >

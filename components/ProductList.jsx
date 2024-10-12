@@ -27,7 +27,7 @@ const ProductList = ({ products }) => {
                     {products.length > 0 ? products.map((product, index) => (
                         <motion.li 
                             key={product.id} 
-                            className={`flex flex-col bg-lightBg px-3 rounded-sm hover:cursor-pointer`}
+                            className={`flex flex-col bg-lightBg px-3 rounded-md hover:cursor-pointer`}
                         >
                         <p className={`absolute z-10 text-sm font-semibold bg-red-600 w-fit my-2 px-1 text-white ${product.discountPercentage < 10 ? "opacity-0" : ""}`}>Sale {(product.discountPercentage).toFixed(0)}%</p>
                             <Link href={`/product/${product.id}`} className="w-full flex flex-col hover:text-blue-500">

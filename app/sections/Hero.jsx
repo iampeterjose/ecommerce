@@ -2,7 +2,6 @@
 import { FaShippingFast } from "react-icons/fa";
 import { MdBookOnline } from "react-icons/md";
 import { RiDiscountPercentFill } from "react-icons/ri";
-import ProductAndServices from "./ProductAndServices";
 import Link from "next/link";
 import useProductStore from "../store/productStore";
 import { motion } from "framer-motion";
@@ -37,8 +36,7 @@ const Hero = () => {
                     <h2 className="flex items-center gap-1"><MdBookOnline size={20} />Online Payment</h2>
                     <h2 className="flex items-center gap-1"><RiDiscountPercentFill size={20} />Special Discount</h2>
                 </div>
-            </motion.div>
-            <ProductAndServices />  
+            </motion.div>  
         </section>
     )
 }
