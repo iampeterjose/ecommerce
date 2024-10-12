@@ -51,13 +51,13 @@ const FeaturedCategories = () => {
     return (
         <AnimatePresence>
         <motion.section id="featured" 
-            className="md:p-4 mt-20 md:mt-10 bg-white rounded"
+            className="md:p-4  bg-white rounded"
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
             transition={{ duration: 2, delay: 2 }} // Staggered entrance
         >
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col -mt-40 md:mt-0 items-center gap-4">
                 <h1 className="text-3xl md:text-5xl font-bold text-customBlue2">Featured Categories</h1>
                 <p className="text-center">
                 Explore our curated selection of top products, <br />combining quality and innovation to elevate your everyday experience. <br />Find your new favorites today!
