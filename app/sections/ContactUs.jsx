@@ -22,7 +22,7 @@ const ContactUs = () => {
     const uniqueTags = [...new Set(allTags)];
 
     return (
-        <section className="md:p-4 mt-20">
+        <section id="contactus" className="md:p-4 mt-20">
             <div className="flex flex-col items-center gap-4 py-6">
                 <h1 className="text-2xl font-semibold text-customBlue2">Get In Touch</h1>
                 <p className="text-customBlue2 text-sm text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit modi esse voluptates sint dignissimos. <br />Quam laudantium quidem maiores quae autem minus, alias numquam, <br />corrupti aliquam mollitia quia natus dolorem blanditiis!</p>

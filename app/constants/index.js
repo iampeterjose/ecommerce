@@ -1,19 +1,14 @@
-import { MdHomeFilled } from "react-icons/md";
-import { AiFillProduct } from "react-icons/ai";
-import { PiSignOutFill } from "react-icons/pi";
-import { IoPersonCircleOutline } from "react-icons/io5";
 import { ImLocation } from "react-icons/im";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { ImCart } from "react-icons/im";
-import { FaHistory } from "react-icons/fa";
 export const navLinks = [
-    {href: "/account", title: "Account", icon: <IoPersonCircleOutline size={22}/>},
-    {href: "/", title: "Home", icon: <MdHomeFilled size={22}/>},
-    {href: "/products", title: "Products", icon: <AiFillProduct size={22}/>},
-    {href: "/cart", title: "Cart", icon: <ImCart size={22}/>},
-    {href: "/history", title: "Order History", icon: <FaHistory size={22}/>},
-    {href: "/signin", title: "Sign In", icon: <PiSignOutFill size={22}/>},
+    {href: "/account", title: "Account", view: "mobile" },
+    {href: "/", title: "Home", view: "desktop" },
+    {href: "/products", title: "Products", view: "desktop" },
+    {href: "/#contactus", title: "Contact Us", view: "desktop" },
+    {href: "/cart", title: "Cart", view: "mobile" },
+    {href: "/history", title: "Order History", view: "mobile" },
+    {href: "/signin", title: "Sign In", view: "desktop" },
 ];
 
 export const productAndServices = [

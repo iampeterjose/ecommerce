@@ -55,7 +55,7 @@ const FeaturedCategories = () => {
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
-            transition={{ duration: 2, delay: 2 }} // Staggered entrance
+            transition={{ duration: 2, delay: 1 }} // Staggered entrance
         >
             <div className="flex flex-col -mt-40 md:mt-0 items-center gap-4">
                 <h1 className="text-3xl md:text-5xl font-bold text-customBlue2">Featured Categories</h1>

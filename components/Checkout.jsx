@@ -66,7 +66,7 @@ const Checkout = ({amount}) => {
             elements,
             clientSecret,
             confirmParams: {
-                return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
+                return_url: `https://mystore-ecommercev2.vercel.app/payment-success?amount=${amount}`,
             },
         });
 

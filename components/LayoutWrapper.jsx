@@ -2,10 +2,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Drawer from "@/components/Drawer"; // Adjust the path as necessary
 import Footer from "./Footer";
 import useProductStore from "@/app/store/productStore";
 import Cart from "./Cart";
+import Nav from "./Nav";
 
 const LayoutWrapper = ({ children }) => {
   const{ isOpen, setIsOpen } = useProductStore();
@@ -31,11 +31,11 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <>
-    <div className="flex min-h-screen font-montserrat w-full bg-white">
-      <Drawer/>
+    <div className="flex min-h-screen font-montserrat w-full">
+      <Nav />
       <Cart />
       <main
-        className={`flex-grow transition-all duration-500 ease-in-out ${isOpen ? 'md:ml-72' : 'md:ml-16'} p-3 md:px-10`}
+        className={`flex-grow px-2 md:px-32 py-2 md:py-16`}
       >
         {children}
         <Footer />
