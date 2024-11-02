@@ -17,6 +17,7 @@ const ProductDisplay = () => {
             <div className='flex flex-wrap gap-2'>
                 {product.images.map((image, i) => (
                     <motion.img 
+                        key={i}
                         src={image} alt={i} 
                         className={`w-[100px] h-[100px] border border-customBlue2 ${imageClicked === image && "bg-lightBg border-2"} rounded-md hover:cursor-pointer hover:bg-lightBg   `} onClick={() => setImageClicked(image)} 
                         whileHover={{ scale: 1.1 }}

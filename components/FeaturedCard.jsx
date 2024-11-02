@@ -12,9 +12,9 @@ const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
     return (
         <>
         <span className="border border-lightBg my-10"></span>
-        <div className="flex flex-col md:flex-row py-5 w-full px-2 gap-2">
-            <div className=" w-full md:w-fit relative">
-                <img src={pic} alt="link" className="w-full md:w-[300px] h-[300px] rounded-md" />
+        <div className="flex flex-col md:flex-row py-5 px-2 gap-4">
+            <div className="md:min-w-[300px] h-fit relative">
+                <img src={pic} alt="link" className="w-full md:w-full h-[150px] md:h-[300px] rounded-md" />
                 <div className="absolute inset-0 flex flex-col justify-start p-4 hover:bg-opacity-0 bg-black bg-opacity-20 gap-4 rounded-md">
                     <h1 className="text-xl md:text-3xl text-white font-bold">
                         {title}
@@ -24,37 +24,39 @@ const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
                     </Link>
                 </div>
             </div>
-            <ul className={`grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-3 lg:gap-2 w-full`}>
-            {products.length > 0 ? products.slice(0,5).map((product) => (
-                <motion.li 
-                    key={product.id} 
-                    className={`flex flex-col bg-lightBg px-3 rounded-md hover:cursor-pointer`}
-                >
-                <p className={`absolute z-10 text-sm font-semibold bg-red-600 w-fit my-2 px-1 text-white ${product.discountPercentage < 10 ? "opacity-0" : ""}`}>Sale {(product.discountPercentage).toFixed(0)}%</p>
-                    <Link href={`/product/${product.id}`} className="w-full flex flex-col  hover:text-blue-500">
-                        <div className="flex justify-center w-full py-2">
-                            <motion.img 
-                                src={product.thumbnail} alt={product.title} 
-                                className={`w-[125px] h-[125px] ${isOpen ? "w-[125px] h-[125px]" : "md:w-[150] md:h-[150px]"} `}
-                                whileHover={{ scale: 1.1}}
-                                whileTap={{ scale: 0.9 }}
-                            />
-                        </div> 
-                        <span className="border-t border-customBlue2 border-dashed w-full py-1"></span>
-                        <div>
-                            <p className="text-xs font-semibold text-customBlue2">{product.brand}</p>
-                            <h2 className="text-sm md:text-md font-semibold">{truncateText(product.title, 30)}</h2>
-                        </div>
-                    </Link>
-                    <span className="flex justify-between mb-6 gap-2">
-                        <p className="text-base font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customBlue2 text-sm line-through">{product.price}</span></p>
-                        <FaStar size={20} className="hover:text-yellow-400 text-slate-300" />
-                    </span>
-                </motion.li>
-            )) : (
-                <p className="text-customBlue2 font-semibold">{error}</p>
-            )}
-            </ul>
+            <div className="overflow-x-auto">
+                <ul className={`flex gap-4 px-2 whitespace-nowrap`}>
+                {products.length > 0 ? products.slice(0,6).map((product) => (
+                    <motion.li 
+                        key={product.id} 
+                        className={`flex flex-col min-w-[200px] bg-lightBg px-3 rounded-md hover:cursor-pointer`}
+                    >
+                    <p className={`z-10 text-sm font-semibold bg-red-600 w-fit my-2 px-1 text-white ${product.discountPercentage < 10 ? "opacity-0" : ""}`}>Sale {(product.discountPercentage).toFixed(0)}%</p>
+                        <Link href={`/product/${product.id}`} className="w-full flex flex-col  hover:text-blue-500">
+                            <div className="flex justify-center w-full">
+                                <motion.img 
+                                    src={product.thumbnail} alt={product.title} 
+                                    className={`w-[125px] h-[125px] md:w-[150px] md:h-[150px]`}
+                                    whileHover={{ scale: 1.1}}
+                                    whileTap={{ scale: 0.9 }}
+                                />
+                            </div> 
+                            <span className="border-t border-customBlue2 border-dashed w-full py-1"></span>
+                            <div>
+                                <p className="text-xs font-semibold text-customBlue2">{product.brand}</p>
+                                <h2 className="text-sm md:text-md font-semibold">{truncateText(product.title, 30)}</h2>
+                            </div>
+                        </Link>
+                        <span className="flex justify-between mb-6 gap-2">
+                            <p className="text-base font-semibold text-red-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-customBlue2 text-sm line-through">{product.price}</span></p>
+                            <FaStar size={20} className="hover:text-yellow-400 text-slate-300" />
+                        </span>
+                    </motion.li>
+                )) : (
+                    <p className="text-customBlue2 font-semibold">{error}</p>
+                )}
+                </ul>
+            </div>
         </div>
         </>
     )

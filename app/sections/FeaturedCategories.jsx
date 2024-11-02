@@ -1,8 +1,4 @@
 "use client";
-import BestSellers from "@/components/BestSellers";
-import Essentials from "@/components/Essentials";
-import ExclusiveOffer from "@/components/ExclusiveOffer";
-import NewArrivals from "@/components/NewArrivals";
 import useProductStore from "../store/productStore";
 import { useEffect } from "react";
 import Loading from "@/components/Loading";
@@ -51,13 +47,13 @@ const FeaturedCategories = () => {
     return (
         <AnimatePresence>
         <motion.section id="featured" 
-            className="md:p-4  bg-white rounded"
+            className="md:p-4  bg-white rounded px-2 md:px-32 mt-20"
             initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
             animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
             exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
             transition={{ duration: 2, delay: 1 }} // Staggered entrance
         >
-            <div className="flex flex-col -mt-40 md:mt-0 items-center gap-4">
+            <div className="flex flex-col items-center gap-4">
                 <h1 className="text-3xl md:text-5xl font-bold text-customBlue2">Featured Categories</h1>
                 <p className="text-center">
                 Explore our curated selection of top products, <br />combining quality and innovation to elevate your everyday experience. <br />Find your new favorites today!
@@ -70,10 +66,10 @@ const FeaturedCategories = () => {
                 <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
             ) : (
                 <>
-                    <FeaturedCard products={bestSellers} isOpen={isOpen} title="Best Sellers" error="No products found." link="/bestsellers" pic="/assets/bestsellers.png" />
-                    <FeaturedCard products={newArrivals} isOpen={isOpen} title="New Arrivals" error="No new arrival products found." link="newarrivals" pic="/assets/newarrivals.png" />
-                    <FeaturedCard products={exclusiveOffers} isOpen={isOpen} title="Exclusive Offers" error="No exclusive products found." link="exclusiveoffers" pic="/assets/exclusiveoffers.png" />
-                    <FeaturedCard products={essentials} isOpen={isOpen} title="Essentials" error="No products found." link="essentials" pic="/assets/essentials.png" />
+                    <FeaturedCard products={bestSellers} title="Best Sellers" error="No products found." link="/bestsellers" pic="/assets/bestsellers.png" />
+                    <FeaturedCard products={newArrivals} title="New Arrivals" error="No new arrival products found." link="newarrivals" pic="/assets/newarrivals.png" />
+                    <FeaturedCard products={exclusiveOffers} title="Exclusive Offers" error="No exclusive products found." link="exclusiveoffers" pic="/assets/exclusiveoffers.png" />
+                    <FeaturedCard products={essentials} title="Essentials" error="No products found." link="essentials" pic="/assets/essentials.png" />
                 </>
             )}
             </div>

@@ -3,12 +3,10 @@ import { FaShippingFast } from "react-icons/fa";
 import { MdBookOnline } from "react-icons/md";
 import { RiDiscountPercentFill } from "react-icons/ri";
 import Link from "next/link";
-import useProductStore from "../store/productStore";
 import { motion } from "framer-motion";
 import Carousel from "@/components/Carousel";
 
 const Hero = () => {
-    const { isOpen } = useProductStore();
     return (
         <section className="flex flex-col min-h-screen" id="/">
             <motion.div 
@@ -18,7 +16,7 @@ const Hero = () => {
                 transition={{ duration: 0.8 }}
             >
                 <Carousel />
-                <div className="absolute top-52 md:top-80 text-customBlue2 font-bold px-3 md:px-7 py-2 md:py-10 bg-white shadow-lg shadow-customDark2 rounded-e-lg opacity-90 left-0 md:left-auto">
+                <div className="absolute top-72 md:top-96 text-customBlue2 font-bold px-3 md:px-7 py-2 md:py-10 bg-white shadow-lg shadow-customDark2 rounded-e-lg opacity-90 left-0 md:left-auto">
                     <h1 className="text-md md:text-3xl">
                         Quality Products, <br/><span className="text-xl md:text-5xl">Unbeatable Prices!</span>
                     </h1>
@@ -30,11 +28,13 @@ const Hero = () => {
                         >Find More</motion.p>
                     </Link>
                 </div>
-                <div className={`grid grid-cols-2 ${isOpen ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-4"} justify-start items-center bg-customOrange2 p-3 text-sm md:text-sm lg:text-lg text-white font-semibold rounded-b-md`}>
-                    <h2>Brand New</h2>
-                    <h2 className="flex items-center gap-1"><FaShippingFast size={20} />Fast Delivery</h2>
-                    <h2 className="flex items-center gap-1"><MdBookOnline size={20} />Online Payment</h2>
-                    <h2 className="flex items-center gap-1"><RiDiscountPercentFill size={20} />Special Discount</h2>
+                <div className="border-t-2 p-5 bg-customOrange2 text-white md:text-lg overflow-x-auto ">
+                    <div className={`flex gap-6 p-2 whitespace-nowrap justify-between items-center`}>
+                        <h2>Brand New</h2>
+                        <h2 className="flex items-center gap-1"><FaShippingFast size={20} />Fast Delivery</h2>
+                        <h2 className="flex items-center gap-1"><MdBookOnline size={20} />Online Payment</h2>
+                        <h2 className="flex items-center gap-1"><RiDiscountPercentFill size={20} />Special Discount</h2>
+                    </div>
                 </div>
             </motion.div>  
         </section>

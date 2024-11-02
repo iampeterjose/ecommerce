@@ -1,25 +1,4 @@
-"use client";
-import { useEffect, useState } from "react";
-
 const ContactUs = () => {
-    const [products, setProducts] = useState([]); 
-    
-    useEffect(() => {
-        const fetchAllProducts = async() => {
-            const result = await fetch('https://dummyjson.com/products?limit=0');
-            const data = await result.json();
-
-            setProducts(data.products);
-        };
-
-        fetchAllProducts();
-    }, []);
-
-    // Step 1: Collect all tags from products
-    const allTags = products.flatMap(product => product.tags);
-
-    // Step 2: Create a Set to filter out duplicate tags
-    const uniqueTags = [...new Set(allTags)];
 
     return (
         <section id="contactus" className="md:p-4 mt-20">

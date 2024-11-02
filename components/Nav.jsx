@@ -25,7 +25,7 @@ const Nav = () => {
 
     return (
         <>
-        <div className={`hidden md:block fixed z-20 top-0 left-0 w-full border-b bg-white px-2 md:px-32 `}>
+        <div className={`hidden md:block fixed z-20 top-0 left-0 w-full border-b bg-white px-2 md:px-32`}>
             <div className="flex items-center py-4 ">
                 <div className="font-bold text-2xl cursor-pointer flex items-center font-satoshi text-customBlue2">
                     <Link href="/" className="flex justify-center items-center text-xl font-semibold pr-80">
@@ -35,7 +35,7 @@ const Nav = () => {
                 <ul className="flex gap-4 w-full">
                     {navLinks.filter(nav => nav.view === "desktop").map((nav, i) => (
                         <li key={i}
-                            className={`text-customBlue2 font-semibold font-montserrat px-5 py-2 ${i === navLinks.filter(nav => nav.view === "desktop").length - 1 ? 'ml-auto border border-customOrange2 rounded-full text-customOrange2' : ''}`}
+                            className={`text-customBlue2 font-semibold font-montserrat px-5 py-2 hover:border hover:border-customBlue2 rounded-full ${i === navLinks.filter(nav => nav.view === "desktop").length - 1 ? 'ml-auto border border-customOrange2 rounded-full text-customOrange2 hover:bg-customOrange2 hover:text-white' : ''}`}
                         >
                             <Link href={nav.href}>
                                 <p>{nav.title}</p>

@@ -1,7 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Head from "next/head";
-import LayoutWrapper from "@/components/LayoutWrapper";
+import Nav from "@/components/Nav";
+import Cart from "@/components/Cart";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +30,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > 
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <div className="flex min-h-screen font-montserrat w-full">
+          <Nav />
+          {/* <Cart /> */}
+          <main className={`flex-grow pt-2 md:pt-16 w-full`}>
+          {children}
+          <Footer />
+          </main>
+        </div>
       </body>
     </html>
   );

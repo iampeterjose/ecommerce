@@ -30,14 +30,14 @@ const Carousel = () => {
                 <img
                     src={images[currentIndex]}
                     alt={`Slide ${currentIndex + 1}`}
-                    className="w-[600px] h-[300px] md:h-[500px] rounded-lg border border-customDark2 shadow-2xl shadow-customDark"
+                    className="w-[600px] h-[320px] md:h-[500px]"
                 />
                 <div className="absolute inset-0 flex items-center justify-between px-4">
-                    <span onClick={prevSlide} className="bg-white p-2 rounded-full shadow-md">
-                        <MdKeyboardArrowLeft />
+                    <span onClick={prevSlide} className="bg-white border p-2 rounded-full shadow-md cursor-pointer">
+                        <MdKeyboardArrowLeft size={25} />
                     </span>
-                    <span onClick={nextSlide} className="bg-white p-2 rounded-full shadow-md">
-                        <MdKeyboardArrowRight />
+                    <span onClick={nextSlide} className="bg-white border p-2 rounded-full shadow-md cursor-pointer">
+                        <MdKeyboardArrowRight size={25} />
                     </span>
                 </div>
                 <div className="flex justify-center mt-2">
@@ -45,9 +45,7 @@ const Carousel = () => {
                         <button
                             key={index}
                             onClick={() => goToSlide(index)}
-                            className={`h-2 w-2 rounded-full mx-1 cursor-pointer ${
-                                currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'
-                            }`}
+                            className={`h-2 w-2 rounded-full mx-1 cursor-pointer ${currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'}`}
                         />
                     ))}
                 </div>
