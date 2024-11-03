@@ -6,43 +6,13 @@ import { CgDanger } from "react-icons/cg";
 import FeaturedCard from "@/components/FeaturedCard";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
+import useCustomHooks from "../useCustomHooks";
 
 const FeaturedCategories = () => {
-    const { setNewArrivals, isOpen, error, setError, loading, setLoading, setBestSellers, setExclusiveOffers, setEssentials, bestSellers, newArrivals, exclusiveOffers, essentials } = useProductStore();
-
-    useEffect(() => {
-        const fetchAllProducts = async () => {
-            try {
-                const result = await fetch(`https://dummyjson.com/products?limit=28`);
-                const data = await result.json();
-
-                const startDate = new Date("2024-05-23");
-                const currentDate = new Date();
-
-                // Filter products based on createdAt date
-                const filteredProducts = data.products.filter(product => {
-                    const createdAt = new Date(product.meta.createdAt);
-                    return createdAt >= startDate && createdAt <= currentDate;
-                });
-
-                const bestSellers = data.products.filter(product => product.rating >= 4);
-                const exclusiveOffers = data.products.filter(product => product.discountPercentage >= 18);
-                const essentials = data.products.filter(product => product.category ==="groceries");
-
-                setNewArrivals(filteredProducts);
-                setBestSellers(bestSellers);
-                setExclusiveOffers(exclusiveOffers);
-                setEssentials(essentials);
-            } catch (error) {
-                console.error(`Error connecting to server:`, error);
-                setError('Failed to load content');
-            } finally {
-                setLoading(false);  
-            }
-        };
-
-        fetchAllProducts();
-    }, [setNewArrivals, setError, setLoading, setBestSellers, setExclusiveOffers, setEssentials]);
+    const { useFeaturedCategories } = useCustomHooks
+    useFeaturedCategories();
+    const { error, loading, bestSellers, newArrivals, exclusiveOffers, essentials } = useProductStore();
+    
 
     return (
         <AnimatePresence>

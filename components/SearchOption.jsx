@@ -6,10 +6,17 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation'; // Import useRouter
 
 const SearchOption = ({ onSort }) => {
-    const { categories, selectedCategory, setSelectedCategory, setCurrentPage, isOpen, setSearchTerm, searchTerm } = useProductStore();
+    const { categories, selectedCategory, setSelectedCategory, selectedFeaturedCategory, setSelectedFeaturedCategory, setCurrentPage, isOpen, setSearchTerm, searchTerm } = useProductStore();
     const [nameClick, setNameClick] = useState(false);
     const [priceClick, setPriceClick] = useState(false);
     const router = useRouter(); // Initialize router
+
+    const featuredCategories = [
+        {title: "Best Sellers", slug: "bestsellers"},
+        {title: "New Arrivals", slug: "newarrivals"},
+        {title: "Exclusive Offers", slug: "exclusiveoffers"},
+        {title: "Essentials", slug: "essentials"},
+    ];
 
     const handleNameClick = () => {
         const newNameClick = !nameClick;
@@ -35,8 +42,14 @@ const SearchOption = ({ onSort }) => {
         }
     };
 
+    const handleFeaturedCategories = (e) => {
+        const selected = e.target.value;
+        setSelectedFeaturedCategory(selected);
+        router.push(`/products/${selected}`);
+    }
+
     return (
-        <div className={`flex flex-col ${isOpen ? "md:flex-col lg:flex-row" : "md:flex-row"} gap-y-2 items-center bg-lightBg text-customBlue2 border p-2 rounded-t-md`}>
+        <div className={`flex flex-col md:flex-row gap-y-2 items-center bg-lightBg text-customBlue2 border p-2 rounded-t-md`}>
             <div className="flex w-full gap-4 md:gap-10">
                 <span className="flex items-center gap-2">
                     <p className="font-semibold">Search Option </p>
@@ -45,7 +58,7 @@ const SearchOption = ({ onSort }) => {
                 <p className='flex items-center cursor-pointer' onClick={handleNameClick}>Name<FaArrowUpLong size={14} className={`${nameClick && "rotate-180"}`} /></p>
                 <p className='flex items-center cursor-pointer' onClick={handlePriceClick}>Price<FaArrowUpLong size={14} className={`${priceClick && "rotate-180"}`} /></p>
             </div>
-            <div className="flex w-full">
+            <div className="flex gap-2 w-full">
                 <select
                     value={selectedCategory}
                     onChange={handleCategoryChange} // Use the new handler
@@ -55,6 +68,18 @@ const SearchOption = ({ onSort }) => {
                     {categories.map((category, index) => (
                         <option key={index} value={category.slug}>
                             {category.name}
+                        </option>
+                    ))}
+                </select>
+                <select
+                    value={selectedFeaturedCategory}
+                    onChange={handleFeaturedCategories} // Use the new handler
+                    className="border w-full md:w-fit rounded-md p-2 text-customBlue2"
+                >
+                    <option value="">Featured Category</option>
+                    {featuredCategories.map((featured, index) => (
+                        <option key={index} value={featured.slug}>
+                            {featured.title}
                         </option>
                     ))}
                 </select>

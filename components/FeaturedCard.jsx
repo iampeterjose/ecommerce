@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-const FeaturedCard = ({products, isOpen, title, error, link, pic}) => {
+const FeaturedCard = ({products, title, error, link, pic}) => {
 
     const truncateText = (text, limit) => {
         return text.length > limit ? text.substring(0, limit) + '...' : text;
