@@ -24,7 +24,7 @@ const Categories = () => {
     }, [setCategories, setError]);
 
     return (
-        <div className="px-2 md:px-32 -mt-54 md:mt-2">
+        <div className="px-2 md:px-32 -mt-32 md:mt-2">
             <h1 className="text-3xl my-2 font-montserrat font-semibold text-customBlue2">Categories</h1>
             <div className="border-t-2 py-5 overflow-x-auto">
                 <div className="flex gap-4 p-2 whitespace-nowrap">
