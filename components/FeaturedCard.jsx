@@ -44,7 +44,7 @@ const FeaturedCard = ({products, title, error, link, pic}) => {
                             <span className="border-t border-customBlue2 border-dashed w-full py-1"></span>
                             <div>
                                 <p className="text-xs font-semibold text-customBlue2">{product.brand}</p>
-                                <h2 className="text-sm md:text-md font-semibold">{truncateText(product.title, 30)}</h2>
+                                <h2 className="text-sm md:text-md font-semibold">{truncateText(product.title, 15)}</h2>
                             </div>
                         </Link>
                         <span className="flex justify-between mb-6 gap-2">
