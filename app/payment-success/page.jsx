@@ -5,12 +5,25 @@ const page = ({searchParams}) => {
     const amount = searchParams.amount;
 
     return (
-        <div className="flex flex-col justify-center items-center py-16 md:py-5 min-h-screen">
-            <h1 className="text-2xl font-bold">Payment Successful!</h1>
-            <p className="mt-4 text-lg">Thank you for your payment of ${amount}!</p>
-            <Link href="/"><p className="mt-4 px-5 py-2 border-2 border-customOrange2 text-customOrange2 font-semibold rounded-md">Go back to Home</p></Link>
+        <div className="flex flex-col justify-center items-center py-20 md:py-10 min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-100 px-4">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-16 flex flex-col items-center gap-4 border border-emerald-100 animate-fade-in">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-16 h-16 text-emerald-500 mb-2">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#d1fae5" />
+                    <path strokeLinecap="round" strokeLinejoin="round" stroke="#059669" strokeWidth="2.5" d="M8 12.5l3 3 5-5" />
+                </svg>
+                <h1 className="text-3xl md:text-4xl font-extrabold text-emerald-700 tracking-tight text-center">Payment Successful!</h1>
+                <p className="mt-2 text-lg md:text-xl text-emerald-600 text-center">Thank you for your payment of <span className="font-bold text-emerald-800">${amount}</span>!</p>
+                <Link href="/">
+                    <button className="mt-6 flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold px-8 py-3 rounded-full shadow-lg text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 12l6-6m-6 6l6 6" />
+                        </svg>
+                        Go back to Home
+                    </button>
+                    </Link>
+            </div>
         </div>
     )
 }
 
-export default page
+export default page;

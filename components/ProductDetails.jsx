@@ -33,44 +33,41 @@ const ProductDetails = () => {
     };
 
     return (
-        <div className="py-4 md:py-20 gap-4 flex flex-col w-full text-customBlue2">
-            <h1 className='text-2xl font-semibold text-customBlue2'>Product Details</h1>
-            <p className="text-red-700 font-semibold text-lg flex flex-row gap-4">
+        <div className="w-full max-w-xl mx-auto bg-white rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col gap-5 text-emerald-800">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-emerald-700 mb-2 tracking-tight">Product Details</h1>
+            <div className="flex items-center gap-4 text-2xl font-bold text-emerald-700 mb-2">
                 ${discountedPrice}
-                <span className="text-base line-through text-customBlue2 font-semibold">${product?.price}</span>
-                <span className="bg-slate-50 text-sm px-1 shadow-md shadow-slate-400 rounded h-fit">
-                    {product?.discountPercentage.toFixed(0)}% off
+                <span className="text-base line-through text-emerald-400 font-semibold">${product?.price}</span>
+                <span className="bg-rose-100 text-rose-600 text-xs px-2 py-0.5 rounded-full font-bold shadow-sm ml-2">
+                    {product?.discountPercentage.toFixed(0)}% OFF
                 </span>
-            </p>
-            <p className="text-lg font-semibold">{product?.brand}</p>
-            <p className='font-semibold'>
-                Description:
-                <span className='font-normal pl-2'>{product?.description}</span>
-            </p>
-            <p className='flex items-center gap-2'><FaWeight size={22} />Weight: {product?.weight}</p>
-            <p className='flex items-start gap-2'><TbDimensions size={22} />Dimensions: <br/>
-                width: {product?.dimensions?.width} x
-                height: {product?.dimensions?.height} x
-                depth: {product?.dimensions?.depth}
-            </p>
-            <p className='flex items-center gap-2'><SiAdguard size={22} />Warranty: {product?.warrantyInformation}</p>
-            <p className='flex items-center gap-2'><TbTruckReturn size={22} />Return Policy: {product?.returnPolicy}</p>
-            <p className='flex items-center gap-2'><FaShippingFast size={22} />Shipping: {product?.shippingInformation}</p>
-            <div className='py-4 gap-4 flex flex-col w-full border-t border-dashed border-customBlue2'>
-                <p className='flex items-center gap-2'><BiSolidCategory size={22} />Category: {product?.category}</p>
-                <p className='flex items-center gap-2'><FaTag size={22} />Tags: {product?.tags?.map((tag, index) => (
-                    <span key={index}>{tag}{index < product.tags.length - 1 ? ', ' : ''}</span>
+            </div>
+            <div className="flex items-center gap-2 text-emerald-600 font-semibold mb-1">
+                <span className="uppercase tracking-wide text-xs bg-emerald-100 px-2 py-0.5 rounded-full">{product?.brand}</span>
+            </div>
+            <p className="text-base text-emerald-700 mb-2"><span className="font-semibold">Description:</span> <span className="font-normal">{product?.description}</span></p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
+                <p className="flex items-center gap-2 text-sm"><FaWeight size={18} /> <span className="font-semibold">Weight:</span> {product?.weight}</p>
+                <p className="flex items-center gap-2 text-sm"><TbDimensions size={18} /> <span className="font-semibold">Dimensions:</span> {product?.dimensions?.width} x {product?.dimensions?.height} x {product?.dimensions?.depth}</p>
+                <p className="flex items-center gap-2 text-sm col-span-2"><SiAdguard size={18} /> <span className="font-semibold">Warranty:</span> {product?.warrantyInformation}</p>
+                <p className="flex items-center gap-2 text-sm col-span-2"><TbTruckReturn size={18} /> <span className="font-semibold">Return Policy:</span> {product?.returnPolicy}</p>
+                <p className="flex items-center gap-2 text-sm col-span-2"><FaShippingFast size={18} /> <span className="font-semibold">Shipping:</span> {product?.shippingInformation}</p>
+            </div>
+            <div className="py-3 border-t border-dashed border-emerald-100 flex flex-col gap-2">
+                <p className="flex items-center gap-2 text-sm"><BiSolidCategory size={18} /> <span className="font-semibold">Category:</span> {product?.category}</p>
+                <p className="flex items-center gap-2 text-sm"><FaTag size={18} /> <span className="font-semibold">Tags:</span> {product?.tags?.map((tag, index) => (
+                    <span key={index} className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs font-medium mr-1">{tag}</span>
                 ))}</p>
             </div>
-            <p>Quantity: </p>
-            <span className="w-[144px]">
-                <Button quantity={0} isInCart={false} />
-            </span>
-            <motion.button 
+            <div className="flex items-center gap-3 mt-2">
+                <span className="text-base font-semibold text-emerald-700">Quantity:</span>
+                <span className="w-[144px]"><Button quantity={0} isInCart={false} /></span>
+            </div>
+            <motion.button
                 onClick={addToCart}
-                className='text-customBlue2 border-2 border-customBlue2 md:h-10 px-5 py-2 w-36 rounded-md flex items-center justify-center gap-2 font-semibold'
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-6 rounded-xl shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-lg"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
             >
                 Add to Cart
             </motion.button>

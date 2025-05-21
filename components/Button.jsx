@@ -3,6 +3,7 @@ import useProductStore from "@/app/store/productStore";
 import { useEffect } from "react";
 import { GoPlus } from "react-icons/go";
 import { HiMinusSmall } from "react-icons/hi2";
+import { motion } from "framer-motion";
 
 const Button = ({ quantity, itemId, isInCart }) => {
     const { count, setCount, updateQuantity } = useProductStore();
@@ -35,22 +36,30 @@ const Button = ({ quantity, itemId, isInCart }) => {
     }, [count]);
 
     return (
-        <div className='flex justify-between items-center gap-2 border-2 border-customBlue2 min-w-full rounded-md'>
-            <span 
-                className='cursor-pointer h-full px-2 py-2 text-customBlue2'
+        <div className="flex justify-between items-center gap-2 border-2 border-emerald-400 bg-white shadow-md min-w-full rounded-xl px-2 py-1">
+            <motion.span
+                className="cursor-pointer flex items-center justify-center h-9 w-9 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 transition-colors duration-150"
                 onClick={minusCount}
+                whileTap={{ scale: 0.85 }}
+                tabIndex={0}
+                role="button"
+                aria-label="Decrease quantity"
             >
-                <HiMinusSmall size={20} />
-            </span>
-            <p className='px-2 py-1 text-base w-14 text-center text-customBlue2'>
+                <HiMinusSmall size={22} />
+            </motion.span>
+            <p className="px-2 py-1 text-lg font-bold w-14 text-center text-emerald-700 select-none">
                 {isInCart ? quantity : count}
             </p>
-            <span 
-                className='cursor-pointer h-full px-2 py-2 text-customBlue2'
+            <motion.span
+                className="cursor-pointer flex items-center justify-center h-9 w-9 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 transition-colors duration-150"
                 onClick={addCount}
+                whileTap={{ scale: 0.85 }}
+                tabIndex={0}
+                role="button"
+                aria-label="Increase quantity"
             >
-                <GoPlus size={20} />
-            </span>
+                <GoPlus size={22} />
+            </motion.span>
         </div>
     );
 }

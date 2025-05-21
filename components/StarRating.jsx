@@ -14,9 +14,13 @@ const StarRating = ({ rating }) => {
     }
     
     return (
-        <span className="flex justify-start gap-2 my-2 text-customDark2">
-            <span className='flex'>{stars}</span>
-            <span className='text-sm'>{rating}</span>
+        <span className="flex items-center gap-2 my-1">
+            <span className="flex gap-0.5">
+                {stars}
+            </span>
+            <span className="ml-1 text-emerald-600 text-sm font-bold bg-emerald-50 px-2 py-0.5 rounded-full shadow-sm">
+                {rating}
+            </span>
         </span>
     );
 };

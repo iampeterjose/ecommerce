@@ -6,40 +6,36 @@ const page = () => {
     const [password, setPassword] = useState("");
 
     return (
-        <div>
-            <div className="flex justify-center items-center min-h-screen">
-                <img src="/assets/shopping1.png" alt="Background" className="absolute w-[1200px]"/>
-                <form className="flex flex-col absolute w-[375px] h-[500px] bg-lightBg opacity-90 p-4 gap-y-4 text-customBlue2 shadow-md shadow-lightBg2 border border-slate-300 rounded-md">
-                    <h1 className="text-xl font-semibold">
-                        Sign In
-                    </h1>
-                    <div className="flex flex-col gap-2">
-                        <label className="text-sm">Email: </label>
-                        <input 
-                            type="email"
-                            placeholder="Enter your email..."
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="p-2 text-base w-full rounded-md"
-                        />
-                        <label className="text-sm mt-2">Password: </label>
-                        <input 
-                            type="password"
-                            placeholder="Enter your password..."
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="p-2 text-base w-full rounded-md"
-                        />
-                        <button
-                            className="w-full mt-4 p-2 font-semibold bg-customOrange2
-                             text-white rounded-md hover:bg-orange-600"
-                        >
-                            Login
-                        </button>
-                        <p className="mt-10 text-sm">Don't have an account? <span className="underline text-blue-500 hover:cursor-pointer">Sign up here.</span></p>
-                    </div>
-                </form>
-            </div>
+        <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-100 relative overflow-hidden">
+            {/* Decorative background image, less blur and higher opacity for more visibility */}
+            <img src="/assets/shopping1.png" alt="Background" className="absolute w-[900px] opacity-90 blur-sm pointer-events-none select-none" style={{zIndex:0}} />
+            <form className="relative z-10 flex flex-col w-full max-w-sm bg-white/90 backdrop-blur-md p-8 gap-y-6 text-emerald-700 shadow-2xl border border-emerald-100 rounded-3xl">
+                <h1 className="text-3xl font-extrabold text-emerald-700 text-center mb-2 tracking-tight">Sign In</h1>
+                <div className="flex flex-col gap-3">
+                    <label className="text-sm font-semibold">Email</label>
+                    <input 
+                        type="email"
+                        placeholder="Enter your email..."
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="p-3 text-base w-full rounded-xl border border-emerald-200 focus:border-emerald-400 outline-none bg-emerald-50/40 transition-all duration-200"
+                    />
+                    <label className="text-sm font-semibold mt-2">Password</label>
+                    <input 
+                        type="password"
+                        placeholder="Enter your password..."
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="p-3 text-base w-full rounded-xl border border-emerald-200 focus:border-emerald-400 outline-none bg-emerald-50/40 transition-all duration-200"
+                    />
+                </div>
+                <button
+                    className="w-full mt-2 py-3 font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl shadow-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-200 text-lg"
+                >
+                    Login
+                </button>
+                <p className="mt-6 text-sm text-center">Don't have an account? <a href="#" className="underline text-emerald-600 hover:text-emerald-800 font-semibold transition-colors">Sign up here.</a></p>
+            </form>
         </div>
     )
 }

@@ -113,35 +113,40 @@ const Page = () => {
     }, [allProducts, searchTerm, selectedCategory, nameClick, priceClick]);
 
     return (
-        <section className="flex flex-col py-16 md:py-5 gap-y-4 scroll-smooth min-h-screen px-2 md:px-32">
-            {/* Anchor at the top for smooth scrolling */}
+        <section className="flex flex-col py-20 md:py-12 gap-y-8 min-h-screen px-2 md:px-16 lg:px-32 bg-gradient-to-br from-emerald-50 via-white to-emerald-100">
             <a id="top" className="absolute top-0"></a>
-            <h1 className="text-2xl text-customBlue2 font-semibold mt-10">Products</h1>
-
-            <SearchOption onSort={handleSortChange} />
+            <h1 className="text-4xl font-extrabold text-emerald-700 tracking-tight mb-6 text-center drop-shadow">All Products</h1>
+            <div className="w-full max-w-7xl mx-auto mb-8">
+                <SearchOption onSort={handleSortChange} />
+            </div>
             {loading ? (
                 <ProductListSkeleton productsCount={itemsPerPage} />
             ) : error ? (
-                <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
+                <p className="flex min-h-[200px] justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} className="mr-2" />{error}</p>
             ) : (
-                <ProductList products={paginatedProducts} />
+                <div className="w-full max-w-7xl mx-auto">
+                    <ProductList products={paginatedProducts} />
+                </div>
             )}
-
-            <div className="fixed right-0 mr-4 bottom-10">
-                <a href="#top" className="cursor-pointer p-2 opacity-70">
-                    <FaChevronCircleUp size={22} />
-                </a>
-            </div>
-            <div className="flex justify-center mt-4 py-10 border-customDark2">
-                {Array.from({ length: totalPages }, (_, index) => (
-                    <button
-                        key={index + 1}
-                        onClick={() => handlePageChange(index + 1)}
-                        className={`mx-1 px-2 py-1 border rounded ${currentPage === index + 1 ? 'bg-lightBg text-customBlue2' : 'bg-white text-customBlue2'}`}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
+            {/* Pagination & Scroll to Top */}
+            <div className="flex flex-col items-center gap-2 mt-8">
+                <div className="fixed right-0 mr-4 bottom-10 z-30">
+                    <a href="#top" className="cursor-pointer p-2 opacity-70 hover:opacity-100 transition-opacity">
+                        <FaChevronCircleUp size={28} className="text-emerald-600" />
+                    </a>
+                </div>
+                <div className="flex justify-center mt-2 py-6 gap-1">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button
+                            key={index + 1}
+                            onClick={() => handlePageChange(index + 1)}
+                            className={`mx-1 px-3 py-1 rounded-full border-2 font-semibold transition-colors duration-150 text-sm md:text-base
+                                ${currentPage === index + 1 ? 'bg-emerald-600 text-white border-emerald-600 shadow' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
             </div>
         </section>
     );

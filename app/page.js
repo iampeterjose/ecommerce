@@ -6,7 +6,7 @@ import Categories from "@/components/Categories";
 
 export default function Home() {
   return (
-    <div className="flex flex-col py-16 md:py-5">
+    <div className="flex flex-col py-12 md:py-0">
       <Hero />
       <Categories />
       <FeaturedCategories />

@@ -34,10 +34,10 @@ const SearchOption = ({ onSort }) => {
         const selectedSlug = e.target.value;
         setSelectedCategory(selectedSlug);
         setCurrentPage(1); // Reset to page 1 when category changes
+        setSelectedFeaturedCategory(""); // Reset featured category when category is selected
         if (selectedSlug) {
             router.push(`/products/category/${selectedSlug}`); // Navigate to the selected category
-        }
-        else{
+        } else {
             router.push(`/products`)
         }
     };
@@ -45,24 +45,39 @@ const SearchOption = ({ onSort }) => {
     const handleFeaturedCategories = (e) => {
         const selected = e.target.value;
         setSelectedFeaturedCategory(selected);
+        setSelectedCategory(""); // Reset category when featured category is selected
         router.push(`/products/${selected}`);
     }
 
     return (
-        <div className={`flex flex-col md:flex-row gap-y-2 items-center bg-lightBg text-customBlue2 border p-2 rounded-t-md`}>
-            <div className="flex w-full gap-4 md:gap-10">
-                <span className="flex items-center gap-2">
-                    <p className="font-semibold">Search Option </p>
+        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 w-full bg-emerald-50 border border-emerald-200 p-4 rounded-xl shadow mb-4">
+            {/* Sort & Filter Controls */}
+            <div className="flex flex-wrap gap-3 md:gap-6 items-center w-full md:w-auto">
+                <span className="flex items-center gap-2 font-semibold text-emerald-700">
                     <GiSettingsKnobs />
+                    <span>Options</span>
                 </span>
-                <p className='flex items-center cursor-pointer' onClick={handleNameClick}>Name<FaArrowUpLong size={14} className={`${nameClick && "rotate-180"}`} /></p>
-                <p className='flex items-center cursor-pointer' onClick={handlePriceClick}>Price<FaArrowUpLong size={14} className={`${priceClick && "rotate-180"}`} /></p>
+                <button
+                    className={`flex items-center gap-1 px-3 py-1 rounded-full border-2 text-sm font-semibold transition-colors duration-150
+                        ${nameClick ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                    onClick={handleNameClick}
+                >
+                    Name <FaArrowUpLong size={14} className={`${nameClick ? 'rotate-180' : ''}`} />
+                </button>
+                <button
+                    className={`flex items-center gap-1 px-3 py-1 rounded-full border-2 text-sm font-semibold transition-colors duration-150
+                        ${priceClick ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                    onClick={handlePriceClick}
+                >
+                    Price <FaArrowUpLong size={14} className={`${priceClick ? 'rotate-180' : ''}`} />
+                </button>
             </div>
-            <div className="flex gap-2 w-full">
+            {/* Category Selectors */}
+            <div className="flex gap-2 w-full md:w-auto">
                 <select
                     value={selectedCategory}
-                    onChange={handleCategoryChange} // Use the new handler
-                    className="border w-full md:w-fit rounded-md p-2 text-customBlue2"
+                    onChange={handleCategoryChange}
+                    className="border-2 border-emerald-200 rounded-md p-2 text-emerald-700 bg-white focus:outline-emerald-500 w-full md:w-auto"
                 >
                     <option value="">All Categories</option>
                     {categories.map((category, index) => (
@@ -73,8 +88,8 @@ const SearchOption = ({ onSort }) => {
                 </select>
                 <select
                     value={selectedFeaturedCategory}
-                    onChange={handleFeaturedCategories} // Use the new handler
-                    className="border w-full md:w-fit rounded-md p-2 text-customBlue2"
+                    onChange={handleFeaturedCategories}
+                    className="border-2 border-emerald-200 rounded-md p-2 text-emerald-700 bg-white focus:outline-emerald-500 w-full md:w-auto"
                 >
                     <option value="">Featured Category</option>
                     {featuredCategories.map((featured, index) => (
@@ -84,18 +99,17 @@ const SearchOption = ({ onSort }) => {
                     ))}
                 </select>
             </div>
-            <div className="flex relative w-full">
+            {/* Search Bar */}
+            <div className="flex relative w-full md:w-80">
                 <input
                     type="search"
                     placeholder="Search products..."
-                    onChange={(e) => {
-                        setSearchTerm(e.target.value); // Update search term in Zustand
-                    }}
-                    className="block p-2 pr-[60px] w-full text-base text-customBlue2 bg-gray-50 rounded-md border"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="block p-2 pr-[60px] w-full text-base text-emerald-700 bg-white rounded-md border-2 border-emerald-200 focus:outline-emerald-500"
                     value={searchTerm}
                 />
-                <button className="absolute top-0 end-0 px-2 py-1 text-sm font-medium text-customBlue2 h-full border-l-2 rounded-e-sm">
-                    <span>Search</span>
+                <button className="absolute top-0 right-0 px-3 py-1 text-sm font-semibold text-white bg-emerald-600 h-full rounded-e-md hover:bg-emerald-700 transition-colors">
+                    Search
                 </button>
             </div>
         </div>

@@ -1,9 +1,19 @@
 const page = () => {
     return (
-        <div className="flex flex-col py-16 md:py-5 min-h-screen">
-            <h1 className="text-2xl text-customBlue2 font-semibold">
-                My Order History
-            </h1>
+        <div className="flex flex-col items-center py-20 md:py-10 min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-100 px-4">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-16 flex flex-col items-center gap-6 border border-emerald-100 w-full max-w-2xl animate-fade-in">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-14 h-14 text-emerald-400 mb-2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h1 className="text-3xl md:text-4xl font-extrabold text-emerald-700 tracking-tight text-center">My Order History</h1>
+                <p className="text-emerald-500 text-lg text-center">You haven't placed any orders yet.</p>
+                <a href="/products" className="mt-4 flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold px-8 py-3 rounded-full shadow-lg text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 12l6-6m-6 6l6 6" />
+                    </svg>
+                    Shop Now
+                </a>
+            </div>
         </div>
     )
 }

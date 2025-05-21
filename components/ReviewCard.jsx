@@ -21,14 +21,14 @@ const ReviewCard = () => {
     return (
         <>
         <h1 className='text-xl font-semibold mt-14 px-2'>Reviews</h1>
-        <ul className='my-4 flex flex-col flex-wrap md:flex-row justify-evenly gap-4 md:gap-6'>
+        <ul className="my-4 flex flex-col md:flex-row flex-wrap justify-evenly gap-6">
             {product.reviews.map((review, i) => (
-                <li key={i} className='border border-customBlue2 rounded-md p-2 md:p-5 bg-white w-full'>
-                    <IoPersonCircleOutline size={75} />
-                    <p className='text-md'>{review.reviewerName}</p>
-                    <p className='text-xs'><StarRating rating={product.rating} /></p>
-                    <p className='text-sm my-2'>Comment: {review.comment}</p>
-                    <p className='text-xs'>{formatDate(review.date)}</p>
+                <li key={i} className="relative flex flex-col items-center bg-gradient-to-br from-emerald-50 via-white to-emerald-100 border border-emerald-100 rounded-2xl shadow-lg p-6 w-full md:w-[320px] transition-all duration-200 hover:shadow-emerald-200">
+                    <span className="absolute top-4 right-4 text-xs text-emerald-400 font-semibold">{formatDate(review.date)}</span>
+                    <IoPersonCircleOutline size={56} className="text-emerald-300 mb-2" />
+                    <p className="text-lg font-bold text-emerald-700 mb-1">{review.reviewerName}</p>
+                    <div className="mb-2"><StarRating rating={review.rating} /></div>
+                    <p className="text-base text-emerald-800 italic mb-2 text-center">“{review.comment}”</p>
                 </li>
             ))}
         </ul>

@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { motion } from "framer-motion";
+import { FiShoppingCart, FiUser, FiX } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Nav = () => {
     const pathname = usePathname();
@@ -17,72 +18,95 @@ const Nav = () => {
         setIsMounted(true);
     }, []);
 
-    if (!isMounted) return null; // Prevent rendering until mounted
+    if (!isMounted) return null;
 
-    const toggleDrawer = () => {
-        setIsOpen(); // This should be fine as long as it's called in response to an event
-    };
+    const toggleDrawer = () => setIsOpen();
+    const closeDrawer = () => isOpen && setIsOpen();
 
     return (
         <>
-        <div className={`hidden md:block fixed z-20 top-0 left-0 w-full border-b bg-white px-2 md:px-32`}>
-            <div className="flex items-center py-4 ">
-                <div className="font-bold text-2xl cursor-pointer flex items-center font-satoshi text-customBlue2">
-                    <Link href="/" className="flex justify-center items-center text-xl font-semibold pr-80">
-                        <p className="text-xl">myStore</p>
-                    </Link>
-                </div>
-                <ul className="flex gap-4 w-full">
-                    {navLinks.filter(nav => nav.view === "desktop").map((nav, i) => (
-                        <li key={i}
-                            className={`text-customBlue2 font-semibold font-montserrat px-5 py-2 hover:border hover:border-customBlue2 rounded-full ${i === navLinks.filter(nav => nav.view === "desktop").length - 1 ? 'ml-auto border border-customOrange2 rounded-full text-customOrange2 hover:bg-customOrange2 hover:text-white' : ''}`}
-                        >
-                            <Link href={nav.href}>
-                                <p>{nav.title}</p>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-
+        {/* Modern Emerald NavBar */}
+        <nav className="fixed z-30 top-0 left-0 w-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-400 shadow-lg h-16 flex items-center px-4 md:px-16 lg:px-32">
+            {/* Logo */}
+            <Link href="/" className="flex items-center text-2xl font-extrabold font-satoshi text-white tracking-tight mr-10">
+                <span className="drop-shadow">MyStore</span>
+            </Link>
+            {/* Nav Links */}
+            <ul className="hidden md:flex gap-2 flex-1 justify-center">
+                {navLinks.filter(nav => nav.view === "desktop").map((nav, i) => (
+                    <li key={i}
+                        className={`px-5 py-2 rounded-full font-semibold text-white/90 hover:bg-white/10 hover:text-white transition-all duration-150 text-base tracking-wide shadow-sm ${pathname === nav.href ? 'bg-white/20 text-white font-bold shadow-md' : ''}`}
+                    >
+                        <Link href={nav.href} className="flex items-center gap-2">
+                            {nav.icon && <span>{nav.icon}</span>}
+                            <span>{nav.title}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+            {/* Right Side: Cart, Sign In & Profile */}
+            <div className="flex items-center gap-4 ml-auto">
+                <Link href="/cart" className="relative flex items-center group">
+                    <FiShoppingCart size={22} className="text-white group-hover:text-emerald-100 transition-colors" />
+                    {totalQuantity > 0 && (
+                        <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center animate-bounce shadow-lg">{totalQuantity}</span>
+                    )}
+                </Link>
+                <Link href="/signin" className="hidden md:flex items-center px-4 py-1.5 rounded-full bg-white/90 text-emerald-700 text-sm font-bold shadow hover:bg-white transition-colors">Sign In</Link>
+                <Link href="/account" className="flex items-center"><FiUser size={22} className="text-white" /></Link>
             </div>
-        </div>
+            {/* Mobile Hamburger */}
+            <button className="md:hidden ml-2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors" onClick={toggleDrawer} aria-label="Open menu">
+                <HiMenuAlt3 size={26} className="text-white" />
+            </button>
+        </nav>
 
-        {/* Mobile View */}
-        <div className="flex z-50 fixed md:hidden bg-white text-customBlue2 border-b w-full px-2 py-3">
-            <div className="flex justify-start gap-4">
-                <HiMenuAlt3 size={26} className="cursor-pointer" onClick={toggleDrawer} /> <Link href="/"><h1 className="text-lg font-semibold">myStore</h1></Link>
-            </div>
-
-            <div className={`fixed inset-y-0 left-0 top-10 w-full bg-white transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                <div className="mt-16">
-                    <ul className="flex flex-col gap-3 p-4">
+        {/* Mobile Drawer */}
+        <AnimatePresence>
+        {isOpen && (
+            <motion.aside
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed inset-0 z-50 bg-black/40"
+                onClick={closeDrawer}
+            >
+                <motion.div
+                    initial={{ x: "-100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "-100%" }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="bg-white w-4/5 max-w-xs h-full shadow-2xl p-7 flex flex-col"
+                    onClick={e => e.stopPropagation()}
+                >
+                    <div className="flex items-center justify-between mb-10">
+                        <Link href="/" className="text-xl font-extrabold font-satoshi text-emerald-600 tracking-tight" onClick={closeDrawer}>MyStore</Link>
+                        <button onClick={closeDrawer} aria-label="Close menu" className="p-1 rounded-full hover:bg-emerald-50"><FiX size={26} /></button>
+                    </div>
+                    <ul className="flex flex-col gap-3">
                         {navLinks.map((nav, i) => (
-                            <motion.li 
-                                key={i}
-                                whileHover={{ scale: 1.1 }}
-                                onHoverStart={e => {}}
-                                onHoverEnd={e => {}}
-                            >
+                            <li key={i}>
                                 <Link
                                     href={nav.href}
-                                    className={`flex items-center text-sm gap-3 font-medium p-2 hover:shadow-slate-400 hover:shadow-sm hover:rounded-md ${pathname === nav.href ? "border shadow-sm shadow-slate-400 rounded-md" : ""}`}
-                                    
-                                    onClick={toggleDrawer}
+                                    className={`flex items-center gap-3 text-base font-semibold p-3 rounded-xl transition-all duration-150 ${pathname === nav.href ? "bg-emerald-100 text-emerald-700 shadow" : "hover:bg-emerald-50 text-emerald-700"}`}
+                                    onClick={closeDrawer}
                                 >
-                                    <span>{nav.icon}</span>
-                                    <h2>{nav.title}</h2>
+                                    {nav.icon && <span>{nav.icon}</span>}
+                                    <span>{nav.title}</span>
                                     {nav.title === "Cart" && totalQuantity > 0 && (
-                                        <p className={`px-1.5 text-sm bg-red-600 text-white rounded-full`}>{totalQuantity}</p>
+                                        <span className="ml-auto bg-rose-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center animate-bounce shadow">{totalQuantity}</span>
                                     )}
                                 </Link>
-                            </motion.li>
+                            </li>
                         ))}
                     </ul>
-                </div>
-            </div>
-        </div>
+                </motion.div>
+            </motion.aside>
+        )}
+        </AnimatePresence>
         </>
-    )
+    );
 }
 
-export default Nav
+export default Nav;

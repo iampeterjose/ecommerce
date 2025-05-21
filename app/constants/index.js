@@ -2,13 +2,11 @@ import { ImLocation } from "react-icons/im";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 export const navLinks = [
-    {href: "/account", title: "Account", view: "mobile" },
     {href: "/", title: "Home", view: "desktop" },
     {href: "/products", title: "Products", view: "desktop" },
     {href: "/#contactus", title: "Contact Us", view: "desktop" },
     {href: "/cart", title: "Cart", view: "mobile" },
-    {href: "/history", title: "Order History", view: "mobile" },
-    {href: "/signin", title: "Sign In", view: "desktop" },
+    {href: "/history", title: "Order History", view: "mobile" }
 ];
 
 export const productAndServices = [

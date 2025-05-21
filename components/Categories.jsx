@@ -24,26 +24,27 @@ const Categories = () => {
     }, [setCategories, setError]);
 
     return (
-        <div className="px-2 md:px-32 -mt-28 md:mt-2">
-            <h1 className="text-3xl my-2 font-montserrat font-semibold text-customBlue2">Categories</h1>
-            <div className="border-t-2 py-5 overflow-x-auto">
-                <div className="flex gap-4 p-2 whitespace-nowrap">
+        <section className="w-full px-2 md:px-32 mt-8">
+            <h1 className="text-3xl mb-6 font-montserrat font-bold text-emerald-700 tracking-tight text-center md:text-left">Shop by Category</h1>
+            <div className="w-full bg-emerald-50 rounded-xl shadow-inner py-6 px-2 md:px-8">
+                <div className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide py-2">
                     {categories.map((category, index) => (
-                        <motion.span key={index}
-                            className="flex-shrink-0 flex-grow-0 flex-basis-auto p-2 text-white bg-customOrange2 rounded-md shadow-md md:text-lg"
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.9 }}
+                        <motion.div
+                            key={index}
+                            className="flex-shrink-0 flex flex-col items-center min-w-[120px] md:min-w-[160px] bg-white border border-emerald-100 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 p-4 group cursor-pointer"
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 0.96 }}
                         >
-                        <Link href={`products/category/${category.slug}`} >
-                            <p>
-                                    {category.name}
-                            </p> {/* Render the name property */}
-                        </Link>
-                        </motion.span>
+                            <Link href={`products/category/${category.slug}`} className="flex flex-col items-center gap-2 w-full h-full">
+                                {/* Optionally add an icon or image for each category here */}
+                                <span className="text-emerald-600 text-lg font-semibold capitalize group-hover:text-emerald-700 transition-colors text-center">{category.name}</span>
+                                {/* Optionally add a short description or product count */}
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

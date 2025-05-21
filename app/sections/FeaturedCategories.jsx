@@ -17,29 +17,29 @@ const FeaturedCategories = () => {
     return (
         <AnimatePresence>
         <motion.section id="featured" 
-            className="md:p-4  bg-white rounded px-2 md:px-32 mt-20"
-            initial={{ opacity: 0, y: 20 }}  // Start off invisible and below
-            animate={{ opacity: 1, y: 0 }}    // Fade in and move to original position
-            exit={{ opacity: 0, y: 20 }}       // Fade out and move below again
-            transition={{ duration: 2, delay: 1 }} // Staggered entrance
+            className="w-full bg-emerald-50 rounded-2xl px-2 md:px-32 py-12 mt-20 shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
         >
-            <div className="flex flex-col items-center gap-4">
-                <h1 className="text-3xl md:text-5xl font-bold text-customBlue2">Featured Categories</h1>
-                <p className="text-center">
-                Explore our curated selection of top products, <br />combining quality and innovation to elevate your everyday experience. <br />Find your new favorites today!
+            <div className="flex flex-col items-center gap-4 mb-10">
+                <h1 className="text-3xl md:text-5xl font-extrabold text-emerald-700 mb-2 text-center">Featured Categories</h1>
+                <p className="text-center text-emerald-600 md:text-lg max-w-2xl">
+                    Explore our curated selection of top products, <br />combining quality and innovation to elevate your everyday experience. <br />Find your new favorites today!
                 </p>
             </div>
             <div className="flex flex-col">
             {loading ? (
                 <Loading />
             ) : error ? (
-                <p className="flex min-h-screen justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} />{error}</p>
+                <p className="flex min-h-[200px] justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} className="mr-2" />{error}</p>
             ) : (
                 <>
-                    <FeaturedCard products={bestSellers} title="Best Sellers" error="No products found." link="/bestsellers" pic="/assets/bestsellers.png" />
-                    <FeaturedCard products={newArrivals} title="New Arrivals" error="No new arrival products found." link="newarrivals" pic="/assets/newarrivals.png" />
-                    <FeaturedCard products={exclusiveOffers} title="Exclusive Offers" error="No exclusive products found." link="exclusiveoffers" pic="/assets/exclusiveoffers.png" />
-                    <FeaturedCard products={essentials} title="Essentials" error="No products found." link="essentials" pic="/assets/essentials.png" />
+                    <FeaturedCard products={bestSellers} title="Best Sellers" error="No products found." link="/products/bestsellers" pic="/assets/bestsellers.png" />
+                    <FeaturedCard products={newArrivals} title="New Arrivals" error="No new arrival products found." link="/products/newarrivals" pic="/assets/newarrivals.png" />
+                    <FeaturedCard products={exclusiveOffers} title="Exclusive Offers" error="No exclusive products found." link="/products/exclusiveoffers" pic="/assets/exclusiveoffers.png" />
+                    <FeaturedCard products={essentials} title="Essentials" error="No products found." link="/products/essentials" pic="/assets/essentials.png" />
                 </>
             )}
             </div>
