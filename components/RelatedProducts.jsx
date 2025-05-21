@@ -33,32 +33,41 @@ const RelatedProducts = () => {
                     <span className="text-xs md:text-sm font-semibold text-emerald-600 hover:text-emerald-800 cursor-pointer transition-colors duration-150" onClick={()=>setDisplayCount(relatedProducts.total)}>Show all</span>
                 )}
             </div>
-            <ul className={`grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-5 lg:gap-4`}>
+            <ul className={`grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-6`}>
                 {relatedProducts.total > 0 ? relatedProducts.products.slice(0,displayCount).map((product) => (
                     <motion.li 
                         key={product.id} 
-                        className="relative flex flex-col bg-white border border-emerald-100 rounded-2xl shadow-lg hover:shadow-emerald-200 transition-shadow duration-200 p-3 group overflow-hidden"
-                        whileHover={{ y: -2, boxShadow: '0 8px 32px 0 rgba(16,185,129,0.10)' }}
+                        className="relative flex flex-col bg-white/70 backdrop-blur-md border border-emerald-100 rounded-3xl shadow-lg hover:shadow-emerald-300 transition-all duration-200 group overflow-hidden p-3 md:p-4"
+                        whileHover={{ scale: 1.035 }}
+                        whileTap={{ scale: 0.97 }}
                     >
-                        <span className={`absolute top-2 left-2 z-10 text-xs font-bold bg-rose-500 px-2 py-0.5 text-white rounded-full shadow ${product.discountPercentage < 10 ? 'opacity-0' : ''}`}>Sale {(product.discountPercentage).toFixed(0)}%</span>
-                        <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center group-hover:text-emerald-700 transition-colors">
-                            <div className="flex justify-center w-full py-2">
+                        {/* Sale badge */}
+                        <span className={`absolute top-4 left-4 z-10 text-xs md:text-sm font-bold px-3 py-1 rounded-full shadow-lg transition-all duration-200 ${product.discountPercentage < 10 ? 'opacity-0' : 'bg-rose-500 text-white scale-110'}`}>
+                            Sale {(product.discountPercentage).toFixed(0)}%
+                        </span>
+                        <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center group hover:text-emerald-700">
+                            <div className="relative flex justify-center w-full aspect-square mb-3 rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-emerald-100 overflow-hidden border border-emerald-100 shadow-sm">
                                 <motion.img 
                                     src={product.thumbnail} alt={product.title} 
-                                    className="w-[90px] h-[90px] md:w-[120px] md:h-[120px] object-cover rounded-xl border border-emerald-100 bg-white shadow-sm group-hover:shadow-md transition-shadow duration-200"
-                                    whileHover={{ scale: 1.08 }}
-                                    whileTap={{ scale: 0.96 }}
+                                    className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
                                 />
                             </div> 
-                            <span className="block border-t border-emerald-100 border-dashed w-full my-2"></span>
-                            <div className="w-full text-center mt-1">
-                                <p className="text-xs font-semibold text-emerald-500 mb-1">{product.brand}</p>
-                                <h2 className="text-sm md:text-base font-bold text-emerald-700 mb-1">{truncateText(product.title, 18)}</h2>
+                            <div className="w-full text-center space-y-1">
+                                <p className="text-xs font-semibold text-emerald-500 tracking-wide uppercase">{product.brand}</p>
+                                <h2 className="text-base md:text-lg font-bold text-emerald-800 leading-tight">{truncateText(product.title, 18)}</h2>
                             </div>
                         </Link>
-                        <div className="flex justify-between items-center w-full mt-1">
-                            <p className="text-base font-bold text-emerald-700">${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)} <span className="text-gray-400 text-xs line-through">{product.price}</span></p>
-                            <span className="flex items-center gap-1"><FaStar size={16} className="text-yellow-400" /><span className="text-xs text-emerald-500 font-semibold">{product.rating}</span></span>
+                        <div className="flex justify-between items-center w-full mt-3">
+                            <div className="flex items-center gap-2">
+                                <span className="px-3 py-1 bg-emerald-100/80 text-emerald-700 font-bold rounded-full text-base md:text-lg shadow-sm">
+                                    ${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)}
+                                </span>
+                                <span className="text-xs text-gray-400 line-through font-semibold">${product.price}</span>
+                            </div>
+                            <span className="flex items-center gap-1 bg-white/70 backdrop-blur rounded-full px-2 py-1 shadow text-emerald-600 font-semibold">
+                                <FaStar size={16} className="text-yellow-400" />
+                                <span className="text-xs">{product.rating}</span>
+                            </span>
                         </div>
                     </motion.li>
                 )) : (

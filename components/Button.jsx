@@ -36,30 +36,30 @@ const Button = ({ quantity, itemId, isInCart }) => {
     }, [count]);
 
     return (
-        <div className="flex justify-between items-center gap-2 border-2 border-emerald-400 bg-white shadow-md min-w-full rounded-xl px-2 py-1">
-            <motion.span
-                className="cursor-pointer flex items-center justify-center h-9 w-9 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 transition-colors duration-150"
+        <div className="flex justify-between items-center gap-2 min-w-full rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-emerald-100 border-2 border-emerald-200 shadow-lg px-2 py-1 md:px-4 md:py-2 backdrop-blur-md">
+            <motion.button
+                className="cursor-pointer flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-white/80 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
                 onClick={minusCount}
-                whileTap={{ scale: 0.85 }}
+                whileTap={{ scale: 0.9 }}
                 tabIndex={0}
-                role="button"
                 aria-label="Decrease quantity"
+                type="button"
             >
-                <HiMinusSmall size={22} />
-            </motion.span>
-            <p className="px-2 py-1 text-lg font-bold w-14 text-center text-emerald-700 select-none">
+                <HiMinusSmall size={26} />
+            </motion.button>
+            <p className="px-2 py-1 text-xl md:text-2xl font-extrabold w-14 text-center text-emerald-700 select-none bg-white/70 rounded-lg shadow-inner border border-emerald-100">
                 {isInCart ? quantity : count}
             </p>
-            <motion.span
-                className="cursor-pointer flex items-center justify-center h-9 w-9 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 transition-colors duration-150"
+            <motion.button
+                className="cursor-pointer flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-white/80 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
                 onClick={addCount}
-                whileTap={{ scale: 0.85 }}
+                whileTap={{ scale: 0.9 }}
                 tabIndex={0}
-                role="button"
                 aria-label="Increase quantity"
+                type="button"
             >
-                <GoPlus size={22} />
-            </motion.span>
+                <GoPlus size={26} />
+            </motion.button>
         </div>
     );
 }

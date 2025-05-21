@@ -4,6 +4,7 @@ import Head from "next/head";
 import Nav from "@/components/Nav";
 import Cart from "@/components/Cart";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +33,7 @@ export default function RootLayout({ children }) {
       > 
         <div className="flex min-h-screen font-montserrat w-full">
           <Nav />
-          {/* <Cart /> */}
+          <Toaster position="top-center" />
           <main className={`flex-grow pt-2 md:pt-16 w-full`}>
           {children}
           <Footer />
