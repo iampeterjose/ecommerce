@@ -32,6 +32,11 @@ const Page = () => {
                     <p className="text-emerald-500 text-lg text-center max-w-md">
                         Welcome to your account dashboard. Here you can view and manage your personal information, orders, and preferences. More features coming soon!
                     </p>
+                    <a href="/history" className="mt-4 w-full max-w-xs">
+                        <button className="w-full py-3 font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl shadow-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-200 text-lg">
+                            View Order History
+                        </button>
+                    </a>
                 </div>
             )}
         </div>

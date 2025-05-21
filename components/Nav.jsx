@@ -52,6 +52,8 @@ const Nav = () => {
                         <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center animate-bounce shadow-lg">{totalQuantity}</span>
                     )}
                 </Link>
+                {/* Sign In button for small screens */}
+                <Link href="/signin" className="flex md:hidden items-center px-4 py-1.5 rounded-full bg-white/90 text-emerald-700 text-sm font-bold shadow hover:bg-white transition-colors">Sign In</Link>
                 <Link href="/signin" className="hidden md:flex items-center px-4 py-1.5 rounded-full bg-white/90 text-emerald-700 text-sm font-bold shadow hover:bg-white transition-colors">Sign In</Link>
                 <Link href="/account" className="flex items-center"><FiUser size={22} className="text-white" /></Link>
             </div>

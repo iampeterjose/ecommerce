@@ -4,9 +4,7 @@ import { MdEmail } from "react-icons/md";
 export const navLinks = [
     {href: "/", title: "Home", view: "desktop" },
     {href: "/products", title: "Products", view: "desktop" },
-    {href: "/#contactus", title: "Contact Us", view: "desktop" },
-    {href: "/cart", title: "Cart", view: "mobile" },
-    {href: "/history", title: "Order History", view: "mobile" }
+    {href: "/#contactus", title: "Contact Us", view: "desktop" }
 ];
 
 export const productAndServices = [

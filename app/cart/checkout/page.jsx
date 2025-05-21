@@ -39,7 +39,7 @@ const page = () => {
     const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
     return (
-        <div className="flex flex-col py-10 md:py-8 min-h-screen bg-emerald-50/40 px-2 md:px-10 lg:px-32">
+        <div className="flex flex-col py-10 md:py-8 min-h-screen bg-emerald-50/40 px-2 md:px-10 lg:px-32 pt-24 md:pt-5">
             {/* Floating Back Button */}
             <button
                 className="fixed top-24 left-4 z-30 flex items-center gap-2 bg-white border border-emerald-100 shadow-lg rounded-full px-4 py-2 text-emerald-600 font-bold hover:bg-emerald-100 transition-colors duration-200"

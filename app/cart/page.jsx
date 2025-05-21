@@ -24,7 +24,7 @@ const Page = () => {
     if (!isMounted) return null; // Prevent rendering until mounted
 
     return (
-        <div className="flex flex-col py-10 md:py-8 min-h-screen bg-emerald-50/40 px-2 md:px-10 lg:px-32">
+        <div className="flex flex-col py-10 md:py-8 min-h-screen bg-emerald-50/40 px-2 md:px-10 lg:px-32 pt-24 md:pt-5">
             <h1 className="text-3xl md:text-4xl font-extrabold text-emerald-700 mb-2 tracking-tight flex items-center gap-3">
                 <FaCartArrowDown size={32} className="text-emerald-400" />
                 Shopping Cart
