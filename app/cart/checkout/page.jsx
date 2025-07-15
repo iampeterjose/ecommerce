@@ -55,7 +55,7 @@ const page = () => {
             <Link href="/cart">
                 <p className="text-right mt-4 mb-6 text-sm font-semibold underline text-[#1976D2] hover:text-[#FF6F00] transition-colors">Go back to cart</p>
             </Link>
-            <div className="flex flex-col md:flex-row rounded-3xl shadow-2xl border border-[#1976D2]/20 bg-white overflow-hidden">
+            <div className="flex flex-col md:flex-row rounded-3xl border border-[#1976D2]/20 bg-white overflow-hidden">
                 {/* Order Summary */}
                 <div className="w-full md:w-1/2 bg-[#F5F5F5] p-6 md:p-10 flex flex-col gap-4">
                     <h2 className="text-2xl font-bold text-[#1976D2] mb-2 text-center">Order Summary</h2>

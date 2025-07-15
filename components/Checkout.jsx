@@ -87,18 +87,18 @@ const Checkout = ({amount}) => {
     
 
     return (
-        <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-emerald-100 flex flex-col gap-6">
-            <h3 className="text-2xl font-extrabold text-emerald-700 mb-2 tracking-tight flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-emerald-400">
+        <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-10 border-2 border-[#1976D2]/20 flex flex-col gap-6">
+            <h3 className="text-2xl font-extrabold text-[#1976D2] mb-2 tracking-tight flex items-center gap-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-[#FF6F00]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Payment
             </h3>
             {clientSecret && <PaymentElement className="mb-4" />}
-            {errorMessage && <div className="text-rose-600 font-semibold text-center bg-rose-50 border border-rose-200 rounded-lg p-2 mb-2">{errorMessage}</div>}
+            {errorMessage && <div className="text-[#E53935] font-semibold text-center bg-[#F5F5F5] border border-[#E53935]/30 rounded-lg p-2 mb-2">{errorMessage}</div>}
             <button 
                 disabled={!stripe || loading}
-                className="w-full py-3 font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl shadow-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-200 text-lg disabled:opacity-50 disabled:animate-pulse mt-2"
+                className="w-full py-3 font-bold bg-[#FF6F00] text-white rounded-xl shadow-lg hover:bg-[#1976D2] transition-all duration-200 text-lg disabled:opacity-50 disabled:animate-pulse mt-2 border border-[#1976D2]/30"
             > 
                 {!loading ? `Pay $${amount}`: "Processing..."}
             </button>
