@@ -36,9 +36,9 @@ const Button = ({ quantity, itemId, isInCart }) => {
     }, [count]);
 
     return (
-        <div className="flex justify-between items-center gap-2 min-w-full rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-emerald-100 border-2 border-emerald-200 shadow-lg px-2 py-1 md:px-4 md:py-2 backdrop-blur-md">
+        <div className="flex justify-between items-center gap-2 min-w-full rounded-2xl bg-white border-2 border-[#1976D2] px-2 py-1 md:px-4 md:py-2">
             <motion.button
-                className="cursor-pointer flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-white/80 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                className={`cursor-pointer flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-white border-2 border-[#1976D2] text-[#1976D2] shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#1976D2]/40 hover:bg-[#1976D2]/10 hover:text-[#1976D2]`}
                 onClick={minusCount}
                 whileTap={{ scale: 0.9 }}
                 tabIndex={0}
@@ -47,11 +47,11 @@ const Button = ({ quantity, itemId, isInCart }) => {
             >
                 <HiMinusSmall size={26} />
             </motion.button>
-            <p className="px-2 py-1 text-xl md:text-2xl font-extrabold w-14 text-center text-emerald-700 select-none bg-white/70 rounded-lg shadow-inner border border-emerald-100">
+            <p className="px-2 py-1 text-xl md:text-2xl font-extrabold w-14 text-center text-[#1976D2] select-none bg-white rounded-lg shadow-inner border-2 border-[#1976D2]">
                 {isInCart ? quantity : count}
             </p>
             <motion.button
-                className="cursor-pointer flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-white/80 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+                className={`cursor-pointer flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-white border-2 border-[#1976D2] text-[#1976D2] shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#1976D2]/40 hover:bg-[#1976D2]/10 hover:text-[#1976D2]`}
                 onClick={addCount}
                 whileTap={{ scale: 0.9 }}
                 tabIndex={0}

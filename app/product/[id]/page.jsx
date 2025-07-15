@@ -32,10 +32,10 @@ const ProductDetail = () => {
     if (!product) return <ProductDetailsSkeleton />;
 
     return (
-        <div className="min-h-screen bg-emerald-50/40 py-10 px-2 md:px-10 lg:px-32 flex flex-col gap-8">
+        <div className="min-h-screen bg-[#F5F5F5] py-10 px-2 md:px-10 lg:px-32 flex flex-col gap-8">
             {/* Floating Back Button */}
             <button
-                className="fixed top-24 left-4 z-30 flex items-center gap-2 bg-white border border-emerald-100 shadow-lg rounded-full px-4 py-2 text-emerald-600 font-bold hover:bg-emerald-100 transition-colors duration-200"
+                className="fixed top-24 left-4 z-30 flex items-center gap-2 bg-white border border-[#1976D2]/20 shadow-lg rounded-full px-4 py-2 text-[#1976D2] font-bold hover:bg-[#FF6F00] hover:text-white transition-colors duration-200"
                 onClick={() => router.back()}
                 aria-label="Go back"
             >
@@ -44,7 +44,7 @@ const ProductDetail = () => {
             </button>
 
             {/* Main Product Card */}
-            <div className="w-full flex flex-col md:flex-row gap-8 bg-white rounded-3xl shadow-2xl p-6 md:p-10 relative">
+            <div className="w-full flex flex-col md:flex-row gap-8 bg-white border rounded-3xl p-6 md:p-10 relative">
                 <div className="w-full md:w-1/2 flex justify-center items-center">
                     <ProductDisplay />
                 </div>
@@ -54,14 +54,14 @@ const ProductDetail = () => {
             </div>
 
             {/* Related Products Section */}
-            <section className="w-full bg-emerald-100/40 rounded-2xl shadow-inner p-6 md:p-10">
-                <h2 className="text-2xl font-extrabold text-emerald-700 mb-4 tracking-tight">Related Products</h2>
+            <section className="w-full rounded-2xl p-6 md:p-10">
+                <h2 className="text-2xl font-extrabold text-[#1976D2] mb-4 tracking-tight">Related Products</h2>
                 <RelatedProducts />
             </section>
 
             {/* Reviews Section */}
-            <section className="w-full bg-white rounded-2xl shadow-inner p-6 md:p-10 mt-2">
-                <h2 className="text-2xl font-extrabold text-emerald-700 mb-4 tracking-tight">Customer Reviews</h2>
+            <section className="w-full border bg-white rounded-2xl shadow-inner p-6 md:p-10 mt-2">
+                <h2 className="text-2xl font-extrabold text-[#1976D2] mb-4 tracking-tight">Customer Reviews</h2>
                 <Reviews />
             </section>
         </div>

@@ -50,23 +50,23 @@ const SearchOption = ({ onSort }) => {
     }
 
     return (
-        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 w-full bg-emerald-50 border border-emerald-200 p-4 rounded-xl shadow mb-4">
+        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 w-full bg-[#F5F5F5] border border-[#1976D2]/20 p-4 rounded-xl shadow mb-4">
             {/* Sort & Filter Controls */}
             <div className="flex flex-wrap gap-3 md:gap-6 items-center w-full md:w-auto">
-                <span className="flex items-center gap-2 font-semibold text-emerald-700">
+                <span className="flex items-center gap-2 font-semibold text-[#1976D2]">
                     <GiSettingsKnobs />
                     <span>Options</span>
                 </span>
                 <button
-                    className={`flex items-center gap-1 px-3 py-1 rounded-full border-2 text-sm font-semibold transition-colors duration-150
-                        ${nameClick ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                    className={`flex items-center gap-1 px-3 py-1 rounded-full border-2 text-xs md:text-sm font-semibold transition-colors duration-150
+                        ${nameClick ? 'bg-[#1976D2] text-white border-[#1976D2] shadow' : 'bg-white text-[#1976D2] border-[#1976D2]/30 hover:bg-[#FF6F00]/10'}`}
                     onClick={handleNameClick}
                 >
                     Name <FaArrowUpLong size={14} className={`${nameClick ? 'rotate-180' : ''}`} />
                 </button>
                 <button
-                    className={`flex items-center gap-1 px-3 py-1 rounded-full border-2 text-sm font-semibold transition-colors duration-150
-                        ${priceClick ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                    className={`flex items-center gap-1 px-3 py-1 rounded-full border-2 text-xs md:text-sm font-semibold transition-colors duration-150
+                        ${priceClick ? 'bg-[#1976D2] text-white border-[#1976D2] shadow' : 'bg-white text-[#1976D2] border-[#1976D2]/30 hover:bg-[#FF6F00]/10'}`}
                     onClick={handlePriceClick}
                 >
                     Price <FaArrowUpLong size={14} className={`${priceClick ? 'rotate-180' : ''}`} />
@@ -77,7 +77,7 @@ const SearchOption = ({ onSort }) => {
                 <select
                     value={selectedCategory}
                     onChange={handleCategoryChange}
-                    className="border-2 border-emerald-200 rounded-md p-2 text-emerald-700 bg-white focus:outline-emerald-500 w-full md:w-auto"
+                    className="border-2 border-[#1976D2]/30 rounded-md p-2 text-[#1976D2] bg-white focus:outline-[#1976D2] w-full md:w-auto text-xs md:text-sm"
                 >
                     <option value="">All Categories</option>
                     {categories.map((category, index) => (
@@ -89,7 +89,7 @@ const SearchOption = ({ onSort }) => {
                 <select
                     value={selectedFeaturedCategory}
                     onChange={handleFeaturedCategories}
-                    className="border-2 border-emerald-200 rounded-md p-2 text-emerald-700 bg-white focus:outline-emerald-500 w-full md:w-auto"
+                    className="border-2 border-[#1976D2]/30 rounded-md p-2 text-[#1976D2] bg-white focus:outline-[#1976D2] w-full md:w-auto text-xs md:text-sm"
                 >
                     <option value="">Featured Category</option>
                     {featuredCategories.map((featured, index) => (
@@ -105,10 +105,10 @@ const SearchOption = ({ onSort }) => {
                     type="search"
                     placeholder="Search products..."
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="block p-2 pr-[60px] w-full text-base text-emerald-700 bg-white rounded-md border-2 border-emerald-200 focus:outline-emerald-500"
+                    className="block p-2 pr-[60px] w-full text-xs md:text-base text-[#1976D2] bg-white rounded-md border-2 border-[#1976D2]/30 focus:outline-[#1976D2]"
                     value={searchTerm}
                 />
-                <button className="absolute top-0 right-0 px-3 py-1 text-sm font-semibold text-white bg-emerald-600 h-full rounded-e-md hover:bg-emerald-700 transition-colors">
+                <button className="absolute top-0 right-0 px-3 py-1 text-xs md:text-sm font-semibold text-white bg-[#FF6F00] h-full rounded-e-md hover:bg-[#1976D2] transition-colors">
                     Search
                 </button>
             </div>

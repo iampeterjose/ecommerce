@@ -9,9 +9,9 @@ const page = () => {
     useFeaturedCategories();
     const { newArrivals } = useProductStore();
     return (
-        <div className="flex flex-col py-20 md:py-12 gap-y-8 min-h-screen px-2 md:px-16 lg:px-32 bg-gradient-to-br from-emerald-50 via-white to-emerald-100">
+        <div className="flex flex-col py-20 md:py-12 gap-y-8 min-h-screen px-2 md:px-16 lg:px-32 bg-[#F5F5F5]">
             <a id="top" className="absolute top-0"></a>
-            <h1 className="text-4xl font-extrabold text-emerald-700 tracking-tight mb-6 text-center drop-shadow">New Arrivals</h1>
+            <h1 className="text-4xl font-extrabold text-[#1976D2] tracking-tight mb-6 text-center drop-shadow">New Arrivals</h1>
             <div className="w-full max-w-7xl mx-auto mb-8">
                 <SearchOption />
             </div>

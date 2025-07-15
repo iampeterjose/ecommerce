@@ -14,11 +14,11 @@ const StarRating = ({ rating }) => {
     }
     
     return (
-        <span className="flex items-center gap-2 my-1">
-            <span className="flex gap-0.5">
+        <span className="flex items-center gap-2 my-1 justify-center">
+            <span className="flex gap-0.5 justify-center">
                 {stars}
             </span>
-            <span className="ml-1 text-emerald-600 text-sm font-bold bg-emerald-50 px-2 py-0.5 rounded-full shadow-sm">
+            <span className="ml-1 text-[#1976D2] text-sm font-bold bg-[#F5F5F5] px-2 py-0.5 rounded-full shadow-sm border border-[#1976D2]/20 text-center">
                 {rating}
             </span>
         </span>

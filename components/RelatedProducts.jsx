@@ -30,48 +30,48 @@ const RelatedProducts = () => {
         <div className="w-full">
             <div className="flex justify-between items-center mb-4">
                 {relatedProducts.total > 6 && (
-                    <span className="text-xs md:text-sm font-semibold text-emerald-600 hover:text-emerald-800 cursor-pointer transition-colors duration-150" onClick={()=>setDisplayCount(relatedProducts.total)}>Show all</span>
+                    <span className="text-xs md:text-sm font-semibold text-white bg-[#FF6F00] px-5 py-2 rounded-full shadow hover:bg-[#1976D2] transition-colors cursor-pointer border border-[#FF6F00]/30" onClick={()=>setDisplayCount(relatedProducts.total)}>Show all</span>
                 )}
             </div>
             <ul className={`grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-${isOpen ? '2' :'3'} grid-cols-2 gap-6`}>
                 {relatedProducts.total > 0 ? relatedProducts.products.slice(0,displayCount).map((product) => (
                     <motion.li 
                         key={product.id} 
-                        className="relative flex flex-col bg-white/70 backdrop-blur-md border border-emerald-100 rounded-3xl shadow-lg hover:shadow-emerald-300 transition-all duration-200 group overflow-hidden p-3 md:p-4"
-                        whileHover={{ scale: 1.035 }}
-                        whileTap={{ scale: 0.97 }}
+                        className="relative flex flex-col items-center justify-center border bg-white border-[#E3E3E3] rounded-3xl transition-all duration-200 group overflow-hidden p-2 md:p-3"
+                        whileHover={{}}
                     >
                         {/* Sale badge */}
-                        <span className={`absolute top-4 left-4 z-10 text-xs md:text-sm font-bold px-3 py-1 rounded-full shadow-lg transition-all duration-200 ${product.discountPercentage < 10 ? 'opacity-0' : 'bg-rose-500 text-white scale-110'}`}>
-                            Sale {(product.discountPercentage).toFixed(0)}%
+                        <span className={`absolute top-4 left-4 z-10 text-[10px] md:text-xs font-bold px-2 py-1 rounded-full shadow-lg transition-all duration-200 ${product.discountPercentage < 10 ? 'opacity-0' : 'bg-[#E53935] text-white scale-110'}`}>
+                            Sale {product.discountPercentage.toFixed(0)}%
                         </span>
-                        <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center group hover:text-emerald-700">
-                            <div className="relative flex justify-center w-full aspect-square mb-3 rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-emerald-100 overflow-hidden border border-emerald-100 shadow-sm">
+                        <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center group">
+                            <div className="relative flex justify-center w-full aspect-square mb-2 overflow-hidden">
                                 <motion.img 
                                     src={product.thumbnail} alt={product.title} 
-                                    className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-300"
+                                    whileHover={{ scale: 1.50 }}
                                 />
                             </div> 
                             <div className="w-full text-center space-y-1">
-                                <p className="text-xs font-semibold text-emerald-500 tracking-wide uppercase">{product.brand}</p>
-                                <h2 className="text-base md:text-lg font-bold text-emerald-800 leading-tight">{truncateText(product.title, 18)}</h2>
+                                <p className="text-[10px] md:text-xs font-semibold text-[#1976D2] tracking-wide uppercase text-center">{product.brand}</p>
+                                <h2 className="text-xs md:text-sm font-bold text-[#424242] leading-tight drop-shadow-sm text-center">{truncateText(product.title, 15)}</h2>
                             </div>
                         </Link>
-                        <div className="flex justify-between items-center w-full mt-3">
-                            <div className="flex items-center gap-2">
-                                <span className="px-3 py-1 bg-emerald-100/80 text-emerald-700 font-bold rounded-full text-base md:text-lg shadow-sm">
+                        <div className="flex flex-col items-center justify-center w-full mt-2">
+                            <div className="flex items-center gap-1 justify-center">
+                                <span className="px-2 py-1 bg-[#43A047]/10 text-[#1976D2] font-bold rounded-full text-xs md:text-sm shadow-sm text-center">
                                     ${(product.price-(product.discountPercentage*product.price)/100).toFixed(2)}
                                 </span>
-                                <span className="text-xs text-gray-400 line-through font-semibold">${product.price}</span>
+                                <span className="text-[10px] md:text-xs text-[#E53935] line-through font-semibold text-center">${product.price}</span>
                             </div>
-                            <span className="flex items-center gap-1 bg-white/70 backdrop-blur rounded-full px-2 py-1 shadow text-emerald-600 font-semibold">
-                                <FaStar size={16} className="text-yellow-400" />
-                                <span className="text-xs">{product.rating}</span>
-                            </span>
+                        </div>
+                        <div className="flex items-center gap-1 border bg-white rounded-full px-1 py-1 shadow text-[#1976D2] font-semibold mt-2 justify-center w-full text-center">
+                            <FaStar size={14} className="text-[#FF6F00]" />
+                            <span className="text-[10px] md:text-xs text-center">{product.rating}</span>
                         </div>
                     </motion.li>
                 )) : (
-                    <p className="text-emerald-700 font-semibold col-span-full">No related products found.</p>
+                    <p className="text-[#E53935] font-semibold col-span-full text-center">No related products found.</p>
                 )}
             </ul>
         </div>

@@ -17,23 +17,23 @@ const FeaturedCategories = () => {
     return (
         <AnimatePresence>
         <motion.section id="featured" 
-            className="w-full bg-emerald-50 rounded-2xl px-2 md:px-32 py-12 mt-20 shadow-lg"
+            className="w-full bg-[#F5F5F5] px-2 md:px-20 py-12 mt-20 border border-[#E0E0E0]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 1.2, delay: 0.3 }}
         >
             <div className="flex flex-col items-center gap-4 mb-10">
-                <h1 className="text-3xl md:text-5xl font-extrabold text-emerald-700 mb-2 text-center">Featured Categories</h1>
-                <p className="text-center text-emerald-600 md:text-lg max-w-2xl">
-                    Explore our curated selection of top products, <br />combining quality and innovation to elevate your everyday experience. <br />Find your new favorites today!
+                <h1 className="text-3xl md:text-5xl font-extrabold text-[#1976D2] mb-2 text-center">Featured Categories</h1>
+                <p className="text-center text-[#424242] md:text-lg max-w-2xl">
+                    Explore our curated selection of top products,<br />combining quality and innovation to elevate your everyday experience.<br />Find your new favorites today!
                 </p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-8">
             {loading ? (
                 <Loading />
             ) : error ? (
-                <p className="flex min-h-[200px] justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} className="mr-2" />{error}</p>
+                <p className="flex min-h-[200px] justify-center items-center text-lg font-semibold text-[#E53935]"><CgDanger size={30} className="mr-2" />{error}</p>
             ) : (
                 <>
                     <FeaturedCard products={bestSellers} title="Best Sellers" error="No products found." link="/products/bestsellers" pic="/assets/bestsellers.png" />

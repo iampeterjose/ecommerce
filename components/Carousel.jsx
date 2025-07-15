@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const images = [
-  '/assets/h3.png',
-  '/assets/shopping1.png',
   '/assets/h1.png',
   '/assets/h2.png',
+  '/assets/h3.png',
   '/assets/h4.png',
+  '/assets/shopping1.png',
 ];
 
 const Carousel = () => {
@@ -60,13 +60,13 @@ const Carousel = () => {
 
   return (
     <div className="flex flex-col items-center my-10 w-full">
-      <div className="relative w-screen left-1/2 right-1/2 -translate-x-1/2 overflow-hidden">
+      <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl shadow-lg border border-[#E0E0E0] bg-white">
         <div
           ref={carouselRef}
           className="flex"
           style={{
-            transform: `translateX(-${currentIndex * 100}vw)`,
-            transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
+            transform: `translateX(-${currentIndex * 100}%)`,
+            transition: isTransitioning ? 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' : 'none',
           }}
         >
           {extendedImages.map((img, idx) => (
@@ -74,28 +74,27 @@ const Carousel = () => {
               key={idx}
               src={img}
               alt={`Slide ${idx}`}
-              className="w-screen h-[220px] md:h-[400px] object-cover select-none pointer-events-none rounded-xl shadow-sm"
+              className="w-full h-[220px] md:h-[400px] object-cover select-none pointer-events-none rounded-2xl shadow-sm bg-[#F5F5F5]"
               draggable="false"
+              style={{ minWidth: '100%' }}
             />
           ))}
         </div>
-
         {/* Navigation arrows */}
-        <span onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white border p-2 rounded-full shadow-md cursor-pointer z-10">
-          <MdKeyboardArrowLeft size={25} />
+        <span onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white border border-[#E0E0E0] p-2 rounded-full shadow-md cursor-pointer z-10 hover:bg-[#F5F5F5]">
+          <MdKeyboardArrowLeft size={28} className="text-[#1976D2]" />
         </span>
-        <span onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white border p-2 rounded-full shadow-md cursor-pointer z-10">
-          <MdKeyboardArrowRight size={25} />
+        <span onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white border border-[#E0E0E0] p-2 rounded-full shadow-md cursor-pointer z-10 hover:bg-[#F5F5F5]">
+          <MdKeyboardArrowRight size={28} className="text-[#1976D2]" />
         </span>
       </div>
-
       {/* Dots */}
-      <div className="flex justify-center mt-2">
+      <div className="flex justify-center mt-4">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 w-2 rounded-full mx-1 cursor-pointer ${currentIndex === index + 1 ? 'bg-emerald-600' : 'bg-gray-300'}`}
+            className={`h-2.5 w-2.5 rounded-full mx-1 cursor-pointer border border-[#E0E0E0] ${currentIndex === index + 1 ? 'bg-[#1976D2]' : 'bg-[#F5F5F5]'}`}
           />
         ))}
       </div>

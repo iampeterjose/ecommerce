@@ -113,16 +113,16 @@ const Page = () => {
     }, [allProducts, searchTerm, selectedCategory, nameClick, priceClick]);
 
     return (
-        <section className="flex flex-col py-20 md:py-12 gap-y-8 min-h-screen px-2 md:px-16 lg:px-32 bg-gradient-to-br from-emerald-50 via-white to-emerald-100">
+        <section className="flex flex-col py-20 md:py-12 gap-y-8 min-h-screen px-2 md:px-16 lg:px-32 bg-[#F5F5F5]">
             <a id="top" className="absolute top-0"></a>
-            <h1 className="text-4xl font-extrabold text-emerald-700 tracking-tight mb-6 text-center drop-shadow">All Products</h1>
+            <h1 className="text-4xl font-extrabold text-[#1976D2] tracking-tight mb-6 text-center drop-shadow">All Products</h1>
             <div className="w-full max-w-7xl mx-auto mb-8">
                 <SearchOption onSort={handleSortChange} />
             </div>
             {loading ? (
                 <ProductListSkeleton productsCount={itemsPerPage} />
             ) : error ? (
-                <p className="flex min-h-[200px] justify-center items-center text-lg font-semibold text-red-500"><CgDanger size={30} className="mr-2" />{error}</p>
+                <p className="flex min-h-[200px] justify-center items-center text-lg font-semibold text-[#E53935]"><CgDanger size={30} className="mr-2" />{error}</p>
             ) : (
                 <div className="w-full max-w-7xl mx-auto">
                     <ProductList products={paginatedProducts} />
@@ -132,7 +132,7 @@ const Page = () => {
             <div className="flex flex-col items-center gap-2 mt-8">
                 <div className="fixed right-0 mr-4 bottom-10 z-30">
                     <a href="#top" className="cursor-pointer p-2 opacity-70 hover:opacity-100 transition-opacity">
-                        <FaChevronCircleUp size={28} className="text-emerald-600" />
+                        <FaChevronCircleUp size={28} className="text-[#1976D2]" />
                     </a>
                 </div>
                 <div className="flex justify-center mt-2 py-6 gap-1">
@@ -141,7 +141,7 @@ const Page = () => {
                             key={index + 1}
                             onClick={() => handlePageChange(index + 1)}
                             className={`mx-1 px-3 py-1 rounded-full border-2 font-semibold transition-colors duration-150 text-sm md:text-base
-                                ${currentPage === index + 1 ? 'bg-emerald-600 text-white border-emerald-600 shadow' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+                                ${currentPage === index + 1 ? 'bg-[#1976D2] text-white border-[#1976D2] shadow' : 'bg-white text-[#1976D2] border-[#1976D2]/30 hover:bg-[#FF6F00]/10'}`}
                         >
                             {index + 1}
                         </button>
